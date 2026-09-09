@@ -1,15 +1,15 @@
 BajaRide — Provider Flows
 
-Version: 1.0
+Version: 1.1
 Status: DRAFT / WORKING DOCUMENT
-Date: September 2026
+Date: September 2026 (v1.0: Sept 9, corrected duplicate content · v1.1: Sept 9, BRfinal consolidation pass — added Documentation, Settlement, and History sections)
 Module: 06-App
 
 ---
 
 0. Correction Note
 
-This document replaces a previous version of `Provider-Flows.md` that mistakenly contained a duplicate copy of `MVP-Product-Definition.md`. This version defines the actual provider-side journey, consistent with `MVP-Product-Definition.md` and `User-Flows.md`.
+This document replaces a previous version of `Provider-Flows.md` that mistakenly contained a duplicate copy of `MVP-Product-Definition.md`. v1.0 defined the actual provider-side journey, consistent with `MVP-Product-Definition.md` and `User-Flows.md`. v1.1 adds three sections (5A Documentation, 16A Settlement, 19A History) requested in the BRfinal consolidation order to match its 21-point provider flow spec. Sections use letter suffixes (5A, 16A, 19A) rather than a full renumbering, to avoid breaking cross-references to the original section numbers.
 
 ---
 
@@ -83,6 +83,24 @@ At minimum, an asset record should include:
 BajaRide does not own, purchase, or hold title to any vehicle registered here — assets belong to and are operated by the provider (asset-light model).
 
 Status: **Current (MVP)**.
+
+---
+
+5A. Provider Documentation
+
+Alongside the asset record, the provider submits supporting documentation required for basic verification (Section 4) and, when applicable, for the specific asset/experience.
+
+MVP scope includes, at minimum:
+
+- A valid government ID for the provider (individual) or a basic ownership/registration document for the business, if applicable.
+- Proof of ability to legally operate the vehicle/asset (e.g., vehicle registration), when relevant.
+
+Explicitly **out of MVP scope** (Future scope):
+
+- Automated document verification/OCR services.
+- Insurance documentation as a hard requirement to publish (see Section 22 and `Risk-Register.md` INS-001 — insurance is a known open risk, not yet a gating requirement for the MVP).
+
+Status: **Hypothesis / Pending validation** — the exact minimum document set has not been confirmed with legal counsel (see `03-Legal/Legal-Structure-Overview.md`).
 
 ---
 
@@ -227,6 +245,26 @@ Status: **Current (MVP)**.
 
 ---
 
+16A. Settlement / Liquidación
+
+Once a booking is "COMPLETED", the provider's payout is calculated and scheduled.
+
+MVP scope:
+
+- Provider payout = reference price minus BajaRide's take rate (see Section 7).
+- Payout timing and method depend on the payment processor selected (see `Financial-Assumptions-Register.md`, COST-001 — processor not yet chosen).
+- Provider can view a basic record of completed bookings and their associated payout status.
+
+Explicitly **out of MVP scope** (Future scope):
+
+- Instant/automated payouts.
+- Multi-currency settlement.
+- Provider-facing financial dashboards/analytics.
+
+Status: **Hypothesis / Pending validation** — depends entirely on the payment processor and take-rate decisions, both currently TBD.
+
+---
+
 17. Cancellations
 
 A booking may be cancelled by the provider, the user, or an administrator.
@@ -273,6 +311,22 @@ Basic review capability (user-to-provider) may be considered once the core booki
 Advanced reputation systems (e.g., weighted scoring, anti-manipulation detection) are **outside the initial MVP** (Future scope).
 
 Status: **Future scope — not required for initial MVP validation loop**.
+
+---
+
+19A. Provider History
+
+The provider can view a basic history of their own activity:
+
+- Past Experiences (published, unpublished, rejected).
+- Past bookings and their final status (COMPLETED, CANCELLED, NO_SHOW).
+- Past settlement records (see Section 16A).
+
+Explicitly **out of MVP scope** (Future scope):
+
+- Historical analytics or trend reporting.
+
+Status: **Current (MVP) for a basic list view · Future scope for analytics**.
 
 ---
 
