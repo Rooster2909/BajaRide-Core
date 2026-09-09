@@ -1,435 +1,140 @@
 # Knowledge Recovery Matrix
 
-**Document Status**: MASTER AUDIT CHECKPOINT  
-**Last Updated**: September 2026  
+**Document Status**: MASTER AUDIT CHECKPOINT — REVISED
+**Last Updated**: September 9, 2026 (BRfinal consolidation pass)
+**Previous Version**: Created ~early September 2026, became stale the same week it was created (see Section VI below for the failure mode and the fix)
 **Classification**: RECOVERY / CONSOLIDATION
 
 ---
 
-## I. Repository Audit Summary
-
-This matrix documents what exists, what is valid, what is contradictory, what is historical, and what is missing.
-
-### Repository Structure Inventory
+## I. Repository Structure Inventory (current, verified by direct audit)
 
 | Directory | Status | Key Files | Consistency |
 |-----------|--------|-----------|-------------|
-| 00-Constitution | EXISTS | BIC-1.md | ALIGNED |
-| 01-Master-Plan | EXISTS | Archivo-Maestro-2026.md | ALIGNED |
-| 02-Finance | PARTIAL | BR-02.1-Financial-Model-Overview.md (NEW) | TBD |
-| 03-Legal | EMPTY | .gitkeep | PENDING |
-| 04-Marketing | EMPTY | .gitkeep | PENDING |
-| 05-Operations | MINIMAL | Baja-500-Interviews.md | NEEDS REVIEW |
-| 06-App | EMPTY | .gitkeep | PENDING |
-| 07-AI-System | EXISTS | Project-State.md, Protocols.md | ALIGNED |
-| 08-Investors | PARTIAL | Project-State.md | ALIGNED |
-| 99-Archive | EMPTY | .gitkeep | AVAILABLE |
+| 00-Constitution | EXISTS | BIC-1.md | ALIGNED (not updated since June 2026 — does not reference newer master docs) |
+| 01-Master-Plan | EXISTS | Archivo-Maestro-2026.md, Assumptions-Register.md, Decision-Log.md, Knowledge-Recovery-Matrix.md (this file), Risk-Register.md, Checklist-Maestro.md, Registro-Maestro-de-Documentos.md, Bitacora-Maestra.md, BRfinal-Knowledge-Consolidation-2026.md | ALIGNED |
+| 02-Finance | PARTIAL | BR-02.1-Financial-Model-Overview.md, Financial-Assumptions-Register.md | ALIGNED — structure exists, zero validated figures |
+| 03-Legal | STRUCTURED (no contract content yet) | Legal-Structure-Overview.md | PENDING — structure only, real contracts (e.g. BR-LEGAL-001, historically referenced) not yet committed here |
+| 04-Marketing | STRUCTURED (no campaign content yet) | Marketing-Structure-Overview.md | PENDING |
+| 05-Operations | MINIMAL | Baja-500-Interviews.md (empty template), Catalogo-Maestro-de-Eventos.md (schema only), Provider-Resource-Map.md (schema only) | NEEDS REAL DATA |
+| 06-App | PARTIAL | MVP-Product-Definition.md, User-Flows.md, Provider-Flows.md, DEMO-BR-007.md | Core MVP spec exists; Admin-Flows/Data-Model/Architecture/API-Requirements/Product-Backlog/Acceptance-Criteria/MVP-Roadmap/Product-Decision-Log still MISSING |
+| 07-AI-System | EXISTS | Project-State.md, Protocols.md | ALIGNED, but redundant with 08-Investors/Project-State.md (same content, two locations) |
+| 08-Investors | PARTIAL | Project-State.md, Investor-Base-Document.md, Investor-Evidence-Matrix.md | Structure now exists; zero validated evidence populated yet |
+| 99-Archive | EMPTY | .gitkeep | Nothing superseded enough to archive yet |
 
 ---
 
-## II. Contradictions Audit
+## II. Contradictions Audit (updated)
 
-### A. RESOLVED / NO CONTRADICTION
+### A. RESOLVED / NO CONTRADICTION (carried forward — still true)
 
-**Claim**: BajaRide is a vehicle rental company.  
-**Status**: EXPLICITLY REFUTED  
-**Evidence**: 
-- Archivo-Maestro-2026.md: "BajaRide opera bajo un modelo asset-light y no depende de poseer una flota propia"
-- README.md: "modelo asset-light marketplace"
-- 07-AI-System/Project-State.md: "plataforma tecnológica y marketplace (no una empresa de renta de vehículos)"
+**Claim**: BajaRide is a vehicle rental company.
+**Status**: EXPLICITLY REFUTED — consistent across README, Archivo-Maestro-2026, both Project-State.md files, MVP-Product-Definition.md, User-Flows.md, Provider-Flows.md.
 
-**Resolution**: MARKETPLACE PLATFORM IS CORRECT DEFINITION.
+**Claim**: Unidad Cero is the center of BajaRide business.
+**Status**: EXPLICITLY REFUTED — PAUSED per Decision-Log DEC-2026-02, consistent everywhere it's mentioned.
 
----
+**Claim**: Initial geography / initial market are unclear.
+**Status**: CONSISTENT — Ensenada, Baja California / UTV off-road experiences, everywhere.
 
-**Claim**: Unidad Cero is the center of BajaRide business.  
-**Status**: EXPLICITLY REFUTED  
-**Evidence**:
-- Archivo-Maestro-2026.md: "La Unidad Cero (Can-Am X3) queda PAUSADA temporalmente"
-- 07-AI-System/Project-State.md: "La Unidad Cero no constituye el centro del negocio"
+### B. NEWLY IDENTIFIED (this consolidation pass)
 
-**Resolution**: UNIDAD CERO IS PAUSED AND NOT CORE BUSINESS.
+**C-01 — Technical stack ambiguity (P1, open — not resolved by inference)**
+The repo defines Flutter/Dart + Node.js/TypeScript as the confirmed stack (Assumptions-Register TECH-T01). Founder context from prior working sessions (outside this repo) describes a different, earlier technical track: Flask + Stripe, later a pivot toward Next.js 15. This repository contains **zero code**, so neither track can be verified here.
+**Resolution**: Logged as an open decision, `Decision-Log.md` DEC-2026-16. Requires founder confirmation — not something an AI audit can resolve on its own. See `BRfinal-Knowledge-Consolidation-2026.md` Section II.A for full detail.
 
----
+**C-02 — Provider-Flows.md was corrupted (RESOLVED)**
+Was a byte-for-byte duplicate of MVP-Product-Definition.md. Fixed in commit `d222796` (September 9, 2026) and further enhanced in this consolidation pass to add Documentation, Settlement, and History sections per the BRfinal order's 21-point spec.
 
-**Claim**: Initial geography is unclear.  
-**Status**: CONSISTENT ACROSS ALL DOCUMENTS  
-**Evidence**:
-- Archivo-Maestro-2026.md: "Ensenada, Baja California"
-- README.md: "Ensenada, Baja California"
-- 08-Investors/Project-State.md: "Ensenada, Baja California"
+**C-03 — This matrix was itself stale (RESOLVED — this rewrite)**
+The prior version of this file described `Decision-Log.md`, `Assumptions-Register.md`, `Risk-Register.md`, `Financial-Assumptions-Register.md`, and the `06-App` documents as "MISSING / NOT INITIATED" — all five had already been created by the time this matrix was last touched. This is the exact failure mode this matrix exists to prevent. See Section VI for the standing rule that fixes this going forward.
 
-**Resolution**: ENSENADA IS CONFIRMED INITIAL GEOGRAPHY.
+**C-04 — Redundant Project-State.md (open, low severity, P2)**
+`07-AI-System/Project-State.md` and `08-Investors/Project-State.md` contain near-identical strategic restatements. Not a contradiction of content, but an unnecessary second "source of truth." Not resolved in this pass (would require picking which one to keep and redirecting the other to a cross-reference — a founder call on which folder should own it, deferred to avoid an AI making an arbitrary structural decision).
 
 ---
 
-**Claim**: Initial market is unclear.  
-**Status**: CONSISTENT ACROSS ALL DOCUMENTS  
-**Evidence**:
-- Archivo-Maestro-2026.md: "Experiencias UTV/off-road"
-- README.md: "experiencias UTV/off-road"
-- 07-AI-System/Project-State.md: "Experiencias UTV/off-road"
+## III. Information Status Classification (updated)
 
-**Resolution**: UTV/OFF-ROAD EXPERIENCES IS CONFIRMED INITIAL MARKET.
+### VALIDATED (documented in multiple authoritative in-repo sources)
+- BajaRide definition: marketplace + technology platform, asset-light
+- Operational flow: Owner/Provider → BajaRide → Hub/Ops → User
+- Initial geography: Ensenada, BC · Initial market: UTV/off-road experiences
+- Unidad Cero status: PAUSED
+- Current priority: Investor Base Document + MVP development in parallel
 
----
+### DOCUMENTED (structure exists in-repo, not yet validated with external data)
+- Financial model structure (10 modules planned, 1 fully built)
+- Legal structure skeleton (`03-Legal/Legal-Structure-Overview.md`)
+- Marketing structure skeleton (`04-Marketing/Marketing-Structure-Overview.md`)
+- Investor Base Document skeleton (20 sections, all TBD pending real data)
+- Provider flow specification (now genuinely provider-specific, still unimplemented as code)
 
-## III. Information Status Classification
+### HISTORICAL (recovered from prior working sessions, unverified against this repo — full detail in `BRfinal-Knowledge-Consolidation-2026.md`)
+- Flask + Stripe MVP, Windsurf IDE, pivot to Next.js 15 (superseded by or in conflict with the Flutter/Node.js definition now in this repo — unresolved, see C-01)
+- "Imperio UI" design system
+- BR-LEGAL-001 NDA / work-for-hire contract
+- $16.4M TAM / 5-year exit narrative
+- Meta AI marketing brief
+- Four historical financing lines (BajaRide Tech, Empleo, Fleet, Impact) — mentioned historically, not present in current Finance docs
+- $150K USD funding target, SAFE 3-tranche structure
+- Geofencing / dune protection / "Sirena de la Vergüenza" / telemetry concepts
 
-### VALIDATED (Documented in multiple authoritative sources)
+### SIMULATION (not real traction, explicitly marked)
+- 15-operation simulation (10 successful, 5 failed)
+- Financial projections (5-year models) — none currently in `02-Finance/`, historical only
 
-- ✅ BajaRide definition: marketplace + technology platform
-- ✅ Model: asset-light
-- ✅ Operational flow: Owner/Provider → BajaRide → Hub/Ops → User
-- ✅ Initial geography: Ensenada, BC
-- ✅ Initial market: UTV/off-road experiences
-- ✅ Frontend: Flutter/Dart
-- ✅ Backend: Node.js/TypeScript
-- ✅ Unidad Cero status: PAUSED
-- ✅ Current priority: Investor presentation document + MVP development
+### PENDING VALIDATION (required for decision-making — unchanged from prior audit, still open)
+Average booking price · take rate % · monthly active users/providers target · CAC · provider acquisition cost · churn rates · operating cost per hub · infrastructure costs · competitive landscape detail · market size (TAM/SAM/SOM) · demand validation · supply availability · legal requirements · insurance requirements · payment processor · KYC/KYB requirements.
 
----
-
-### DOCUMENTED (Exists in repo, not yet validated with external data)
-
-- 📋 Financial model structure (in construction)
-- 📋 Interview template for Baja 500 (incomplete)
-- 📋 AI system protocols
-- 📋 Project state documentation
-
----
-
-### HISTORICAL (Previously considered, current status unclear)
-
-- 🕐 Hub as operational layer (model defined, implementation status TBD)
-- 🕐 KYC integrations (Onfido mentioned historically)
-- 🕐 Payment processors (Stripe, Braintree mentioned)
-- 🕐 Insurance partnerships (AXA mentioned)
-- 🕐 Four financing lines (BajaRide Tech, Empleo, Fleet, Impact)
-- 🕐 $150K USD funding target
-- 🕐 SAFE financing structure (3 tranches)
-- 🕐 Geofencing for environmental protection
-- 🕐 "Sirena de la Vergüenza" (100 dB warning system)
+### MISSING / NOT INITIATED (updated — most of the prior list is now DOCUMENTED above; this is what's still genuinely missing)
+- Admin-Flows.md, Data-Model.md, Architecture.md, API-Requirements.md, Product-Backlog.md, Acceptance-Criteria.md, MVP-Roadmap.md, Product-Decision-Log.md (all still to be created — see `06-App` in Section I)
+- Real events in the Events Catalog (schema exists, zero populated events beyond the unstructured Baja 500 mention)
+- Real entries in the Provider/Resource Map (schema exists, zero populated entries)
+- Investor pitch deck (12–15 slides) — explicitly deferred until the Investor Base Document is complete, per Archivo-Maestro-2026 and the BRfinal order
+- Real financial figures anywhere in `02-Finance/`
 
 ---
 
-### SIMULATION (Not real traction, explicitly marked)
+## IV. Next Immediate Actions (updated — supersedes the prior version's Phase list, which is now complete)
 
-- 🔄 15 operation simulation (10 successful, 5 failed)
-- 🔄 Financial projections (5-year models)
+### COMPLETE (as of this consolidation pass)
+- ✅ Decision Log, Assumptions Register, Risk Register (created previously)
+- ✅ Financial Assumptions Register (created previously)
+- ✅ MVP Product Definition, User Flows (created previously); Provider Flows (fixed and enhanced)
+- ✅ Checklist Maestro, Registro Maestro de Documentos, Bitácora Maestra, this Matrix rewrite, Knowledge Consolidation register (this pass)
+- ✅ Legal and Marketing structure skeletons (this pass)
+- ✅ Investor Base Document and Evidence Matrix skeletons (this pass)
+- ✅ DEMO-BR-007 concept brief (this pass, synthesized from existing 06-App docs)
 
----
-
-### PENDING VALIDATION (Required for decision-making)
-
-- ❓ Average booking price
-- ❓ Take rate percentage
-- ❓ Monthly active users (target)
-- ❓ Monthly active providers (target)
-- ❓ Customer acquisition cost
-- ❓ Provider acquisition cost
-- ❓ Churn rates
-- ❓ Operating cost per hub
-- ❓ Technology infrastructure costs
-- ❓ Competitive landscape detail
-- ❓ Market size estimate
-- ❓ Demand validation
-- ❓ Supply availability
-- ❓ Legal requirements (Baja California, Mexico)
-- ❓ Insurance requirements
-- ❓ Payment processor options
-- ❓ KYC/KYB requirements
+### NOT YET DONE (genuinely next)
+1. Resolve the technical-stack open decision (DEC-2026-16) — founder input required, not inferable.
+2. Create `Admin-Flows.md`, `Data-Model.md`, `Architecture.md`, `API-Requirements.md`.
+3. Conduct real market research (Baja 500 interviews, competitive analysis) to begin converting HYPOTHESIS → VALIDATED.
+4. Populate the Financial Model with real figures once research exists.
+5. Decide which of the two `Project-State.md` files is canonical (C-04) and redirect the other to a cross-reference.
+6. Only after 1–5: build the investor pitch deck.
 
 ---
 
-### MISSING / NOT INITIATED
+## V. Master Truth Statement (unchanged — still accurate, carried forward from prior version)
 
-- ❌ Decision Log (who decided what, when, why)
-- ❌ Assumptions Register (documented supuestos)
-- ❌ Legal documentation (contratos, términos, privacidad)
-- ❌ Marketing strategy (demanda, canales, posicionamiento)
-- ❌ Operations playbook (Hub, providers, operations model)
-- ❌ MVP specification (funcional, wireframes, user flows)
-- ❌ Product backlog (priorizado)
-- ❌ Investor pitch deck
-- ❌ Evidence matrix for investors
+**BajaRide is**: a technology platform and marketplace specializing in off-road experiences, operating asset-light, initially in Ensenada targeting UTV/off-road, flow Provider → Platform → Hub/Ops → User, managed as parallel Documentation + Research + MVP Development, preparing for investor funding.
+
+**BajaRide is NOT**: a vehicle rental company · centered on Unidad Cero · waiting for complete documentation before MVP work · a proven concept.
+
+**Unidad Cero**: PAUSED · future validation/demo tool only · timeline after successful MVP and funding.
 
 ---
 
-## IV. Information Requiring Recovery
+## VI. Standing Rule to Prevent This Matrix From Going Stale Again
 
-### A. Financial Information
+This matrix failed at its one job once already (Section II, C-03): it was created, then five documents it explicitly called for were built, and it was never updated to reflect that — because nothing forced anyone (human or AI) to touch it again.
 
-**What is documented**: Structure of 10-module financial model  
-**What is missing**: 
-- Take rate assumptions
-- Pricing assumptions
-- Volume assumptions
-- Cost data
-- Revenue projections
-- Break-even analysis
-
-**Next step**: Validate assumptions via market research (Baja 500, competitor analysis, provider interviews)
+**Going forward**: any commit that creates or removes a file under `01-Master-Plan/`, `02-Finance/`, `03-Legal/`, `04-Marketing/`, `05-Operations/`, `06-App/`, `07-AI-System/`, or `08-Investors/` should update the Section I inventory table in the same commit or the immediately following one. This is a process note, not enforced by tooling — there is no CI in this repository. Whoever (human or AI agent) creates the next document is responsible for this line item.
 
 ---
 
-### B. Operational Information
-
-**What is documented**: Interview template for Baja 500  
-**What is missing**:
-- Event catalog structure
-- Provider workflows
-- Hub requirements
-- Supply chain design
-- Operational risks
-- Control mechanisms
-
-**Next step**: BR-05.2-B.1 Catálogo Maestro de Eventos (pending creation)
-
----
-
-### C. Legal / Trust Information
-
-**What is documented**: Nothing  
-**What is missing**:
-- Provider agreement templates
-- User terms of service
-- Privacy policy
-- Payment terms
-- Cancellation policies
-- Liability framework
-- Insurance requirements
-- Compliance checklist
-
-**Next step**: Legal module development (pending external legal review)
-
----
-
-### D. Marketing / Demand Information
-
-**What is documented**: Interview template  
-**What is missing**:
-- Market size analysis
-- Competitive analysis
-- Demand estimation
-- User segments
-- Provider segments
-- Value proposition
-- Positioning
-- Channel strategy
-
-**Next step**: Market research initiation
-
----
-
-### E. MVP Definition
-
-**What is documented**: Technology stack (Flutter, Node.js)  
-**What is missing**:
-- Functional specification
-- User stories
-- Wireframes
-- Data model
-- API specification
-- Acceptance criteria
-- Priorities
-- Scope boundaries
-
-**Next step**: MVP-Product-Definition.md (pending creation)
-
----
-
-### F. Risk Register
-
-**What is documented**: None  
-**What is missing**:
-- Market risks
-- Operational risks
-- Financial risks
-- Legal risks
-- Technical risks
-- Team risks
-- Competitive risks
-
-**Next step**: Risk register (pending creation)
-
----
-
-## V. Decision Log Reconstruction
-
-| Decision | Status | Evidence | Date | Impact |
-|----------|--------|----------|------|--------|
-| BajaRide is marketplace, not rental company | CONFIRMED | Multiple docs | Sept 2026 | CRITICAL |
-| Unidad Cero is paused, not core | CONFIRMED | Multiple docs | Sept 2026 | CRITICAL |
-| Initial geography: Ensenada | CONFIRMED | Multiple docs | 2026 | CRITICAL |
-| Initial market: UTV/off-road | CONFIRMED | Multiple docs | 2026 | CRITICAL |
-| Tech stack: Flutter + Node.js | CONFIRMED | Archivo Maestro | 2026 | CRITICAL |
-| Asset-light model | CONFIRMED | Multiple docs | 2026 | CRITICAL |
-| MVP before full product | IMPLIED | Investor/MVP focus | 2026 | HIGH |
-| Hub as future operational layer | IMPLIED | Model definition | 2026 | MEDIUM |
-| Parallel development: docs + code + research | IMPLIED | Investor priority + MVP mention | 2026 | HIGH |
-
----
-
-## VI. Assumptions Register Reconstruction
-
-### Market Assumptions
-
-| Assumption | Status | Evidence | Validation Needed |
-|-----------|--------|----------|-------------------|
-| UTV market exists in Ensenada | HYPOTHESIS | Baja 500 planning | Market research |
-| Users want curated experiences | HYPOTHESIS | Interview template | Customer research |
-| Providers want access to marketplace | HYPOTHESIS | Business model | Provider research |
-| Take-rate model is acceptable | HYPOTHESIS | Financial model structure | Competitive benchmarking |
-
-### Operational Assumptions
-
-| Assumption | Status | Evidence | Validation Needed |
-|-----------|--------|----------|-------------------|
-| Hub will become necessary | HYPOTHESIS | Model definition | Scale testing |
-| Geofencing can protect dunas | HYPOTHESIS | Historical discussion | Technical validation |
-| Trust mechanisms can be simple at MVP | HYPOTHESIS | MVP scope | UX research |
-
-### Financial Assumptions
-
-| Assumption | Status | Evidence | Validation Needed |
-|-----------|--------|----------|-------------------|
-| \$150K USD is sufficient to launch | PROVISIONAL | Historical | Updated financial model |
-| SAFE structure works for this stage | PROVISIONAL | Historical | Legal review |
-| Unit economics work at Ensenada scale | HYPOTHESIS | None | Detailed modeling |
-
----
-
-## VII. Missing Critical Information
-
-### URGENT (Affects investor narrative)
-
-1. **Market size**: Total addressable market in Ensenada + expansion zones
-2. **Demand evidence**: Real customer interest (beyond interview template)
-3. **Supply evidence**: Real provider availability and pricing
-4. **Unit economics**: Actual/projected cost and revenue per booking
-5. **Competitive analysis**: Who are alternatives? What do they charge?
-6. **Financial model completion**: Take rate, volumes, break-even
-
-### HIGH (Affects MVP development)
-
-1. **MVP specification**: Wireframes, user stories, acceptance criteria
-2. **Data model**: What entities, what relationships
-3. **Integration roadmap**: Payment, KYC, notifications, etc.
-4. **Risk register**: What can go wrong?
-5. **Legal requirements**: Mexican law, insurance, liability
-
-### MEDIUM (Affects operations)
-
-1. **Provider workflow**: How do providers list experiences?
-2. **Hub design**: What is hub? When needed? Cost?
-3. **Operations manual**: Day-to-day processes
-4. **Support playbook**: How do we help users/providers?
-
----
-
-## VIII. Historical Information to Preserve
-
-### Archive Candidates (Move to 99-Archive)
-
-These should be preserved but marked as historical:
-
-1. **Unidad Cero specifications** (if they exist) — mark as PAUSED
-2. **Old financial models** — mark as PROVISIONAL/SUPERSEDED
-3. **Old market research** — mark as PRELIMINARY
-4. **Early strategy documents** — mark as EVOLVED
-
-**Rule**: Do not delete. Rename with [ARCHIVED-DATE] prefix. Move to 99-Archive. Link from current document.
-
----
-
-## IX. Consistency Requirements Going Forward
-
-Every document must answer these questions:
-
-1. **What is this document's scope?**
-2. **What is the status? (DRAFT/REVIEW/APPROVED/IMPLEMENTED)**
-3. **What are the assumptions?**
-4. **What is validated vs. TBD?**
-5. **What depends on this document?**
-6. **When was it last updated?**
-7. **Who owns this document?**
-
----
-
-## X. Next Immediate Actions
-
-### PHASE 1: AUDIT & ORGANIZATION (This document)
-
-- ✅ Repository inventory
-- ✅ Contradiction detection
-- ✅ Information classification
-- ✅ Decision reconstruction
-- ✅ Assumptions recovery
-
-### PHASE 2: DOCUMENT CREATION (Next)
-
-1. Decision Log (01-Master-Plan)
-2. Assumptions Register (01-Master-Plan)
-3. Central Source of Truth Document (01-Master-Plan)
-4. MVP Product Definition (06-App)
-5. Catálogo Maestro de Eventos (05-Operations)
-6. Financial Assumptions Register (02-Finance)
-7. Risk Register (01-Master-Plan)
-8. Evidence Matrix (08-Investors)
-9. Product Backlog (06-App)
-
-### PHASE 3: RESEARCH & VALIDATION
-
-1. Complete market research
-2. Validate financial assumptions
-3. Complete legal review
-4. Finalize MVP specification
-5. Build operations playbook
-
-### PHASE 4: INVESTOR DOCUMENTATION
-
-1. Investor Presentation Document (08-Investors)
-2. Pitch Deck (12-15 slides)
-
-### PHASE 5: MVP DEVELOPMENT
-
-1. Data model
-2. API specification
-3. Frontend specification
-4. Backend architecture
-5. Begin sprint planning
-
----
-
-## XI. Master Truth Statement
-
-**BajaRide is**:
-- A technology platform and marketplace
-- Specializing in off-road experiences
-- Operating under an asset-light model
-- Initially focused on Ensenada, Baja California
-- Initially targeting UTV/off-road as primary market segment
-- Connected by flow: Provider → Platform → Hub/Ops → User
-- Managed as a parallel process of: Documentation + Research + MVP Development
-- Preparing for investor funding
-
-**BajaRide is NOT**:
-- A vehicle rental company
-- Centered on owning/operating a specific vehicle
-- Waiting for complete documentation before MVP development
-- Focused on Unidad Cero as core business
-- A proven concept (currently validating market)
-- Determined to use any specific technology partner (discussed historically, not committed)
-
-**Unidad Cero (Can-Am X3)**:
-- Status: PAUSED
-- Purpose: Future validation and demonstration tool
-- Timeline: After successful MVP and funding
-- Role: Not central to business model validation
-
----
-
-**Matrix Prepared By**: Knowledge Recovery Agent  
-**Verification Required**: Human review of contradictions and assumptions  
-**Repository Sync**: Required before major commits
+**Matrix Prepared By**: BRfinal consolidation pass (AI-assisted, human-directed)
+**Verification Required**: Founder review of Section II.B (new contradictions/decisions) and Section III HISTORICAL items
+**Repository Sync**: This version reflects the repository state as of commit `d222796` plus the files added in this same consolidation pass

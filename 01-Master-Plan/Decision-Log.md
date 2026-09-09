@@ -158,6 +158,7 @@ Each decision entry includes:
 | **Dependencies** | Team skills; library maturity; scaling needs |
 | **Trigger for Review** | Team skill gaps; performance issues; scaling requirements |
 | **Owner** | CTO / Tech Lead (TBD) |
+| **⚠ Flagged (2026-09-09)** | BRfinal consolidation surfaced founder context describing an earlier, different technical track (Flask/Stripe, later Next.js 15) that is not visible anywhere in this repository and is not reconciled with this decision. See DEC-2026-16 below. This decision remains ACTIVE as the repo's documented stack; it has not been confirmed or reversed. |
 
 ---
 
@@ -308,6 +309,26 @@ Each decision entry includes:
 | **Dependencies** | Regulatory requirements; fraud risk assessment; user research |
 | **Next Steps** | 1. Consult legal on Mexican requirements; 2. Risk assessment; 3. MVP scope decision |
 | **Owner** | Legal / Compliance / Product (TBD)
+
+---
+
+## VI-B. TECHNOLOGY DECISIONS UNDER REVIEW
+
+### DEC-2026-16: Technology Stack Ambiguity — PENDING USER DECISION
+
+| Field | Value |
+|-------|-------|
+| **Title** | PENDING USER DECISION: Reconcile the Flutter/Node.js stack (DEC-2026-07) with an earlier technical track described in prior founder working sessions (Flask + Stripe, later a pivot toward Next.js 15) |
+| **Date** | 2026-09-09 |
+| **Category** | TECHNOLOGY |
+| **Status** | PENDING USER DECISION |
+| **Rationale** | This repository contains zero source code, so neither track can be verified from repo evidence alone. Proceeding with technical documents (Data-Model.md, Architecture.md, API-Requirements.md) without resolving this risks building specs for a stack that doesn't match whatever code, if any, currently exists elsewhere. |
+| **Evidence** | DEC-2026-07 (Flutter/Node.js, ACTIVE in this repo); `BRfinal-Knowledge-Consolidation-2026.md` Section II.A (Flask/Stripe/Windsurf/Next.js — recovered from prior sessions, unverified against this repo) |
+| **Alternatives Considered** | (1) Confirm Flutter/Node.js as definitive, treat Flask/Next.js work as abandoned; (2) Confirm Next.js 15 is definitive, update DEC-2026-07 accordingly; (3) Determine the Flask/Next.js work lives in a separate repository that should be linked/merged; (4) Treat all prior technical work as exploratory and start architecture fresh |
+| **Impact** | HIGH — blocks `Data-Model.md`, `Architecture.md`, `API-Requirements.md` from being written with confidence |
+| **Dependencies** | Founder confirmation; possible discovery of a separate code repository |
+| **Next Steps** | Founder confirms which stack (if any) is definitive before `Architecture.md` is drafted |
+| **Owner** | Samuel Garcia (Founder) — cannot be resolved by document audit alone |
 
 ---
 
