@@ -1,240 +1,349 @@
 # Decision Log
 
-**Document Status**: ACTIVE REGISTRY  
-**Last Updated**: September 9, 2026  
-**Classification**: STRATEGIC / MASTER PLAN  
-**Owner**: BajaRide Strategy Team
+**Document Status**: ACTIVE REGISTER  
+**Last Updated**: September 2026  
+**Classification**: GOVERNANCE / TRACEABILITY
 
 ---
 
-## I. Overview
+## I. Purpose
 
-This document registers all strategic decisions that define BajaRide's direction, model, priorities, and commitments. Each decision includes the what, why, when, evidence, impacts, and reversibility conditions.
+This document records all strategic, operational, and architectural decisions made for BajaRide. Each decision entry enables traceability, understanding of rationale, and future reconsideration if new evidence emerges.
 
 ---
 
-## II. Critical Strategic Decisions
+## II. Decision Format
 
-### DECISION 1: BajaRide Business Definition
+Each decision entry includes:
+
+| Field | Description |
+|-------|-------------|
+| **ID** | Decision identifier (DEC-YYYY-NN) |
+| **Title** | Clear, concise decision statement |
+| **Date** | When the decision was made |
+| **Category** | Strategic / Product / Operations / Technology / Financial / Legal |
+| **Status** | ACTIVE / SUPERSEDED / UNDER REVIEW |
+| **Rationale** | Why this decision was made |
+| **Evidence** | What supported this decision |
+| **Alternatives Considered** | Other options evaluated |
+| **Impact** | Business, product, or operational consequences |
+| **Dependencies** | What this decision affects |
+| **Trigger for Review** | Conditions that would make this decision revisit |
+| **Owner** | Who made/owns this decision |
+
+---
+
+## III. STRATEGIC DECISIONS
+
+### DEC-2026-01: BajaRide is a Marketplace Platform, Not a Rental Company
 
 | Field | Value |
 |-------|-------|
-| **Decision** | BajaRide is a technology platform and marketplace specializing in off-road experiences, NOT a vehicle rental company or fleet owner. |
-| **Status** | CONFIRMED / ACTIVE |
-| **Date** | September 2026 (reinforced) |
-| **Evidence** | Archivo-Maestro-2026.md, README.md, 07-AI-System/Project-State.md, 08-Investors/Project-State.md |
-| **Rationale** | Asset-light model provides scalability without capital-intensive fleet ownership. Platform aggregates third-party supply. |
-| **Documents Affected** | All strategic and investor-facing documents |
-| **Implications** | No vehicle acquisition, no direct operations staff, focus on technology and coordination layer |
-| **Reversible?** | No — core to business model |
-| **Dependent Decisions** | All financial, operational, legal, and technical decisions flow from this definition |
+| **Title** | Define BajaRide as technology platform + marketplace (asset-light), not traditional rental company |
+| **Date** | 2026 (pre-September) |
+| **Category** | STRATEGIC |
+| **Status** | ACTIVE |
+| **Rationale** | Scalability without capital intensity; network effects; focus on coordination not asset ownership |
+| **Evidence** | Archivo-Maestro-2026.md; README.md; Project-State.md (all consistent) |
+| **Alternatives Considered** | Fleet-based rental model; franchise model; hybrid model |
+| **Impact** | CRITICAL — affects business model, funding strategy, operations, legal structure, technology |
+| **Dependencies** | Unit economics; provider strategy; customer acquisition; operations model |
+| **Trigger for Review** | If fleet ownership becomes strategically advantageous; if marketplace proves non-viable |
+| **Owner** | Samuel Garcia (Founder) |
 
 ---
 
-### DECISION 2: Asset-Light Operating Model
+### DEC-2026-02: Unidad Cero (Can-Am X3) is PAUSED, Not Core Business
 
 | Field | Value |
 |-------|-------|
-| **Decision** | BajaRide operates as an asset-light marketplace. Vehicles, equipment, and guides are owned and operated by third-party providers/owners. |
-| **Status** | CONFIRMED / ACTIVE |
-| **Date** | September 2026 (reinforced) |
-| **Evidence** | Archivo-Maestro-2026.md: "BajaRide opera bajo un modelo asset-light y no depende de poseer una flota propia" |
-| **Rationale** | Reduces capital requirements, accelerates launch, improves unit economics, enables rapid scaling |
-| **Documents Affected** | Financial model, operations plan, legal framework, investor narrative |
-| **Implications** | Revenue via take rate; providers absorb capital and operational risk |
-| **Reversible?** | No — fundamental business model |
-| **Tension Points** | Must ensure provider revenue share remains attractive enough to guarantee supply |
+| **Title** | Can-Am Maverick X3 acquisition/operation is paused; future validation/demo tool only |
+| **Date** | 2026 (pre-September) |
+| **Category** | STRATEGIC |
+| **Status** | ACTIVE |
+| **Rationale** | Focus on marketplace platform first; avoid capital lock-in before proving model; unit can serve validation later |
+| **Evidence** | Archivo-Maestro-2026.md; Project-State.md (explicit PAUSED status) |
+| **Alternatives Considered** | Immediate acquisition; phased acquisition; use as marketing tool |
+| **Impact** | CRITICAL — affects capital requirements, launch timeline, brand messaging |
+| **Dependencies** | Funding strategy; MVP development; market validation |
+| **Trigger for Review** | Successful MVP launch; secured funding; strategic partner interest; market opportunity window |
+| **Owner** | Samuel Garcia (Founder) |
 
 ---
 
-### DECISION 3: Initial Geography: Ensenada, Baja California
+### DEC-2026-03: Initial Geography is Ensenada, Baja California
 
 | Field | Value |
 |-------|-------|
-| **Decision** | BajaRide's initial market and MVP launch geography is Ensenada, Baja California. |
-| **Status** | CONFIRMED / ACTIVE |
-| **Date** | 2026 (consistent across all documents) |
-| **Evidence** | Archivo-Maestro-2026.md, README.md, 08-Investors/Project-State.md |
-| **Rationale** | Proximity to off-road infrastructure (Baja 500, desert terrain), tourist market, existing ecosystem |
-| **Documents Affected** | Market research, financial model (local unit economics), operations |
-| **Implications** | Legal/regulatory compliance with Baja California and Mexico; operations anchored in Ensenada hub |
-| **Reversible?** | Partially — can expand to other geographies after Ensenada validation |
-| **Expansion Path** | After MVP success: other Baja California locations → broader Mexico → USA/North America |
+| **Title** | MVP and initial operations limited to Ensenada; expansion to BC and Norteamérica later |
+| **Date** | 2026 (pre-September) |
+| **Category** | STRATEGIC |
+| **Status** | ACTIVE |
+| **Rationale** | Manageable market for MVP validation; known ecosystem; proximity to potential markets |
+| **Evidence** | Multiple documents (Archivo Maestro, README, Project State) |
+| **Alternatives Considered** | Multi-city launch; tourist-only focus; Baja California-wide |
+| **Impact** | HIGH — affects market research, operations, legal, marketing |
+| **Dependencies** | Market validation results; operational capacity; legal requirements |
+| **Trigger for Review** | MVP success/failure; market saturation; regulatory changes |
+| **Owner** | Samuel Garcia (Founder) |
 
 ---
 
-### DECISION 4: Initial Market Segment: UTV/Off-Road Experiences
+### DEC-2026-04: Initial Market Segment is UTV/Off-Road Experiences
 
 | Field | Value |
 |-------|-------|
-| **Decision** | BajaRide's initial market focus is on curated off-road experiences (UTV, ATV, desert tours, adventure activities). |
-| **Status** | CONFIRMED / ACTIVE |
-| **Date** | 2026 (consistent across all documents) |
-| **Evidence** | Archivo-Maestro-2026.md, README.md, 08-Investors/Project-State.md, 02-Finance/BR-02.1 |
-| **Rationale** | High demand in Ensenada; existing event ecosystem (Baja 500); clear user demographic; provider availability |
-| **Documents Affected** | Market research, financial model, MVP spec, operations |
-| **Implications** | Insurance, liability, regulatory focus on adventure activities; supplier relationship with UTV/ATV owners |
-| **Reversible?** | Partially — can add other experience categories (hiking, camping, etc.) after MVP success |
-| **Scope Boundary** | MVP launch focuses on UTV/off-road only; other categories are P2/P3 features |
+| **Title** | MVP and initial launch focus on UTV and off-road recreational experiences |
+| **Date** | 2026 (pre-September) |
+| **Category** | STRATEGIC |
+| **Status** | ACTIVE |
+| **Rationale** | Clear market; seasonal demand; existing ecosystem; differentiator |
+| **Evidence** | Multiple documents (consistent positioning) |
+| **Alternatives Considered** | General tourism; luxury experiences; adventure tourism; water sports |
+| **Impact** | HIGH — affects product, marketing, operations, legal/insurance |
+| **Dependencies** | Market research; provider availability; demand validation |
+| **Trigger for Review** | Market saturation; demand validation failure; competitor entry |
+| **Owner** | Samuel Garcia (Founder) |
 
 ---
 
-### DECISION 5: Unidad Cero (Can-Am Maverick X3) is PAUSED
+### DEC-2026-05: Asset-Light Model — No Fleet Ownership
 
 | Field | Value |
 |-------|-------|
-| **Decision** | Unidad Cero (Can-Am X3 vehicle) acquisition and operation are temporarily PAUSED. It is NOT the center of BajaRide business. |
-| **Status** | CONFIRMED / ACTIVE |
-| **Date** | September 2026 (reinforced in Archivo-Maestro) |
-| **Evidence** | Archivo-Maestro-2026.md: "La Unidad Cero (Can-Am X3) queda PAUSADA temporalmente"; 07-AI-System/Project-State.md |
-| **Rationale** | Unidad Cero became a distraction from core marketplace strategy; maintaining asset-light model requires no owned vehicles |
-| **Documents Affected** | Strategic planning, financial model, operations |
-| **Implications** | No capital allocation to Unidad Cero; no operational staff assigned; platform operates without it |
-| **Reversible?** | Yes — can resume after successful MVP funding and market validation |
-| **Conditions to Resume** | Successful MVP launch, adequate funding, strategic alignment with marketplace maturity, market demand validation |
-| **Current Role** | Future option for validation, demonstration, or brand activation (post-funding) |
+| **Title** | BajaRide operates asset-light; does not purchase, own, or directly operate vehicles |
+| **Date** | 2026 (pre-September) |
+| **Category** | STRATEGIC |
+| **Status** | ACTIVE |
+| **Rationale** | Capital efficiency; scalability; liability containment; focus on platform |
+| **Evidence** | Archivo-Maestro-2026.md (explicit statement) |
+| **Alternatives Considered** | Owned fleet model; lease model; franchise model |
+| **Impact** | CRITICAL — affects capital structure, liability, operations, unit economics |
+| **Dependencies** | Provider recruitment strategy; commission structure; insurance model |
+| **Trigger for Review** | Inability to find quality providers; market demands owned asset |
+| **Owner** | Samuel Garcia (Founder) |
 
 ---
 
-### DECISION 6: Parallel Development Strategy: Documentation + Research + MVP
+### DEC-2026-06: Parallel Development Strategy — Documentation + Research + MVP
 
 | Field | Value |
 |-------|-------|
-| **Decision** | Development proceeds in parallel: strategic documentation, market research, and MVP development occur simultaneously, NOT sequentially. |
-| **Status** | CONFIRMED / ACTIVE |
-| **Date** | September 2026 |
-| **Evidence** | Archivo-Maestro-2026.md mentions "Documento Base de Presentación para Inversionistas" + MVP; Knowledge-Recovery-Matrix Section V (Strategy is not "Investor Doc → Pitch → MVP") |
-| **Rationale** | MVP serves as validation tool; prevents documentation paralysis; enables rapid learning cycles; accelerates market feedback |
-| **Documents Affected** | Project roadmap, development methodology, investor communication |
-| **Implications** | MVP may be incomplete vs. final product; docs may evolve as MVP reveals new insights; agile approach required |
-| **Reversible?** | No — core to development philosophy |
-| **Risk Management** | Investor documentation must clearly separate validated findings from MVP learnings |
+| **Title** | Do NOT wait for complete documentation before MVP development; execute in parallel |
+| **Date** | 2026 (September) |
+| **Category** | STRATEGIC |
+| **Status** | ACTIVE |
+| **Rationale** | MVP serves as validation instrument; discovers requirements; reduces time to market |
+| **Evidence** | Archivo-Maestro-2026.md; investor priority for documentation + pitch deck |
+| **Alternatives Considered** | Waterfall (complete docs first); pure agile (minimal docs) |
+| **Impact** | HIGH — affects timeline, resource allocation, uncertainty tolerance |
+| **Dependencies** | MVP scope clarity; documentation architecture; team capability |
+| **Trigger for Review** | If MVP development reveals fundamental strategy flaws |
+| **Owner** | Samuel Garcia / Product Team |
 
 ---
 
-### DECISION 7: Technology Stack: Flutter/Dart + Node.js/TypeScript
+### DEC-2026-07: Technology Stack — Flutter (Frontend) + Node.js/TypeScript (Backend)
 
 | Field | Value |
 |-------|-------|
-| **Decision** | Frontend: Flutter/Dart; Backend: Node.js/TypeScript; Cross-platform mobile-first approach. |
-| **Status** | CONFIRMED / ACTIVE |
-| **Date** | 2026 (consistent across all documents) |
-| **Evidence** | Archivo-Maestro-2026.md, 07-AI-System/Project-State.md, 08-Investors/Project-State.md |
-| **Rationale** | Flutter enables rapid cross-platform (iOS/Android) development; Node.js/TS enables rapid backend iteration |
-| **Documents Affected** | 06-App/, technical architecture, development roadmap |
-| **Implications** | Development team must be proficient in these stacks; no legacy system migration costs |
-| **Reversible?** | Theoretically yes (rewrite), but not practical once development begins |
-| **Alternatives Considered** | Not documented; assume competitive analysis supports this choice |
+| **Title** | Use Flutter/Dart for mobile frontend; Node.js/TypeScript for backend API |
+| **Date** | 2026 (pre-September) |
+| **Category** | TECHNOLOGY |
+| **Status** | ACTIVE |
+| **Rationale** | Cross-platform mobile; TypeScript type safety; Node.js scalability; team familiarity (TBD) |
+| **Evidence** | Archivo-Maestro-2026.md |
+| **Alternatives Considered** | React Native; Swift/Kotlin; Python/Django; Go |
+| **Impact** | HIGH — affects architecture, hiring, development speed, maintenance |
+| **Dependencies** | Team skills; library maturity; scaling needs |
+| **Trigger for Review** | Team skill gaps; performance issues; scaling requirements |
+| **Owner** | CTO / Tech Lead (TBD) |
 
 ---
 
-### DECISION 8: Repository is the Single Source of Truth
+### DEC-2026-08: Hub is Future Operational Layer, Not MVP Requirement
 
 | Field | Value |
 |-------|-------|
-| **Decision** | BajaRide-Core GitHub repository is the single, authoritative source of truth for all strategic, operational, and technical documentation. |
-| **Status** | CONFIRMED / ACTIVE |
-| **Date** | September 2026 (explicit in BIC-1.md, README.md) |
-| **Evidence** | BIC-1.md: "Veracidad y Consistencia"; README.md: "Este repositorio es la fuente central"; all docs reference this principle |
-| **Rationale** | Prevents knowledge silos; enables AI agents to work autonomously; survives team changes; ensures consistency |
-| **Documents Affected** | All; BIC-1.md (AI Constitution), 07-AI-System/Protocols.md |
-| **Implications** | All decisions, investigations, findings, simulations must be documented in repo; no critical info stays in chat-only |
-| **Reversible?** | No — fundamental to project governance |
-| **Enforcement** | Every document must timestamp updates; no verbal-only decisions; all IAs must commit findings to repo |
+| **Title** | Hub (operational coordination point) is future-phase component; not required for MVP |
+| **Date** | 2026 (implied in model) |
+| **Category** | OPERATIONAL |
+| **Status** | ACTIVE |
+| **Rationale** | Simplify MVP scope; test marketplace coordination first; add operational layer post-validation |
+| **Evidence** | Model definition in Archivo Maestro; MVP scope planning |
+| **Alternatives Considered** | Hub mandatory in MVP; Hub optional; no Hub planned |
+| **Impact** | MEDIUM — affects MVP scope, operations complexity, scaling timeline |
+| **Dependencies** | Scaling success; operational challenges; market demand |
+| **Trigger for Review** | MVP operational constraints; scaling beyond 1-region capacity |
+| **Owner** | Operations Lead (TBD) |
 
 ---
 
-### DECISION 9: Hub is a Future Operational Layer, Not MVP-Critical
+### DEC-2026-09: Priority is Investor Presentation Document + Pitch Deck, Then MVP
 
 | Field | Value |
 |-------|-------|
-| **Decision** | Hub (physical/operational coordination base) is part of the long-term model but NOT required for MVP launch. |
-| **Status** | CONFIRMED / ACTIVE |
-| **Date** | September 2026 (implied in Archivo-Maestro; Knowledge-Recovery-Matrix classifies as "MEDIUM priority") |
-| **Evidence** | Model flow includes "Hub/Operations"; Hub mentioned in financial assumptions as TBD |
-| **Rationale** | MVP can coordinate experiences digitally; Hub becomes valuable at scale or specific geographic density |
-| **Documents Affected** | 05-Operations/, financial model, MVP spec |
-| **Implications** | No hub capital costs in MVP budget; can be added post-funding based on demand |
-| **Reversible?** | Yes — decision to build/rent hub can be made after MVP market validation |
-| **Conditions** | Revisit once monthly active users and transaction volume reach defined thresholds |
+| **Title** | Immediate priority: complete investor documentation; simultaneously develop MVP; then launch |
+| **Date** | 2026 (September) |
+| **Category** | STRATEGIC |
+| **Status** | ACTIVE |
+| **Rationale** | Funding enables operations; MVP validates market; parallel execution is critical |
+| **Evidence** | Archivo-Maestro-2026.md section 7 |
+| **Alternatives Considered** | MVP first then fundraise; fundraise only; documentation only |
+| **Impact** | CRITICAL — affects timeline and resource allocation |
+| **Dependencies** | Investor readiness; MVP scope; team capacity |
+| **Trigger for Review** | If investor fundraising stalls; if MVP reveals need for strategic change |
+| **Owner** | Samuel Garcia / Investor Relations (TBD) |
 
 ---
 
-### DECISION 10: Investor Documentation ≠ Guaranteed Funding
+## IV. OPERATIONAL DECISIONS
+
+### DEC-2026-10: MVP Scope — Define Exact In/Out Before Development
 
 | Field | Value |
 |-------|-------|
-| **Decision** | Completion of investor presentation document and pitch deck is a strategic priority, but does not guarantee or presume funding. |
-| **Status** | CONFIRMED / ACTIVE |
-| **Date** | September 2026 |
-| **Evidence** | Archivo-Maestro-2026.md lists investor materials as "corto plazo"; Knowledge-Recovery-Matrix distinguishes hypothesis from validated data |
-| **Rationale** | Investor materials must be based on validated evidence; investors will perform due diligence; no assumptions about fundraising success |
-| **Documents Affected** | 08-Investors/, financial model, MVP roadmap |
-| **Implications** | All investor claims must be evidence-backed; simulations must be labeled; projections must include risk disclaimers |
-| **Reversible?** | No — ethical and legal requirement |
-| **Enforcement** | 08-Investors/Investor-Evidence-Matrix.md must separate validated findings from assumptions |
+| **Title** | Create explicit MVP Product Definition with clear scope boundaries |
+| **Date** | 2026 (September) |
+| **Category** | PRODUCT |
+| **Status** | ACTIVE |
+| **Rationale** | Prevent scope creep; enable focused development; communicate to stakeholders |
+| **Evidence** | BLOQUE 6 requirement; marketplace MVP best practice |
+| **Alternatives Considered** | Iterative MVP; full feature set; minimal viable product |
+| **Impact** | HIGH — affects development timeline, resource needs, quality |
+| **Dependencies** | Product definition completion; team agreement; investor input |
+| **Trigger for Review** | If MVP scope proves unviable; if critical feature missing |
+| **Owner** | Product Manager (TBD) |
 
 ---
 
-## III. Important Operating Assumptions (Not Yet Decisions)
+### DEC-2026-11: Provider Acquisition Prioritizes Quality Over Volume in MVP
 
-These are working assumptions that guide planning but remain to be validated:
-
-| Assumption | Status | Validation Required |
-|-----------|--------|-------------------|
-| UTV market exists and is underserved in Ensenada | HYPOTHESIS | Market research during MVP |
-| Users will pay premium for curated, trusted experiences | HYPOTHESIS | Early user testing |
-| Providers want access to marketplace distribution | HYPOTHESIS | Provider interviews |
-| Take-rate model (typically 15-25%) is acceptable to providers | HYPOTHESIS | Competitive benchmarking |
-| Hub will become operationally necessary at scale | HYPOTHESIS | Scaling analysis post-MVP |
-| Insurance/liability can be managed via third-party coverage | HYPOTHESIS | Legal review (TBD) |
-| $150K USD is sufficient to launch MVP | PROVISIONAL | Updated financial model (TBD) |
-
----
-
-## IV. Decision Reversal Protocol
-
-A decision can be reversed if:
-
-1. **Evidence emerges** contradicting the original rationale
-2. **Market conditions change** materially
-3. **New information** becomes available that was unknown at decision time
-4. **Explicit user/founder request** with documented reasoning
-
-**Process**:
-1. Document the reversal reason in this log
-2. Update affected documents with "SUPERSEDED" marker
-3. Archive old version with reversal annotation
-4. Notify all stakeholders
-5. Create new decision entry
+| Field | Value |
+|-------|-------|
+| **Title** | MVP launch focuses on curated provider set (quality, reliability, verified) not mass recruitment |
+| **Date** | 2026 (September — implied) |
+| **Category** | OPERATIONAL |
+| **Status** | PENDING VALIDATION |
+| **Rationale** | User experience quality; reduces operational overhead; enables market proof |
+| **Evidence** | Asset-light model; MVP focus |
+| **Alternatives Considered** | Open provider marketplace; franchise; partnerships |
+| **Impact** | MEDIUM — affects supply, launch speed, unit economics |
+| **Dependencies** | Provider recruitment strategy; vetting criteria; onboarding process |
+| **Trigger for Review** | If provider scarcity becomes bottleneck; if user demand exceeds supply |
+| **Owner** | Operations / Provider Partnerships (TBD) |
 
 ---
 
-## V. Next Decision Points (Pending User Input)
+## V. FINANCIAL DECISIONS
 
-| Topic | Decision Required | Timeline | Owner |
-|-------|-----------------|----------|-------|
-| MVP Scope Boundaries | What features are P0 vs P1? | Pre-dev | Product |
-| Provider Revenue Share | Exact take-rate percentage? | Pre-launch | Finance |
-| Payment Processing | Which processor (Stripe, local, etc.)? | Pre-MVP | Finance/Legal |
-| KYC Requirements | What user verification is mandatory MVP vs future? | Pre-MVP | Legal |
-| Insurance Strategy | Self-insure, partner, or full third-party? | Pre-launch | Legal/Ops |
-| Fundraising Target | Exact capital needed? Seed vs Series A? | Q4 2026 | Finance |
+### DEC-2026-12: Primary Revenue Model is Take Rate on Bookings (GMV-based)
 
----
-
-## VI. Document Synchronization
-
-This Decision Log must be reviewed and updated whenever:
-
-- A new strategic decision is made
-- Evidence contradicts a past decision
-- A decision affects multiple documents (all must be updated)
-- Quarterly strategy review (minimum)
+| Field | Value |
+|-------|-------|
+| **Title** | Revenue primarily from marketplace take rate (percentage of booking value) |
+| **Date** | 2026 (September) |
+| **Category** | FINANCIAL |
+| **Status** | ACTIVE |
+| **Rationale** | Aligned with marketplace model; incentive alignment with volume growth; standard in industry |
+| **Evidence** | Financial Model Overview; marketplace best practice |
+| **Alternatives Considered** | Subscription fee; listing fee; commission hybrid; premium features |
+| **Impact** | CRITICAL — affects unit economics, provider attractiveness, pricing strategy |
+| **Dependencies** | Take rate percentage (TBD); booking volume; provider payout structure |
+| **Trigger for Review** | If take rate proves uncompetitive; if provider churn high |
+| **Owner** | CFO / Finance Lead (TBD) |
 
 ---
 
-**Version**: 1.0  
-**Created**: September 9, 2026  
-**Next Review**: December 2026  
-**Owner**: Rooster2909 / Strategy Team
+### DEC-2026-13: Funding Structure — PENDING USER DECISION
+
+| Field | Value |
+|-------|-------|
+| **Title** | PENDING USER DECISION: Choose between SAFE, equity, or hybrid funding approach |
+| **Date** | 2026 (September) |
+| **Category** | FINANCIAL |
+| **Status** | PENDING USER DECISION |
+| **Rationale** | Different structures have different implications for control, dilution, investor relations |
+| **Evidence** | Historical discussion of SAFE 3-tranche structure ($150K historical target) |
+| **Alternatives Considered** | SAFE (convertible); Series Seed; equity direct; friends & family; grants |
+| **Impact** | CRITICAL — affects cap table, control, investor profile, dilution |
+| **Dependencies** | Target raise amount (TBD); investor preferences; legal review |
+| **Next Steps** | 1. Validate funding requirement via financial model; 2. Conduct legal review; 3. User decision |
+| **Owner** | Samuel Garcia / Advisor
+
+---
+
+## VI. LEGAL/TRUST DECISIONS
+
+### DEC-2026-14: Legal Framework Development — PENDING EXTERNAL REVIEW
+
+| Field | Value |
+|-------|-------|
+| **Title** | Develop legal framework for marketplace operation; requires professional legal review |
+| **Date** | 2026 (September) |
+| **Category** | LEGAL |
+| **Status** | PENDING EXTERNAL REVIEW |
+| **Rationale** | Marketplace requires clear provider/user/platform responsibilities; Mexico jurisdiction |
+| **Evidence** | Knowledge Recovery Matrix; regulatory requirement |
+| **Alternatives Considered** | Self-serve (risky); full legal team (expensive); hybrid approach |
+| **Impact** | CRITICAL — affects operations, liability, user/provider confidence |
+| **Dependencies** | Legal advisor; Mexican law expertise; insurance broker |
+| **Next Steps** | Engage legal counsel; review framework documents; finalize terms |
+| **Owner** | Legal Advisor (TBD) |
+
+---
+
+### DEC-2026-15: KYC/KYB Implementation — MVP vs. Phased Approach
+
+| Field | Value |
+|-------|-------|
+| **Title** | PENDING USER DECISION: Implement full KYC/KYB in MVP vs. phased approach |
+| **Date** | 2026 (September) |
+| **Category** | LEGAL / OPERATIONAL |
+| **Status** | PENDING USER DECISION |
+| **Rationale** | Fraud prevention vs. friction; regulatory compliance vs. speed to market |
+| **Evidence** | Onfido mentioned historically but not contracted |
+| **Alternatives Considered** | Basic ID verification in MVP; full KYC/KYB MVP; no verification MVP |
+| **Impact** | MEDIUM-HIGH — affects user onboarding friction, fraud risk, compliance |
+| **Dependencies** | Regulatory requirements; fraud risk assessment; user research |
+| **Next Steps** | 1. Consult legal on Mexican requirements; 2. Risk assessment; 3. MVP scope decision |
+| **Owner** | Legal / Compliance / Product (TBD)
+
+---
+
+## VII. UNDER REVIEW / TBD
+
+### TBD-2026-01: Insurance Strategy
+
+**Status**: REQUIRES EXTERNAL REVIEW  
+**Topic**: What insurance is required? Provider self-insured vs. platform policy vs. hybrid?  
+**AXA Status**: CONSIDERED (historical mention) but NOT CONTRACTED  
+**Next**: Engage insurance broker; analyze liability; model costs
+
+---
+
+### TBD-2026-02: Payment Processing Partner
+
+**Status**: REQUIRES EXTERNAL VALIDATION  
+**Topic**: Stripe, Braintree, or local processor? When to integrate?  
+**Historical Mentions**: Stripe, Braintree (CONSIDERED, not committed)  
+**Next**: Evaluate options; model transaction costs; MVP payment strategy
+
+---
+
+## VIII. CHANGES TO THIS LOG
+
+When a new strategic decision is made:
+
+1. Add entry to this log
+2. Document in full format above
+3. Update affected module documents
+4. Update cross-reference matrix
+5. Commit with clear message
+
+---
+
+**Log Maintained By**: Documentation Team  
+**Last Audit**: September 2026  
+**Next Review**: When new major decision made  
+**Related Documents**: Knowledge-Recovery-Matrix.md, Archivo-Maestro-2026.md
