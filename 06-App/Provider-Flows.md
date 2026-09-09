@@ -1,528 +1,370 @@
-BajaRide — MVP Product Definition
+BajaRide — Provider Flows
 
 Version: 1.0
 Status: DRAFT / WORKING DOCUMENT
 Date: September 2026
-Product: BajaRide
-Repository: BajaRide-Core
+Module: 06-App
 
 ---
 
-1. Product Definition
+0. Correction Note
 
-BajaRide is a technology platform and marketplace specialized in off-road experiences.
-
-The platform connects users seeking off-road experiences with verified providers offering vehicles, guided activities, tours, routes, and related experiences.
-
-BajaRide operates initially as an asset-light marketplace. It does not require ownership of a vehicle fleet to operate the MVP.
-
-Initial geography: Ensenada, Baja California, Mexico.
-Initial category: UTV / off-road experiences.
+This document replaces a previous version of `Provider-Flows.md` that mistakenly contained a duplicate copy of `MVP-Product-Definition.md`. This version defines the actual provider-side journey, consistent with `MVP-Product-Definition.md` and `User-Flows.md`.
 
 ---
 
-2. MVP Objective
+1. Objective
 
-The MVP exists to validate the core marketplace workflow:
+Define the MVP provider journey from registration through delivering a completed off-road experience, and the ongoing provider/BajaRide relationship that supports it.
 
-Discover → Evaluate → Select → Reserve → Operate → Complete
+Core flow:
 
-The MVP must allow BajaRide to demonstrate that:
-
-1. Users can discover available experiences.
-2. Providers can publish experiences.
-3. BajaRide can manage availability.
-4. Users can request/book an experience.
-5. Providers can manage reservations.
-6. BajaRide can monitor the marketplace operation.
-
-The MVP is a validation product, not the final platform.
+"Register → Verify → Onboard → List Asset → Create Experience → Get Approved → Publish → Receive Bookings → Operate → Complete → Get Reviewed"
 
 ---
 
-3. Marketplace Model
+2. Provider Registration
 
-Core relationship
+The provider can:
 
-Provider → BajaRide Platform → User
+- Create a provider account (separate role from a regular user account).
+- Provide basic identity and contact information.
+- Provide basic business/operating information (individual owner or operator).
 
-Future operational layer:
-
-Provider → BajaRide Platform → Hub/Operations → User
-
-The Hub is a future operational component and is not required for the initial MVP.
+Status: **Current (MVP)**.
 
 ---
 
-4. MVP Users
+3. Provider Profile
 
-4.1 User / Customer
+The provider profile may contain:
 
-Can:
+- Name / business name.
+- Contact information.
+- Location (base of operations).
+- Description of services offered.
+- Assets/vehicles associated with the profile.
+- Verification status.
 
-- Create an account.
-- Log in.
-- Manage basic profile information.
-- Browse experiences.
-- Search experiences.
-- Filter experiences.
-- View experience details.
-- View availability.
-- Request/book an experience.
-- View booking status.
-- View booking history.
-
-4.2 Provider
-
-Can:
-
-- Create a provider account.
-- Create/manage provider profile.
-- Submit an experience.
-- Add experience information.
-- Define availability.
-- Define capacity.
-- View reservations.
-- Update operational status.
-
-4.3 Administrator
-
-Can:
-
-- View users.
-- View providers.
-- Review providers.
-- Review experiences.
-- Approve/reject experiences.
-- View bookings.
-- Manage booking status.
-- Review incidents.
-- Suspend users, providers, or experiences when necessary.
+Status: **Current (MVP)**.
 
 ---
 
-5. Experience Definition
+4. Onboarding / Initial Verification
 
-An experience is the primary marketplace product presented to users.
+Before a provider can publish an Experience, BajaRide performs a **basic** identity and contact verification step.
 
-An experience may include:
+MVP scope includes:
 
-- UTV/off-road activity.
-- Guided tour.
-- Route.
-- Adventure activity.
-- Vehicle-based experience.
-- Other compatible off-road activities.
+- Confirming provider identity information.
+- Confirming provider contact information.
+- Manual review by an Administrator (no automated verification service).
 
-An event does not automatically become a BajaRide experience.
+Explicitly **out of MVP scope** (Future scope):
 
-Events, opportunities, providers, and experiences must remain separate concepts.
+- Advanced KYC/KYB verification.
+- Automated document/identity verification services.
 
----
-
-6. Experience Lifecycle
-
-The initial lifecycle is:
-
-"DRAFT"
-
-→ "UNDER REVIEW"
-
-→ "APPROVED"
-
-→ "PUBLISHED"
-
-→ "BOOKED"
-
-→ "COMPLETED"
-
-Alternative states:
-
-"CANCELLED"
-
-"SUSPENDED"
-
-Only appropriate experiences should become publicly visible.
+Status: **Current (MVP) for basic checks · Future scope for automation**.
 
 ---
 
-7. MVP User Flow
+5. Asset / Vehicle Registration
 
-Discovery
+The provider can register the vehicle(s)/asset(s) associated with an Experience.
 
-User opens BajaRide.
+At minimum, an asset record should include:
 
-↓
+- Type of vehicle/asset.
+- Basic description.
+- Photos, when available.
+- Condition/safety notes, when available.
 
-Searches/browses experiences.
+BajaRide does not own, purchase, or hold title to any vehicle registered here — assets belong to and are operated by the provider (asset-light model).
 
-↓
+Status: **Current (MVP)**.
 
-Applies filters.
+---
 
-↓
+6. Experience Creation
 
-Selects an experience.
+The provider creates an Experience by submitting:
 
-Evaluation
-
-User views:
-
-- Description.
+- Experience name and description.
+- Category (UTV/off-road activity, guided tour, route, adventure activity, other compatible off-road activity).
+- Associated asset(s).
 - Location.
-- Provider.
-- Price.
-- Availability.
-- Capacity.
-- Requirements.
-- Basic safety information.
+- Requirements for participants.
+- Basic safety/risk information.
 
-↓
-
-User selects date/time.
-
-Reservation
-
-User submits booking request.
-
-↓
-
-BajaRide records booking.
-
-↓
-
-Provider receives booking.
-
-↓
-
-Booking status is updated.
-
-Completion
-
-Experience takes place.
-
-↓
-
-Booking becomes "COMPLETED".
+Status: **Current (MVP)**.
 
 ---
 
-8. MVP Provider Flow
+7. Pricing
 
-Provider registers.
+The provider defines a reference price for the Experience.
 
-↓
+MVP scope:
 
-Creates provider profile.
+- Provider sets a single reference price per Experience (or per participant, if applicable).
+- BajaRide's take rate is applied per the current Financial Assumptions Register (`02-Finance/Financial-Assumptions-Register.md`) — **percentage not yet validated (TBD)**.
 
-↓
+Explicitly **out of MVP scope** (Future scope):
 
-Submits experience.
+- Dynamic/automated pricing.
+- Provider-side discount/promotion engine.
 
-↓
-
-Experience enters "UNDER REVIEW".
-
-↓
-
-Administrator reviews.
-
-↓
-
-Approved experience becomes "PUBLISHED".
-
-↓
-
-User books.
-
-↓
-
-Provider manages booking.
-
-↓
-
-Experience is completed.
+Status: **Hypothesis / Pending validation** — take rate and payout mechanics are not yet confirmed (see `Financial-Assumptions-Register.md`, REV-002 and REV-005).
 
 ---
 
-9. MVP Admin Flow
+8. Availability
 
-Administrator accesses dashboard.
+The provider defines when an Experience can be booked:
 
-↓
+- Available dates.
+- Available time / time windows.
+- Capacity (maximum participants per slot).
 
-Reviews:
-
-- Users.
-- Providers.
-- Experiences.
-- Bookings.
-- Incidents.
-
-↓
-
-Approves or rejects providers/experiences.
-
-↓
-
-Monitors marketplace activity.
-
-↓
-
-Suspends or flags problematic records when required.
+Status: **Current (MVP)**.
 
 ---
 
-10. MVP Booking Concept
+9. Location
 
-A booking must contain at minimum:
+The provider specifies the operating location(s) for the Experience:
 
-- User.
-- Provider.
-- Experience.
-- Date.
-- Time or time window.
+- Meeting point.
+- General operating area/route, when relevant.
+
+Explicitly **out of MVP scope** (Future scope):
+
+- Advanced geofencing (e.g., protected-area boundary enforcement).
+
+Status: **Current (MVP) for basic location data · Future scope for geofencing**.
+
+---
+
+10. Review / Approval
+
+Once submitted, the Experience enters the review lifecycle defined in `MVP-Product-Definition.md`:
+
+"DRAFT" → "UNDER REVIEW" → "APPROVED" → "PUBLISHED"
+
+An Administrator reviews the submitted Experience for completeness and basic safety information before approval. See Section 20 (Admin Interaction) for the administrator side of this step.
+
+Status: **Current (MVP)**.
+
+---
+
+11. Publication
+
+Once approved, the Experience becomes "PUBLISHED" and is visible to Users through the discovery flow described in `User-Flows.md`.
+
+The provider can view the publication status of each Experience at any time.
+
+Status: **Current (MVP)**.
+
+---
+
+12. Receiving Bookings
+
+When a User submits a booking request (see `User-Flows.md`, Section 8), the provider receives the booking in "REQUESTED" status with:
+
+- User information relevant to fulfilling the booking.
+- Date / time / time window.
 - Number of participants.
-- Price/reference amount.
+
+Status: **Current (MVP)**.
+
+---
+
+13. Confirmation / Rejection
+
+The provider reviews each "REQUESTED" booking and can:
+
+- Confirm the booking → status becomes "CONFIRMED".
+- Reject the booking (e.g., due to unavailability) → status becomes "CANCELLED", with a reason recorded.
+
+The system validates that confirming a booking does not exceed the defined capacity for that date/time.
+
+Status: **Current (MVP)**.
+
+---
+
+14. Experience Preparation
+
+Once a booking is "CONFIRMED", the provider is responsible for:
+
+- Preparing the vehicle/asset.
+- Confirming meeting point and time with the participant, as needed.
+- Ensuring basic safety requirements are met.
+
+Status: **Current (MVP)**.
+
+---
+
+15. Operation
+
+On the day of the Experience, the provider:
+
+- Delivers the Experience as described and approved.
+- Manages participants on-site.
+- Handles on-site exceptions (e.g., delays, minor changes) within the cancellation/incident rules defined below.
+
+Status: **Current (MVP)**.
+
+---
+
+16. Completion
+
+After the Experience takes place, the provider marks the booking as "COMPLETED".
+
+The system records completion. This is required for the booking to exit the active lifecycle and become eligible for a review (see Section 18).
+
+Status: **Current (MVP)**.
+
+---
+
+17. Cancellations
+
+A booking may be cancelled by the provider, the user, or an administrator.
+
+When the provider initiates a cancellation, the system records:
+
+- Booking.
+- Cancellation request.
+- Actor (provider).
+- Date/time.
+- Reason.
+- Resulting status ("CANCELLED").
+
+Refund processing is **outside the initial product definition** unless separately implemented (consistent with `User-Flows.md`, Section 12).
+
+Status: **Current (MVP) for recording cancellations · Pending definition for refund mechanics**.
+
+---
+
+18. Incidents
+
+If an incident occurs during an Experience, the provider can report it through the incident-reporting mechanism defined for the MVP (see `MVP-Product-Definition.md`, Section 11).
+
+An incident record should be associated with:
+
+- Booking.
+- Experience.
+- Provider.
+- User (if applicable).
+- Date/time.
+- Description.
 - Status.
-- Creation timestamp.
 
-Initial booking statuses:
+Administrative handling occurs separately (see Section 20).
 
-"REQUESTED"
-
-"CONFIRMED"
-
-"CANCELLED"
-
-"COMPLETED"
-
-"NO_SHOW"
-
-Additional statuses may be added after operational validation.
+Status: **Current (MVP) for basic reporting · Future scope for automated safety/insurance workflows**.
 
 ---
 
-11. MVP Trust & Safety
+19. Reviews
 
-The MVP must establish the basic information required to operate the marketplace responsibly.
+Basic review capability (user-to-provider) may be considered once the core booking flow is validated, consistent with `MVP-Product-Definition.md`, Section 13.
 
-At minimum:
+Advanced reputation systems (e.g., weighted scoring, anti-manipulation detection) are **outside the initial MVP** (Future scope).
 
-- Provider identity information.
-- Provider contact information.
-- Experience requirements.
-- Basic risk information.
-- Basic cancellation rules.
-- Incident reporting capability.
-- Administrative suspension capability.
-
-Advanced KYC/KYB, insurance automation, advanced verification and automated trust systems are future scope unless separately validated and implemented.
+Status: **Future scope — not required for initial MVP validation loop**.
 
 ---
 
-12. MVP Payments
+20. Interaction with Admin / BajaRide
 
-Payments are not considered fully implemented at this stage.
+Throughout the provider journey, BajaRide's Administrator role (defined in `MVP-Product-Definition.md`, Section 4.3) interacts with the provider at these points:
 
-The architecture must allow future integration with a payment provider.
+- Reviewing and approving/rejecting new provider registrations (basic verification, Section 4).
+- Reviewing and approving/rejecting submitted Experiences (Section 10).
+- Monitoring bookings and intervening on incidents (Section 18).
+- Suspending a provider, asset, or Experience when necessary.
 
-Historical/considered providers or solutions must not be represented as active integrations unless implementation is verified.
-
-Examples of previously considered solutions must remain classified as:
-
-"CONSIDERED / TBD"
-
----
-
-13. MVP Reviews
-
-Basic review capability may be considered after the core booking flow is validated.
-
-Advanced reputation systems are outside the initial MVP.
+Status: **Current (MVP)**.
 
 ---
 
-14. MVP Notifications
+21. Provider States and Exceptions
 
-Basic notification requirements may include:
+**Provider status (proposed, pending confirmation in a future Data-Model.md):**
 
-- Booking received.
-- Booking status changed.
-- Experience reminder.
-- Cancellation.
-- Administrative notification.
+- "PENDING VERIFICATION"
+- "ACTIVE"
+- "SUSPENDED"
 
-Specific notification provider remains TBD until implementation is defined.
+**Experience status (as defined in `MVP-Product-Definition.md`):**
+
+"DRAFT" → "UNDER REVIEW" → "APPROVED" → "PUBLISHED" → "BOOKED" → "COMPLETED"
+Alternative: "CANCELLED", "SUSPENDED"
+
+**Booking status (as defined in `MVP-Product-Definition.md` and `User-Flows.md`):**
+
+"REQUESTED" → "CONFIRMED" → "COMPLETED"
+Alternative: "CANCELLED", "NO_SHOW"
+
+**Exception states the MVP must account for (provider side):**
+
+- Experience rejected at review.
+- Booking request exceeds available capacity.
+- Provider fails to confirm/reject a booking within an expected window (behavior TBD — pending validation).
+- Provider-initiated cancellation after confirmation.
+- Asset/vehicle unavailable after an Experience was published (requires provider to update availability or pause the Experience).
+
+The provider must receive a clear status/message for each of these, consistent with the error-handling principle in `User-Flows.md`, Section 18.
 
 ---
 
-15. Explicit MVP Exclusions
+22. Explicit Exclusions (Provider Side)
 
-The initial MVP does not require:
+Consistent with `MVP-Product-Definition.md`, Section 15, the following are **not** part of the initial MVP provider flow:
 
-- Fleet ownership.
-- Vehicle purchasing.
-- Advanced payment infrastructure.
-- Advanced KYC/KYB.
+- Fleet ownership by BajaRide (providers always own/operate their own assets).
+- BajaCredits / token-based incentives.
+- Advanced KYC/KYB verification.
 - Automated insurance management.
-- Loyalty program.
-- BajaCredits/token.
-- Advanced analytics.
-- Advanced AI automation.
+- Advanced AI-driven pricing, matching, or fraud detection.
 - Advanced geofencing.
-- Advanced Hub management.
-- Complex fleet management.
-- Automated marketplace optimization.
-- Full-scale enterprise infrastructure.
+- Advanced fleet management tooling for providers with multiple assets.
+- Advanced analytics/dashboards for providers.
+- Dynamic/automated pricing.
 
-These may become future modules.
-
----
-
-16. Technology Baseline
-
-Frontend
-
-Flutter / Dart
-
-Backend
-
-Node.js / TypeScript
-
-Architecture
-
-Conceptual MVP architecture:
-
-Flutter App
-
-↓
-
-API / Backend
-
-↓
-
-Database
-
-↓
-
-Supporting services as required:
-
-- Authentication.
-- Storage.
-- Notifications.
-- Payments.
-- Verification.
-- Logging.
-- Security.
-
-No external integration should be considered implemented until verified.
+These may become future modules once explicitly validated and scoped.
 
 ---
 
-17. MVP Data Domains
+23. Scope Control
 
-The MVP should be designed around the following core entities:
+This document defines the initial provider-side flow only.
 
-- User
-- Provider
-- Experience
-- Vehicle / Asset
-- Location
-- Availability
-- Booking
-- Payment
-- Review
-- Incident
-- Cancellation
-- Verification
-- Document
-- Event
-- Notification
+It does not define:
 
-Not every entity requires full functionality in version 1.
+- User-side flow (see `User-Flows.md`).
+- Admin-side flow in full detail (see `Admin-Flows.md`, not yet created).
+- Database schema (see `Data-Model.md`, not yet created).
+- API specifications (see `API-Requirements.md`, not yet created).
+- Production payment or payout infrastructure.
+- Insurance mechanics.
 
 ---
 
-18. MVP Success Criteria
+24. Related Documents
 
-The MVP should demonstrate a complete operational loop:
-
-Provider creates experience
-
-→
-
-BajaRide reviews
-
-→
-
-Experience becomes published
-
-→
-
-User discovers experience
-
-→
-
-User selects availability
-
-→
-
-User books
-
-→
-
-Provider receives booking
-
-→
-
-Experience occurs
-
-→
-
-Booking is completed
-
-This is the primary product validation loop.
+- "MVP-Product-Definition.md"
+- "User-Flows.md"
+- "Admin-Flows.md" (not yet created)
+- "Data-Model.md" (not yet created)
+- "Architecture.md" (not yet created)
+- "02-Finance/Financial-Assumptions-Register.md" (pricing/take-rate assumptions referenced in Section 7)
 
 ---
 
-19. Product Principles
+25. Document Status
 
-1. Marketplace first.
-2. Asset-light.
-3. User and provider experience first.
-4. Progressive development.
-5. Validate before scaling.
-6. Do not overbuild.
-7. Document important decisions.
-8. Do not confuse hypotheses with validated facts.
-9. Do not treat simulations as traction.
-10. Build the MVP as a tool for validating the business model.
+Current status: DRAFT / WORKING DOCUMENT
 
----
-
-20. Current Status
-
-Status: DRAFT / WORKING DOCUMENT
-
-The MVP definition is subject to refinement as product development, market research, provider validation, operational analysis and financial modeling progress.
-
-Changes that affect the fundamental BajaRide strategy must be documented in the appropriate decision log.
-
----
-
-21. Next Documents
-
-After this document is reviewed and accepted, create sequentially:
-
-1. "User-Flows.md"
-2. "Provider-Flows.md"
-3. "Admin-Flows.md"
-4. "Data-Model.md"
-5. "Architecture.md"
-6. "API-Requirements.md"
-7. "Product-Backlog.md"
-8. "Product-Decision-Log.md"
-9. "MVP-Roadmap.md"
-
-Do not create or complete these documents until the MVP Product Definition has been reviewed.
+This document was created to correct a prior version that incorrectly duplicated `MVP-Product-Definition.md`. Changes discovered during implementation or validation must be recorded and incorporated into the appropriate product documentation.
