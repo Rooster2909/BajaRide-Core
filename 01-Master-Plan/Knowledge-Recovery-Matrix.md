@@ -294,7 +294,7 @@ This matrix documents what exists, what is valid, what is contradictory, what is
 
 | Assumption | Status | Evidence | Validation Needed |
 |-----------|--------|----------|-------------------|
-| $150K USD is sufficient to launch | PROVISIONAL | Historical | Updated financial model |
+| \$150K USD is sufficient to launch | PROVISIONAL | Historical | Updated financial model |
 | SAFE structure works for this stage | PROVISIONAL | Historical | Legal review |
 | Unit economics work at Ensenada scale | HYPOTHESIS | None | Detailed modeling |
 
@@ -433,4 +433,3 @@ Every document must answer these questions:
 **Matrix Prepared By**: Knowledge Recovery Agent  
 **Verification Required**: Human review of contradictions and assumptions  
 **Repository Sync**: Required before major commits
-
