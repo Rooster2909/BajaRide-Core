@@ -14,7 +14,7 @@
 | 00-Constitution | EXISTS | BIC-1.md | ALIGNED (not updated since June 2026 — does not reference newer master docs) |
 | 01-Master-Plan | EXISTS | Archivo-Maestro-2026.md, Assumptions-Register.md, Decision-Log.md, Knowledge-Recovery-Matrix.md (this file), Risk-Register.md, Checklist-Maestro.md, Registro-Maestro-de-Documentos.md, Bitacora-Maestra.md, BRfinal-Knowledge-Consolidation-2026.md | ALIGNED |
 | 02-Finance | PARTIAL | BR-02.1-Financial-Model-Overview.md, Financial-Assumptions-Register.md | ALIGNED — structure exists, zero validated figures |
-| 03-Legal | STRUCTURED (no contract content yet) | Legal-Structure-Overview.md | PENDING — structure only, real contracts (e.g. BR-LEGAL-001, historically referenced) not yet committed here |
+| 03-Legal | STRUCTURED + RESEARCHED (no executed contracts yet) | Legal-Structure-Overview.md, Insurance-Legal-Research-Reference-2026.md | PENDING — structure + secondary research exist, real contracts (e.g. BR-LEGAL-001, historically referenced) and attorney/broker validation still missing |
 | 04-Marketing | STRUCTURED (no campaign content yet) | Marketing-Structure-Overview.md | PENDING |
 | 05-Operations | MINIMAL | Baja-500-Interviews.md (empty template), Catalogo-Maestro-de-Eventos.md (schema only), Provider-Resource-Map.md (schema only) | NEEDS REAL DATA |
 | 06-App | PARTIAL | MVP-Product-Definition.md, User-Flows.md, Provider-Flows.md, DEMO-BR-007.md | Core MVP spec exists; Admin-Flows/Data-Model/Architecture/API-Requirements/Product-Backlog/Acceptance-Criteria/MVP-Roadmap/Product-Decision-Log still MISSING |

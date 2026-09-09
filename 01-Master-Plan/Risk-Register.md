@@ -251,6 +251,7 @@ This document identifies, assesses, and tracks risks that could impact BajaRide'
 | **Trigger** | Any legal notice from authorities |
 | **Owner** | Legal Counsel (TBD) |
 | **Status** | PENDING REVIEW |
+| **Research Note (2026-09-09)** | Secondary research identified the Registro Nacional de Turismo (RNT) / DATATUR as a likely applicable requirement for providers under the Ley General de Turismo — not previously tracked. See `03-Legal/Insurance-Legal-Research-Reference-2026.md` §6. Still UNVERIFIED against an actual attorney opinion. |
 
 ---
 
@@ -268,6 +269,7 @@ This document identifies, assesses, and tracks risks that could impact BajaRide'
 | **Trigger** | Any injury claim |
 | **Owner** | Legal Counsel / Insurance Broker (TBD) |
 | **Status** | PENDING REVIEW |
+| **Research Note (2026-09-09)** | Secondary research produced a minimum-elements checklist for a liability waiver (risk disclosure, assumption of risk, release, insurance disclosure, minor clause, e-signature/timestamp). See `03-Legal/Insurance-Legal-Research-Reference-2026.md` §3. No waiver has been drafted; checklist is UNVERIFIED against attorney review. |
 
 ---
 
@@ -285,6 +287,7 @@ This document identifies, assesses, and tracks risks that could impact BajaRide'
 | **Trigger** | Legal notice from authorities |
 | **Owner** | Legal Counsel (TBD) |
 | **Status** | PENDING REVIEW |
+| **Research Note (2026-09-09)** | Specific LFPC obligations identified: total-price transparency, clear cancellation/refund disclosure, explicit consent for recurring charges. See `03-Legal/Insurance-Legal-Research-Reference-2026.md` §7. |
 
 ---
 
@@ -302,6 +305,7 @@ This document identifies, assesses, and tracks risks that could impact BajaRide'
 | **Trigger** | Any privacy complaint |
 | **Owner** | Legal Counsel / Data Officer (TBD) |
 | **Status** | PENDING REVIEW |
+| **Research Note (2026-09-09)** | Minimum LFPDPPP "aviso de privacidad" elements identified (controller identity, data collected, purposes, transfers, ARCO rights, security measures). INAI publishes an official generator to use as a starting point. See `03-Legal/Insurance-Legal-Research-Reference-2026.md` §4. Drafting still blocked on `06-App/Data-Model.md` not existing yet. |
 
 ---
 
@@ -391,6 +395,7 @@ This document identifies, assesses, and tracks risks that could impact BajaRide'
 | **Trigger** | MVP launch without confirmed insurance |
 | **Owner** | Insurance Broker / COO (TBD) |
 | **Status** | PENDING REVIEW |
+| **Research Note (2026-09-09)** | Secondary research proposes a 3-layer model (vehicle / activity-operator / platform) with a mandatory-minimum + optional-user-upgrade structure. See `03-Legal/Insurance-Legal-Research-Reference-2026.md` §1–2. No broker quotes obtained yet; whether this becomes a hard MVP gating requirement is still an open product decision, not yet made in `Decision-Log.md`. |
 
 ---
 

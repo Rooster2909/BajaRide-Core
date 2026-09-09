@@ -22,10 +22,11 @@ Fields: **ID** · **Área** · **Tarea** · **Estado** (COMPLETE / IN PROGRESS /
 | CHK-FIN-01 | Finanzas | Construir estructura del modelo financiero (10 módulos) | IN PROGRESS | VALIDATED (estructura) / TBD (cifras) | 02-Finance/BR-02.1-Financial-Model-Overview.md | — | HIGH | Completar módulos BR-02.2 a BR-02.10 |
 | CHK-FIN-02 | Finanzas | Validar take rate objetivo | PENDING | TBD | Financial-Assumptions-Register REV-002 | Investigación de mercado | HIGH | Benchmarking competitivo |
 | CHK-LEG-01 | Legal | Crear estructura documental legal | COMPLETE | VALIDATED (estructura) | 03-Legal/Legal-Structure-Overview.md | — | HIGH | Incorporar contratos reales cuando estén disponibles |
-| CHK-LEG-02 | Legal | Confirmar marco de responsabilidad bajo ley mexicana | PENDING | TBD | Risk-Register LEG-001/LEG-002 | Asesoría legal externa | HIGH | Contactar abogado especializado |
+| CHK-LEG-02 | Legal | Confirmar marco de responsabilidad bajo ley mexicana | IN PROGRESS | HYPOTHESIS (investigación secundaria) | Risk-Register LEG-001/LEG-002, Insurance-Legal-Research-Reference-2026.md | Asesoría legal externa | HIGH | Llevar checklist de investigación a abogado especializado para validación |
+| CHK-LEG-03 | Legal | Verificar si los proveedores deben registrarse en el RNT/DATATUR | PENDING | TBD — hallazgo nuevo | Insurance-Legal-Research-Reference-2026.md §6 | Asesoría legal | MEDIUM | Confirmar con abogado si aplica a proveedores individuales |
 | CHK-CONF-01 | Confianza | Definir requisitos mínimos de verificación de proveedor (MVP) | COMPLETE | VALIDATED | 06-App/Provider-Flows.md §4 | — | MEDIUM | — |
 | CHK-CONF-02 | Confianza | Definir sistema de reviews | PENDING | TBD (Future scope) | 06-App/Provider-Flows.md §19 | Flujo de reservas validado | LOW | Diferir hasta post-MVP |
-| CHK-SEG-01 | Seguros | Contactar corredor de seguros | PENDING | TBD | Risk-Register INS-001 | — | HIGH | Identificar y contactar broker |
+| CHK-SEG-01 | Seguros | Contactar corredor de seguros | IN PROGRESS | HYPOTHESIS (investigación secundaria) | Risk-Register INS-001, Insurance-Legal-Research-Reference-2026.md §1–2 | — | HIGH | Cotizar con corredor real el modelo de 3 capas propuesto |
 | CHK-PAG-01 | Pagos | Elegir procesador de pagos (Stripe/Braintree/otro) | PENDING | TBD | Financial-Assumptions-Register COST-001 | — | MEDIUM | Comparar tarifas y disponibilidad en México |
 | CHK-OPS-01 | Operaciones | Documentar ciclo operativo completo (onboarding → liquidación) | COMPLETE | VALIDATED | 06-App/Provider-Flows.md | — | MEDIUM | — |
 | CHK-OPS-02 | Operaciones | Definir si/cuándo se necesita un Hub físico | PENDING | HYPOTHESIS | Assumptions-Register OPERATIONS-O01 | Escala post-MVP | LOW | Diferir hasta validar volumen |

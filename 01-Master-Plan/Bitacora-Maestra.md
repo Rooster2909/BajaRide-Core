@@ -27,6 +27,7 @@ Fields: **Fecha** · **Decisión/Cambio** · **Motivo** · **Estado anterior** �
 | 2026-09-09 | Knowledge-Recovery-Matrix.md reescrito por completo | La versión de 2026-09-08 quedó obsoleta el mismo día que se creó (ver entrada del 08-09) | Desactualizada → refleja el estado real del repo, incluyendo esta consolidación | Alto | 01-Master-Plan/Knowledge-Recovery-Matrix.md | Consolidación BRfinal |
 | 2026-09-09 | Creación de Checklist-Maestro, Registro-Maestro-de-Documentos y esta Bitácora Maestra | Cumplir la orden BRfinal de gobernanza documental | No existían → existen | Alto | 01-Master-Plan/*.md | Consolidación BRfinal |
 | 2026-09-09 | Nueva decisión pendiente registrada: ambigüedad de stack técnico (Flask/Next.js histórico vs. Flutter/Node.js vigente en el repo) | No se puede resolver por inferencia; requiere confirmación del founder | Sin registrar → registrada como PENDING en Decision-Log DEC-2026-16 | Alto (bloquea CHK-STR-02) | Decision-Log.md, BRfinal-Knowledge-Consolidation-2026.md | Consolidación BRfinal |
+| 2026-09-09 | Incorporada investigación secundaria (IA) sobre seguros y marco legal, aportada por el founder | Avanzar CHK-SEG-01/CHK-LEG-02 sin esperar a contratar abogado/corredor | Sin investigación → checklist de referencia disponible, marcado UNVERIFIED | Medio — reduce incertidumbre pero no la elimina | 03-Legal/Insurance-Legal-Research-Reference-2026.md, Legal-Structure-Overview.md, Risk-Register.md (LEG-001–004, INS-001) | Investigación externa (Perplexity) proporcionada por el founder |
 
 ---
 
