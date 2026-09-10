@@ -19,7 +19,7 @@ Working hypothesis: off-road/UTV tourism in Baja California is currently coordin
 **Status: DOCUMENTED (concept)** — See `06-App/MVP-Product-Definition.md` and `01-Master-Plan/DEMO-BR-007.md`.
 
 ## 4. Product
-**Status: DOCUMENTED (concept), not built** — See `06-App/MVP-Product-Definition.md`, `User-Flows.md`, `Provider-Flows.md`. No code exists yet.
+**Status: DOCUMENTED (concept), not built** — See `06-App/MVP-Product-Definition.md`, `User-Flows.md`, `Provider-Flows.md`, `Admin-Flows.md`, and the conceptual `Data-Model.md`. No code exists yet.
 
 ## 5. Business Model
 **Status: DEFINED (structurally)** — Asset-light marketplace, take rate on bookings (`Decision-Log.md` DEC-2026-01, DEC-2026-05, DEC-2026-12). Take rate percentage: TBD.

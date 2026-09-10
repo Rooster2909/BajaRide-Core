@@ -35,11 +35,11 @@ Fields: **ID** · **Área** · **Tarea** · **Estado** (COMPLETE / IN PROGRESS /
 | CHK-HUB-01 | Hub | Definir modelo operativo del Hub (conceptual) | COMPLETE | VALIDATED (concepto) | Archivo-Maestro-2026.md §5 | — | LOW | No requerido para MVP |
 | CHK-PRO-01 | Producto | Definir MVP (usuarios, flujos, ciclo de vida) | COMPLETE | VALIDATED | 06-App/MVP-Product-Definition.md | — | HIGH | — |
 | CHK-PRO-02 | Producto | Corregir Provider-Flows.md | COMPLETE | VALIDATED | Commit d222796 + esta consolidación | — | HIGH | — |
-| CHK-MVP-01 | MVP | Crear Admin-Flows.md | PENDING | TBD | — | MVP-Product-Definition.md | HIGH | Redactar siguiente |
-| CHK-MVP-02 | MVP | Crear Data-Model.md | PENDING | TBD | — | Admin-Flows.md | HIGH | Redactar tras Admin-Flows |
-| CHK-ARQ-01 | Arquitectura | Crear Architecture.md | PENDING | TBD | — | Data-Model.md | HIGH | Redactar tras Data-Model |
-| CHK-DAT-01 | Datos | Definir entidades núcleo del MVP | COMPLETE | VALIDATED | 06-App/MVP-Product-Definition.md §17 | — | MEDIUM | Formalizar en Data-Model.md |
-| CHK-API-01 | API | Crear API-Requirements.md | PENDING | TBD | — | Data-Model.md, Architecture.md | MEDIUM | Diferir hasta tener Data-Model |
+| CHK-MVP-01 | MVP | Crear Admin-Flows.md | COMPLETE | VALIDATED | 06-App/Admin-Flows.md | — | HIGH | — |
+| CHK-MVP-02 | MVP | Crear Data-Model.md | COMPLETE | VALIDATED (conceptual, technology-agnostic) | 06-App/Data-Model.md | — | HIGH | Formalizar como schema real una vez resuelto DEC-2026-16 |
+| CHK-ARQ-01 | Arquitectura | Crear Architecture.md | BLOCKED | TBD | — | Decision-Log DEC-2026-16 | HIGH | Esperar decisión de stack técnico |
+| CHK-DAT-01 | Datos | Definir entidades núcleo del MVP | COMPLETE | VALIDATED | 06-App/Data-Model.md | — | MEDIUM | — |
+| CHK-API-01 | API | Crear API-Requirements.md | BLOCKED | TBD | — | Architecture.md (CHK-ARQ-01, bloqueado por DEC-2026-16) | MEDIUM | Esperar Architecture.md |
 | CHK-MKG-01 | Marketing | Crear estructura documental de marketing | COMPLETE | VALIDATED (estructura) | 04-Marketing/Marketing-Structure-Overview.md | — | MEDIUM | Poblar con estrategia real |
 | CHK-ADQ-01 | Adquisición | Definir estrategia de adquisición de usuarios | PENDING | TBD | 04-Marketing/Marketing-Structure-Overview.md | Investigación de mercado | MEDIUM | Diferir hasta validar CAC objetivo |
 | CHK-INVR-01 | Inversión | Crear Investor Base Document (20 secciones) | COMPLETE | VALIDATED (estructura) / TBD (contenido) | 08-Investors/Investor-Base-Document.md | — | HIGH | Poblar secciones conforme se valide cada área |

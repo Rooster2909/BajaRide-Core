@@ -17,7 +17,7 @@
 | 03-Legal | STRUCTURED + RESEARCHED (no executed contracts yet) | Legal-Structure-Overview.md, Insurance-Legal-Research-Reference-2026.md | PENDING — structure + secondary research exist, real contracts (e.g. BR-LEGAL-001, historically referenced) and attorney/broker validation still missing |
 | 04-Marketing | STRUCTURED (no campaign content yet) | Marketing-Structure-Overview.md | PENDING |
 | 05-Operations | MINIMAL + RESEARCHED | Baja-500-Interviews.md (empty template), Catalogo-Maestro-de-Eventos.md (schema only), Provider-Resource-Map.md (8 real competitors identified), Market-Competitive-Research-2026.md | NEEDS BAJARIDE-OWN DATA — real external market/competitor evidence now exists, BajaRide's own traction still doesn't |
-| 06-App | PARTIAL | MVP-Product-Definition.md, User-Flows.md, Provider-Flows.md, DEMO-BR-007.md | Core MVP spec exists; Admin-Flows/Data-Model/Architecture/API-Requirements/Product-Backlog/Acceptance-Criteria/MVP-Roadmap/Product-Decision-Log still MISSING |
+| 06-App | PARTIAL | MVP-Product-Definition.md, User-Flows.md, Provider-Flows.md, Admin-Flows.md, Data-Model.md, DEMO-BR-007.md | MVP spec + Admin flow + conceptual data model now exist; Architecture/API-Requirements/Product-Backlog/Acceptance-Criteria/MVP-Roadmap/Product-Decision-Log still MISSING; Architecture blocked on DEC-2026-16 |
 | 07-AI-System | EXISTS | Project-State.md, Protocols.md | ALIGNED, but redundant with 08-Investors/Project-State.md (same content, two locations) |
 | 08-Investors | PARTIAL | Project-State.md, Investor-Base-Document.md, Investor-Evidence-Matrix.md | Structure now exists; zero validated evidence populated yet |
 | 99-Archive | EMPTY | .gitkeep | Nothing superseded enough to archive yet |
@@ -88,7 +88,7 @@ The prior version of this file described `Decision-Log.md`, `Assumptions-Registe
 Average booking price · take rate % · monthly active users/providers target · CAC · provider acquisition cost · churn rates · operating cost per hub · infrastructure costs · competitive landscape detail · market size (TAM/SAM/SOM) · demand validation · supply availability · legal requirements · insurance requirements · payment processor · KYC/KYB requirements.
 
 ### MISSING / NOT INITIATED (updated — most of the prior list is now DOCUMENTED above; this is what's still genuinely missing)
-- Admin-Flows.md, Data-Model.md, Architecture.md, API-Requirements.md, Product-Backlog.md, Acceptance-Criteria.md, MVP-Roadmap.md, Product-Decision-Log.md (all still to be created — see `06-App` in Section I)
+- Architecture.md, API-Requirements.md, Product-Backlog.md, Acceptance-Criteria.md, MVP-Roadmap.md, Product-Decision-Log.md (all still to be created — see `06-App` in Section I; Architecture.md specifically blocked on DEC-2026-16). `Admin-Flows.md` and `Data-Model.md` were created stack-agnostically, so this list is shorter than before.
 - Real events in the Events Catalog (schema exists, zero populated events beyond the unstructured Baja 500 mention)
 - Real entries in the Provider/Resource Map (schema exists, zero populated entries)
 - Investor pitch deck (12–15 slides) — explicitly deferred until the Investor Base Document is complete, per Archivo-Maestro-2026 and the BRfinal order
@@ -109,7 +109,7 @@ Average booking price · take rate % · monthly active users/providers target ·
 
 ### NOT YET DONE (genuinely next)
 1. Resolve the technical-stack open decision (DEC-2026-16) — founder input required, not inferable.
-2. Create `Admin-Flows.md`, `Data-Model.md`, `Architecture.md`, `API-Requirements.md`.
+2. Create `Architecture.md` (blocked on DEC-2026-16) and `API-Requirements.md` (depends on Architecture.md). `Admin-Flows.md` and `Data-Model.md` are done.
 3. Conduct real market research (Baja 500 interviews, competitive analysis) to begin converting HYPOTHESIS → VALIDATED.
 4. Populate the Financial Model with real figures once research exists.
 5. Decide which of the two `Project-State.md` files is canonical (C-04) and redirect the other to a cross-reference.
