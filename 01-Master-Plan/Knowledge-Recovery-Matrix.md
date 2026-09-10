@@ -16,7 +16,7 @@
 | 02-Finance | PARTIAL | BR-02.1-Financial-Model-Overview.md, Financial-Assumptions-Register.md | ALIGNED — structure exists, zero validated figures |
 | 03-Legal | STRUCTURED + RESEARCHED (no executed contracts yet) | Legal-Structure-Overview.md, Insurance-Legal-Research-Reference-2026.md | PENDING — structure + secondary research exist, real contracts (e.g. BR-LEGAL-001, historically referenced) and attorney/broker validation still missing |
 | 04-Marketing | STRUCTURED (no campaign content yet) | Marketing-Structure-Overview.md | PENDING |
-| 05-Operations | MINIMAL | Baja-500-Interviews.md (empty template), Catalogo-Maestro-de-Eventos.md (schema only), Provider-Resource-Map.md (schema only) | NEEDS REAL DATA |
+| 05-Operations | MINIMAL + RESEARCHED | Baja-500-Interviews.md (empty template), Catalogo-Maestro-de-Eventos.md (schema only), Provider-Resource-Map.md (8 real competitors identified), Market-Competitive-Research-2026.md | NEEDS BAJARIDE-OWN DATA — real external market/competitor evidence now exists, BajaRide's own traction still doesn't |
 | 06-App | PARTIAL | MVP-Product-Definition.md, User-Flows.md, Provider-Flows.md, DEMO-BR-007.md | Core MVP spec exists; Admin-Flows/Data-Model/Architecture/API-Requirements/Product-Backlog/Acceptance-Criteria/MVP-Roadmap/Product-Decision-Log still MISSING |
 | 07-AI-System | EXISTS | Project-State.md, Protocols.md | ALIGNED, but redundant with 08-Investors/Project-State.md (same content, two locations) |
 | 08-Investors | PARTIAL | Project-State.md, Investor-Base-Document.md, Investor-Evidence-Matrix.md | Structure now exists; zero validated evidence populated yet |

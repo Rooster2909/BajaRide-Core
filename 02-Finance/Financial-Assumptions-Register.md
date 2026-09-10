@@ -22,11 +22,11 @@ This register documents all financial assumptions required to build the BajaRide
 | **Status** | TBD / PENDING VALIDATION |
 | **Current Value** | TBD |
 | **Unit** | USD |
-| **Source** | Market research (Baja 500 interviews - in progress) |
+| **Source** | Market research (Baja 500 interviews - in progress). **Update 2026-09-09**: external benchmark of published competitor prices now available (~US$70–560 per experience, varying by vehicle/duration/group size) — see `05-Operations/Market-Competitive-Research-2026.md` §6. This is a competitor benchmark, not BajaRide's own validated price. |
 | **Method of Validation** | Provider interviews + competitive benchmarking + customer surveys |
 | **Timeline** | Q4 2026 |
 | **Impact if Wrong** | CRITICAL — directly affects all revenue projections |
-| **Notes** | Historical data points: TBD; need range (minimum/likely/maximum) |
+| **Notes** | Historical data points: TBD; external competitor range now documented (~US$70–560); still need BajaRide's own range (minimum/likely/maximum) |
 
 ---
 
@@ -42,7 +42,7 @@ This register documents all financial assumptions required to build the BajaRide
 | **Method of Validation** | Benchmark against Airbnb (3-16%), Uber (15-25%), comparable marketplaces |
 | **Timeline** | Q4 2026 |
 | **Impact if Wrong** | CRITICAL — affects provider attractiveness and platform profitability |
-| **Notes** | Must balance provider competitiveness with platform sustainability |
+| **Notes** | Must balance provider competitiveness with platform sustainability. **Update 2026-09-09**: no take-rate benchmark for off-road/tour marketplaces specifically was found in the external research — still genuinely TBD, not just unpopulated. See `05-Operations/Market-Competitive-Research-2026.md` §9 (pilot recommended to observe an accepted rate directly). |
 
 ---
 

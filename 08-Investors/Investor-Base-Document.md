@@ -13,7 +13,7 @@
 Working hypothesis: off-road/UTV tourism in Baja California is currently coordinated informally (word of mouth, informal rental), with no structured platform connecting owners/operators to tourists. Not yet backed by market research.
 
 ## 2. Market
-**Status: TBD** — See `Assumptions-Register.md` MARKET-M04/M05. No TAM/SAM/SOM figure in this document is validated. A historical $16.4M/year TAM figure exists from prior sessions but has no visible methodology — see `BRfinal-Knowledge-Consolidation-2026.md` Section II.D — and is **not** used here until re-derived.
+**Status: EXTERNAL EVIDENCE AVAILABLE (not yet BajaRide-specific validation)** — See `Assumptions-Register.md` MARKET-M04/M05 and `05-Operations/Market-Competitive-Research-2026.md`. Real demand-side evidence: Ensenada recorded ~1.3M cruise passengers in 2025 (+41.7% YoY), with nature/adventure tourism at 22.2% of stated travel motivation. This is evidence of tourism scale, not evidence that BajaRide has or will have customers. A historical $16.4M/year TAM figure exists from prior sessions but has no visible methodology — see `BRfinal-Knowledge-Consolidation-2026.md` Section II.D — and is **not** used here until re-derived.
 
 ## 3. Solution
 **Status: DOCUMENTED (concept)** — See `06-App/MVP-Product-Definition.md` and `01-Master-Plan/DEMO-BR-007.md`.
@@ -40,10 +40,10 @@ Working hypothesis: off-road/UTV tourism in Baja California is currently coordin
 **Status: UNRESOLVED** — See `Decision-Log.md` DEC-2026-07 (Flutter/Node.js, active in this repo) and DEC-2026-16 (open ambiguity vs. historical Flask/Next.js track). No code exists in this repository. **This section cannot be finalized until DEC-2026-16 is resolved.**
 
 ## 11. Competition
-**Status: TBD** — No competitive analysis exists in this repository yet. See `Checklist-Maestro.md` CHK-MKT-02.
+**Status: EXTERNAL EVIDENCE AVAILABLE** — 8 real operating businesses identified in Ensenada with published pricing (~US$70–560/experience) — see `05-Operations/Market-Competitive-Research-2026.md` §3, §6 and `05-Operations/Provider-Resource-Map.md`. Market reads as fragmented (multiple operators, no confirmed dominant player) but no formal share analysis exists — see `Assumptions-Register.md` MARKET-M05.
 
 ## 12. Unit Economics
-**Status: TBD** — See `02-Finance/Financial-Assumptions-Register.md` — every relevant variable (price, take rate, CAC, payout) is currently TBD.
+**Status: TBD** — See `02-Finance/Financial-Assumptions-Register.md` — every relevant variable (price, take rate, CAC, payout) is currently TBD. A competitor price benchmark now exists (~US$70–560/experience, `05-Operations/Market-Competitive-Research-2026.md` §6) but a benchmark is not a unit-economics figure — no BajaRide-specific number should be inferred from it.
 
 ## 13. Financial Model
 **Status: SKELETON** — See `02-Finance/BR-02.1-Financial-Model-Overview.md`. 1 of 10 planned modules exists; zero validated figures.

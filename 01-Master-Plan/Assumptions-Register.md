@@ -24,8 +24,8 @@ This document registers all working assumptions that guide BajaRide strategy, fi
 | **Assumption** | The off-road experience market (UTV, ATV, desert tours) exists in Ensenada, Baja California and is currently underserved by organized, curated platforms. |
 | **Category** | Market / Demand |
 | **Status** | HYPOTHESIS |
-| **Evidence Available** | Baja 500 event exists; historical mentions of Baja 500 interviews as validation opportunity |
-| **Evidence Level** | LOW — No formal market research conducted yet |
+| **Evidence Available** | Baja 500 event exists; historical mentions of Baja 500 interviews as validation opportunity. **Update 2026-09-09**: external secondary research confirms real tourism demand at scale (Ensenada: ~1.3M cruise passengers in 2025, +41.7% YoY; nature/adventure = 22.2% of stated travel motivation) and real existing off-road operators/pricing in-market. See `05-Operations/Market-Competitive-Research-2026.md`. |
+| **Evidence Level** | LOW→MEDIUM — general tourism/off-road demand now has external evidence; BajaRide-specific demand (would tourists book *BajaRide*) still has zero direct evidence |
 | **Validation Method** | Market research interviews during/after Baja 500; competitive analysis; search volume analysis |
 | **Impact if False** | MVP market validation fails; entire business model may not apply to Ensenada |
 | **Mitigation** | Secondary geography backups (other Baja CA locations, Cabo, etc.) |
@@ -75,8 +75,8 @@ This document registers all working assumptions that guide BajaRide strategy, fi
 | **Assumption** | Total addressable market (TAM) in Ensenada for off-road experiences is sufficient to support 8-digit revenue potential. |
 | **Category** | Market / TAM |
 | **Status** | TBD — Not yet quantified |
-| **Evidence Available** | None |
-| **Evidence Level** | ZERO |
+| **Evidence Available** | None. **Update 2026-09-09**: raw inputs for a bottom-up estimate now exist externally (cruise passenger volume, YoY growth, nature/adventure travel share, average trip spend) — see `05-Operations/Market-Competitive-Research-2026.md` §5. No TAM figure has been calculated from these inputs; doing so would require additional unvalidated conversion/penetration assumptions. A historical $16.4M/year TAM figure exists from prior sessions with no visible methodology and remains unused — see `01-Master-Plan/BRfinal-Knowledge-Consolidation-2026.md` §II.D. |
+| **Evidence Level** | ZERO→LOW — raw external inputs exist; no TAM has actually been calculated yet |
 | **Validation Method** | Bottom-up: interview X providers, estimate capacity, calculate annual GMV; Top-down: tourism data, Baja 500 attendance, competitive estimates |
 | **Impact if False** | Market too small; unit economics don't scale; geographic expansion required earlier |
 | **Mitigation** | Diversify experience categories beyond UTV; expand geography sooner |
@@ -91,9 +91,9 @@ This document registers all working assumptions that guide BajaRide strategy, fi
 |-------|-------|
 | **Assumption** | Off-road experience providers in Ensenada are currently fragmented (no dominant player), making market entry viable. |
 | **Category** | Market / Competition |
-| **Status** | HYPOTHESIS |
-| **Evidence Available** | None documented |
-| **Evidence Level** | ZERO |
+| **Status** | HYPOTHESIS — direction supported by evidence, dominance not ruled out |
+| **Evidence Available** | None documented. **Update 2026-09-09**: 8 real operators identified in Ensenada (ATV Ensenada Tours, ATV Ensenada Off Road Tours, Ride 2 go, Chylyca UTV Rentas, PITS Adventure Hub, Activities Ensenada, Rhino Off Road Tours, Baja Trip ATV Rental) with published pricing — consistent with a fragmented, multi-operator market rather than one dominant player, but no formal market-share analysis was done. See `05-Operations/Market-Competitive-Research-2026.md` §3, `05-Operations/Provider-Resource-Map.md`. |
+| **Evidence Level** | ZERO→MEDIUM — real competitor list exists; fragmentation is a reasonable read of it, not a measured fact |
 | **Validation Method** | Competitive analysis; provider interviews; Google/social media search; Baja 500 reconnaissance |
 | **Impact if False** | Incumbent competitor with strong market position; need to differentiate significantly or enter adjacent market |
 | **Mitigation** | Rapid MVP launch; community-first approach; unique technology/UX |
