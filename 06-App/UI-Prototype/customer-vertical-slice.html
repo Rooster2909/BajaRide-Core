@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BajaRide — Customer Vertical Slice Prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=Big+Shoulders:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#141210;
+    --ink-soft:#1e1b17;
+    --sand:#f2ede2;
+    --sand-dim:#d9d0bd;
+    --gold:#b6883c;
+    --gold-bright:#d4a75a;
+    --stone:#7a7266;
+    --line: rgba(242,237,226,0.14);
+    --line-dark: rgba(20,18,16,0.12);
+    --ok:#6f8f6b;
+    --warn:#b6883c;
+    --danger:#9c4a37;
+    --radius: 2px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background: #0c0b0a;
+    background-image:
+      radial-gradient(circle at 20% -10%, rgba(182,136,60,0.10), transparent 45%),
+      radial-gradient(circle at 90% 110%, rgba(182,136,60,0.06), transparent 40%);
+    font-family:'Inter', sans-serif;
+    color: var(--sand);
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding: 40px 16px 64px;
+  }
+  .lab-header{
+    max-width:390px;
+    width:100%;
+    margin-bottom:22px;
+    text-align:left;
+  }
+  .lab-eyebrow{
+    font-family:'Big Shoulders', sans-serif;
+    font-weight:700;
+    font-size:12px;
+    letter-spacing:.14em;
+    color: var(--gold-bright);
+    margin:0 0 6px;
+  }
+  .lab-title{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:26px;
+    margin:0 0 4px;
+    color: var(--sand);
+  }
+  .lab-sub{
+    font-size:13px;
+    color: var(--stone);
+    margin:0;
+    line-height:1.5;
+  }
+
+  .device{
+    width: 390px;
+    max-width:100%;
+    background: var(--ink);
+    border-radius: 34px;
+    padding: 14px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(182,136,60,0.18);
+    position:relative;
+  }
+  .notch{
+    position:absolute; top:14px; left:50%; transform:translateX(-50%);
+    width:120px; height:20px; background:#000; border-radius:0 0 14px 14px;
+    z-index:5;
+  }
+  .screen-frame{
+    background: var(--sand);
+    color: var(--ink);
+    border-radius: 22px;
+    overflow:hidden;
+    height: 780px;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+  }
+
+  /* progress strip */
+  .flow-strip{
+    display:flex;
+    gap:4px;
+    padding: 10px 16px 8px;
+    background: var(--sand);
+    flex-shrink:0;
+  }
+  .flow-dot{
+    flex:1;
+    height:3px;
+    background: var(--line-dark);
+    border-radius:2px;
+  }
+  .flow-dot.done{ background: var(--gold); }
+  .flow-dot.current{ background: var(--ink); }
+
+  .scr{
+    flex:1;
+    overflow-y:auto;
+    display:none;
+    flex-direction:column;
+  }
+  .scr.active{ display:flex; }
+
+  /* Generic screen chrome */
+  .topbar{
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 6px 18px 14px;
+  }
+  .brand{
+    font-family:'Fraunces', serif; font-weight:600; font-size:18px; letter-spacing:.01em;
+    display:flex; align-items:center; gap:6px;
+  }
+  .brand .dot{ width:6px; height:6px; background:var(--gold); border-radius:50%; display:inline-block; }
+  .icon-btn{
+    width:30px; height:30px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    background: var(--line-dark); font-size:13px; color:var(--ink); border:none; cursor:pointer;
+  }
+  .back-row{
+    display:flex; align-items:center; gap:10px; padding: 6px 18px 4px;
+  }
+  .back-btn{
+    background:none; border:none; font-size:13px; color:var(--stone); cursor:pointer; padding:4px 0;
+    font-family:'Inter',sans-serif;
+  }
+  .back-btn:hover{ color: var(--ink); }
+
+  .section{ padding: 6px 18px 20px; }
+  .h1{ font-family:'Fraunces', serif; font-weight:600; font-size:23px; line-height:1.15; margin:0 0 8px; }
+  .h2{ font-family:'Fraunces', serif; font-weight:600; font-size:18px; margin:0 0 10px; }
+  .p{ font-size:13.5px; line-height:1.55; color:#3c3833; margin:0 0 12px; }
+  .muted{ color: var(--stone); font-size:12.5px; }
+
+  /* search card home */
+  .search-card{
+    background: var(--ink); color: var(--sand);
+    border-radius: 4px; padding:16px; margin: 4px 0 18px;
+  }
+  .field-row{ display:flex; gap:8px; margin-bottom:8px; }
+  .field{
+    flex:1; background: var(--ink-soft); border:1px solid var(--line);
+    border-radius:2px; padding:9px 10px; font-size:12px;
+  }
+  .field .k{ display:block; color: var(--gold-bright); font-size:9.5px; letter-spacing:.08em; margin-bottom:2px; font-family:'Big Shoulders',sans-serif; font-weight:600;}
+  .field .v{ font-size:12.5px; }
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:100%; padding:12px 14px; border:none; cursor:pointer;
+    font-family:'Inter',sans-serif; font-weight:600; font-size:13.5px;
+    border-radius:2px; transition:opacity .15s ease;
+  }
+  .btn:hover{ opacity:.88; }
+  .btn-gold{ background: var(--gold); color:#151210; }
+  .btn-dark{ background: var(--ink); color: var(--sand); }
+  .btn-ghost{ background:transparent; color:var(--ink); border:1px solid var(--line-dark); }
+  .btn-danger-ghost{ background:transparent; color: var(--danger); border:1px solid rgba(156,74,55,0.4); }
+
+  .chip-row{ display:flex; gap:8px; overflow-x:auto; padding: 2px 18px 16px; }
+  .chip{
+    flex-shrink:0; padding:7px 13px; border:1px solid var(--line-dark);
+    border-radius:20px; font-size:12px; font-weight:500; color:var(--ink); white-space:nowrap;
+  }
+  .chip.on{ background: var(--ink); color: var(--sand); border-color:var(--ink); }
+
+  .card{
+    border:1px solid var(--line-dark); border-radius:4px; overflow:hidden; margin: 0 18px 14px;
+    background:#fff;
+  }
+  .card-img{
+    height:120px;
+    background: linear-gradient(135deg, #3a332a, #171512 60%);
+    position:relative;
+    display:flex; align-items:flex-end;
+  }
+  .card-img .badge{
+    position:absolute; top:10px; left:10px;
+    background: rgba(20,18,16,0.75); color: var(--gold-bright);
+    font-size:9.5px; letter-spacing:.06em; padding:4px 8px; border-radius:2px;
+    font-family:'Big Shoulders',sans-serif; font-weight:600;
+  }
+  .card-body{ padding:12px 14px; }
+  .card-title-row{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom:3px;}
+  .card-title{ font-family:'Fraunces',serif; font-weight:600; font-size:15px; }
+  .card-price{ font-size:13px; font-weight:700; color:var(--ink); }
+  .card-meta{ font-size:11.5px; color:var(--stone); }
+  .rating{ color:var(--gold); font-weight:700; }
+
+  /* trust row */
+  .trust-row{ display:flex; gap:16px; padding: 4px 18px 22px; }
+  .trust-item{ flex:1; text-align:center; }
+  .trust-item .ic{ font-size:16px; margin-bottom:4px; }
+  .trust-item .tx{ font-size:10px; color:var(--stone); line-height:1.3; }
+
+  /* Explore filters */
+  .filter-bar{ display:flex; gap:8px; padding: 10px 18px 14px; }
+  .filter-pill{
+    flex-shrink:0; padding:7px 12px; border:1px solid var(--line-dark); border-radius:20px;
+    font-size:11.5px; display:flex; align-items:center; gap:5px;
+  }
+
+  /* Experience detail */
+  .gallery{ height:210px; background: linear-gradient(160deg,#4a4032,#171512 65%); position:relative; }
+  .gallery .gal-dots{ position:absolute; bottom:10px; left:0; right:0; display:flex; justify-content:center; gap:4px; }
+  .gallery .gal-dots span{ width:5px; height:5px; border-radius:50%; background:rgba(255,255,255,.4); }
+  .gallery .gal-dots span.on{ background:#fff; }
+  .spec-grid{ display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:10px 0 16px; }
+  .spec-item{ border-left:2px solid var(--gold); padding-left:8px; }
+  .spec-k{ font-size:9.5px; letter-spacing:.08em; color:var(--stone); font-family:'Big Shoulders',sans-serif; font-weight:600;}
+  .spec-v{ font-size:12.5px; font-weight:600; }
+  .price-box{
+    background: var(--ink); color:var(--sand); border-radius:4px; padding:14px; margin: 8px 0 4px;
+  }
+  .price-line{ display:flex; justify-content:space-between; font-size:12px; padding:4px 0; color:var(--sand-dim); }
+  .price-line.total{ border-top:1px solid var(--line); margin-top:6px; padding-top:8px; font-weight:700; color:var(--sand); font-size:13.5px; }
+
+  .sticky-cta{
+    position:sticky; bottom:0; background: var(--sand); border-top:1px solid var(--line-dark);
+    padding: 12px 18px 16px;
+  }
+
+  /* Booking steps */
+  .step-row{ display:flex; align-items:center; gap:6px; padding: 8px 18px 16px; }
+  .step-node{ width:20px; height:20px; border-radius:50%; background:var(--line-dark); font-size:9.5px; display:flex; align-items:center; justify-content:center; font-weight:700; }
+  .step-node.on{ background:var(--ink); color:var(--sand); }
+  .step-connector{ flex:1; height:1px; background:var(--line-dark); }
+  .form-row{ margin: 0 18px 12px; }
+  .form-label{ font-size:10.5px; letter-spacing:.06em; color:var(--stone); font-family:'Big Shoulders',sans-serif; font-weight:600; margin-bottom:4px; display:block; }
+  .form-input{ width:100%; border:1px solid var(--line-dark); border-radius:2px; padding:10px 12px; font-size:13px; font-family:'Inter',sans-serif; background:#fff; }
+  .stepper{ display:flex; align-items:center; gap:14px; border:1px solid var(--line-dark); border-radius:2px; padding:8px 12px; width:fit-content; }
+  .stepper button{ width:22px; height:22px; border:1px solid var(--line-dark); background:#fff; border-radius:50%; cursor:pointer; font-size:13px; }
+
+  /* Confirmation / states */
+  .status-hero{ text-align:center; padding: 30px 24px 10px; }
+  .status-icon{ width:56px; height:56px; border-radius:50%; margin:0 auto 14px; display:flex; align-items:center; justify-content:center; font-size:24px; }
+  .status-icon.ok{ background: rgba(111,143,107,0.15); color: var(--ok); }
+  .status-icon.warn{ background: rgba(182,136,60,0.15); color: var(--gold); }
+  .rental-id{ font-family:'Big Shoulders',sans-serif; font-weight:700; letter-spacing:.06em; color:var(--gold); font-size:13px; margin: 4px 0 18px; }
+  .detail-row{ display:flex; justify-content:space-between; padding: 9px 0; border-bottom:1px solid var(--line-dark); font-size:12.5px; }
+  .detail-row .k{ color:var(--stone); }
+  .detail-row .v{ font-weight:600; }
+
+  /* Active rental */
+  .timer-box{ background: var(--ink); color:var(--sand); border-radius:4px; padding:20px; text-align:center; margin: 4px 18px 16px; }
+  .timer-num{ font-family:'Big Shoulders',sans-serif; font-weight:700; font-size:34px; color:var(--gold-bright); }
+  .timer-lbl{ font-size:10.5px; letter-spacing:.08em; color:var(--sand-dim); }
+  .instr-list{ margin:0 18px 16px; padding:0; list-style:none; }
+  .instr-list li{ display:flex; gap:8px; font-size:12.5px; padding:7px 0; border-bottom:1px solid var(--line-dark); }
+  .instr-list li .n{ color:var(--gold); font-weight:700; }
+
+  .review-stars{ font-size:26px; letter-spacing:4px; color:var(--sand-dim); text-align:center; margin: 6px 0 18px; }
+  .review-stars span.on{ color: var(--gold); }
+
+  .lab-nav{
+    max-width:390px; width:100%; margin-top:20px;
+    display:flex; flex-wrap:wrap; gap:6px;
+  }
+  .lab-nav button{
+    font-family:'Inter',sans-serif; font-size:10.5px; padding:6px 10px;
+    background: var(--ink-soft); color: var(--sand-dim); border:1px solid var(--line);
+    border-radius:20px; cursor:pointer;
+  }
+  .lab-nav button.on{ background: var(--gold); color:#151210; border-color:var(--gold); font-weight:700; }
+</style>
+</head>
+<body>
+
+  <div class="lab-header">
+    <p class="lab-eyebrow">BAJARIDE · CUSTOMER VERTICAL SLICE</p>
+    <h1 class="lab-title">Prototipo clickeable — MVP piloto</h1>
+    <p class="lab-sub">Sin backend, sin pagos reales. Sirve para validar el flujo Home→Completed antes de decidir stack (DEC-2026-16). Usa los botones dentro de la pantalla o los del pie para saltar entre pasos.</p>
+  </div>
+
+  <div class="device">
+    <div class="notch"></div>
+    <div class="screen-frame">
+
+      <div class="flow-strip" id="flowStrip"></div>
+
+      <!-- 1. HOME -->
+      <section class="scr active" data-screen="home">
+        <div class="topbar">
+          <div class="brand"><span class="dot"></span>BajaRide</div>
+          <div style="display:flex;gap:8px;">
+            <button class="icon-btn">📍</button>
+            <button class="icon-btn">🔔</button>
+          </div>
+        </div>
+        <div class="section" style="padding-top:0;">
+          <h1 class="h1">Explore Baja<br>Off-Road.</h1>
+          <p class="p">Book verified off-road experiences around Ensenada, from half-day dune runs to guided desert routes.</p>
+          <div class="search-card">
+            <div class="field-row">
+              <div class="field"><span class="k">LOCATION</span><span class="v">Ensenada, BC</span></div>
+              <div class="field"><span class="k">DATE</span><span class="v">Sep 21</span></div>
+            </div>
+            <div class="field-row">
+              <div class="field"><span class="k">GUESTS</span><span class="v">2 people</span></div>
+              <div class="field"><span class="k">TYPE</span><span class="v">UTV</span></div>
+            </div>
+            <button class="btn btn-gold" onclick="go('explore')">Search</button>
+          </div>
+        </div>
+        <div class="chip-row">
+          <div class="chip on">UTV</div>
+          <div class="chip">ATV</div>
+          <div class="chip">Tours</div>
+          <div class="chip">Guided</div>
+          <div class="chip">Self-Drive</div>
+        </div>
+        <div class="card" onclick="go('experience')" style="cursor:pointer;">
+          <div class="card-img"><span class="badge">FEATURED</span></div>
+          <div class="card-body">
+            <div class="card-title-row"><span class="card-title">Can-Am X3 Desert Run</span><span class="card-price">$180</span></div>
+            <div class="card-meta"><span class="rating">★ 4.9</span> · 6h · Ensenada · Verified Provider</div>
+          </div>
+        </div>
+        <div class="trust-row">
+          <div class="trust-item"><div class="ic">✓</div><div class="tx">Verified<br>Providers</div></div>
+          <div class="trust-item"><div class="ic">🔒</div><div class="tx">Secure<br>Payments</div></div>
+          <div class="trust-item"><div class="ic">☎</div><div class="tx">24/7<br>Support</div></div>
+        </div>
+      </section>
+
+      <!-- 2. EXPLORE -->
+      <section class="scr" data-screen="explore">
+        <div class="back-row"><button class="back-btn" onclick="go('home')">← Home</button></div>
+        <div class="section" style="padding-top:0;">
+          <h2 class="h2">Explore experiences</h2>
+        </div>
+        <div class="filter-bar">
+          <div class="filter-pill">📍 Ensenada</div>
+          <div class="filter-pill">📅 Sep 21</div>
+          <div class="filter-pill">⚙ Filters</div>
+        </div>
+        <div class="card" onclick="go('experience')" style="cursor:pointer;">
+          <div class="card-img"><span class="badge">UTV · SELF-DRIVE</span></div>
+          <div class="card-body">
+            <div class="card-title-row"><span class="card-title">Can-Am X3 Desert Run</span><span class="card-price">$180</span></div>
+            <div class="card-meta"><span class="rating">★ 4.9</span> (128) · 6h · Capacity 4</div>
+          </div>
+        </div>
+        <div class="card" onclick="go('experience')" style="cursor:pointer;">
+          <div class="card-img"><span class="badge">TOUR · GUIDED</span></div>
+          <div class="card-body">
+            <div class="card-title-row"><span class="card-title">Valle de Guadalupe Trail</span><span class="card-price">$140</span></div>
+            <div class="card-meta"><span class="rating">★ 4.7</span> (64) · 4h · Capacity 6</div>
+          </div>
+        </div>
+        <div class="card" onclick="go('experience')" style="cursor:pointer;">
+          <div class="card-img"><span class="badge">ATV · SELF-DRIVE</span></div>
+          <div class="card-body">
+            <div class="card-title-row"><span class="card-title">Coastal Dunes Ride</span><span class="card-price">$95</span></div>
+            <div class="card-meta"><span class="rating">★ 4.8</span> (41) · 3h · Capacity 2</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. EXPERIENCE DETAIL -->
+      <section class="scr" data-screen="experience">
+        <div class="gallery">
+          <div class="back-row" style="position:relative;z-index:2;">
+            <button class="icon-btn" style="background:rgba(255,255,255,.85);" onclick="go('explore')">←</button>
+          </div>
+          <div class="gal-dots"><span class="on"></span><span></span><span></span></div>
+        </div>
+        <div class="section">
+          <div class="card-title-row" style="margin-bottom:2px;">
+            <h1 class="h1" style="font-size:19px;margin:0;">Can-Am X3 Desert Run</h1>
+          </div>
+          <p class="muted" style="margin-bottom:14px;">Ensenada, BC · <span class="rating">★ 4.9</span> (128 reviews) · Verified Provider</p>
+          <p class="p">Full-day guided run through Baja backcountry trails aboard a 2018 Can-Am Maverick X3. Includes safety briefing, helmets, and a support vehicle.</p>
+          <div class="spec-grid">
+            <div class="spec-item"><div class="spec-k">UNIT</div><div class="spec-v">Can-Am X3 2018</div></div>
+            <div class="spec-item"><div class="spec-k">CAPACITY</div><div class="spec-v">2 riders</div></div>
+            <div class="spec-item"><div class="spec-k">DURATION</div><div class="spec-v">6 hours</div></div>
+            <div class="spec-item"><div class="spec-k">MEETING POINT</div><div class="spec-v">Hub Ensenada Sur</div></div>
+          </div>
+          <div class="price-box">
+            <div class="price-line"><span>Base price</span><span>$150.00</span></div>
+            <div class="price-line"><span>Service fee</span><span>$18.00</span></div>
+            <div class="price-line"><span>Deposit (refundable)</span><span>$200.00</span></div>
+            <div class="price-line total"><span>Total due today</span><span>$168.00</span></div>
+          </div>
+        </div>
+        <div class="sticky-cta"><button class="btn btn-gold" onclick="go('booking')">Book Now</button></div>
+      </section>
+
+      <!-- 4. BOOKING -->
+      <section class="scr" data-screen="booking">
+        <div class="back-row"><button class="back-btn" onclick="go('experience')">← Experience</button></div>
+        <div class="section" style="padding-top:0;">
+          <h2 class="h2">Confirm your booking</h2>
+        </div>
+        <div class="step-row">
+          <div class="step-node on">1</div><div class="step-connector"></div>
+          <div class="step-node">2</div><div class="step-connector"></div>
+          <div class="step-node">3</div><div class="step-connector"></div>
+          <div class="step-node">4</div>
+        </div>
+        <div class="form-row">
+          <span class="form-label">DATE & TIME</span>
+          <input class="form-input" value="Sep 21, 2026 · 9:00 AM" readonly>
+        </div>
+        <div class="form-row">
+          <span class="form-label">GUESTS</span>
+          <div class="stepper"><button>−</button><span>2</span><button>+</button></div>
+        </div>
+        <div class="form-row">
+          <span class="form-label">LEAD GUEST NAME</span>
+          <input class="form-input" placeholder="Full name">
+        </div>
+        <div class="form-row">
+          <span class="form-label">DRIVER'S LICENSE</span>
+          <input class="form-input" placeholder="Upload document">
+        </div>
+        <div class="sticky-cta"><button class="btn btn-gold" onclick="go('payment')">Continue to payment</button></div>
+      </section>
+
+      <!-- 5. PAYMENT -->
+      <section class="scr" data-screen="payment">
+        <div class="back-row"><button class="back-btn" onclick="go('booking')">← Booking</button></div>
+        <div class="section" style="padding-top:0;">
+          <h2 class="h2">Payment</h2>
+          <p class="muted" style="margin-bottom:14px;">You'll review and sign the rental contract on the next step.</p>
+        </div>
+        <div class="section" style="padding-top:0;">
+          <div class="price-box">
+            <div class="price-line"><span>Subtotal</span><span>$150.00</span></div>
+            <div class="price-line"><span>Service fee</span><span>$18.00</span></div>
+            <div class="price-line"><span>Tax</span><span>$12.00</span></div>
+            <div class="price-line"><span>Security deposit (held, refundable)</span><span>$200.00</span></div>
+            <div class="price-line total"><span>Total today</span><span>$380.00</span></div>
+          </div>
+        </div>
+        <div class="form-row">
+          <span class="form-label">PAYMENT METHOD</span>
+          <input class="form-input" value="Visa •••• 4417" readonly>
+        </div>
+        <div class="sticky-cta"><button class="btn btn-gold" onclick="go('confirmation')">Pay & Sign Contract</button></div>
+      </section>
+
+      <!-- 6. CONFIRMATION -->
+      <section class="scr" data-screen="confirmation">
+        <div class="status-hero">
+          <div class="status-icon ok">✓</div>
+          <h1 class="h1" style="font-size:20px;">Reservation Confirmed</h1>
+          <div class="rental-id">RENTAL ID · BR-00482</div>
+        </div>
+        <div class="section" style="padding-top:0;">
+          <div class="detail-row"><span class="k">Experience</span><span class="v">Can-Am X3 Desert Run</span></div>
+          <div class="detail-row"><span class="k">Date</span><span class="v">Sep 21, 9:00 AM</span></div>
+          <div class="detail-row"><span class="k">Location</span><span class="v">Hub Ensenada Sur</span></div>
+          <div class="detail-row"><span class="k">Provider</span><span class="v">Desierto Adventures</span></div>
+          <div class="detail-row"><span class="k">Contract</span><span class="v">Signed</span></div>
+          <div class="detail-row"><span class="k">Payment</span><span class="v">Paid</span></div>
+        </div>
+        <div class="sticky-cta"><button class="btn btn-gold" onclick="go('active')">View Reservation</button></div>
+      </section>
+
+      <!-- 7. ACTIVE RENTAL -->
+      <section class="scr" data-screen="active">
+        <div class="topbar"><div class="brand"><span class="dot"></span>BajaRide</div><span class="rental-id" style="margin:0;">BR-00482</span></div>
+        <div class="timer-box">
+          <div class="timer-lbl">TIME REMAINING</div>
+          <div class="timer-num">03:42</div>
+          <div class="timer-lbl">Status: ACTIVE</div>
+        </div>
+        <ul class="instr-list">
+          <li><span class="n">1.</span> Return unit to Hub Ensenada Sur by 3:00 PM.</li>
+          <li><span class="n">2.</span> Keep helmets and safety gear with the unit.</li>
+          <li><span class="n">3.</span> Emergency contact: +52 646 000 0000.</li>
+        </ul>
+        <div class="section" style="padding-top:0; display:flex; gap:10px;">
+          <button class="btn btn-danger-ghost" style="flex:1;">Report an Issue</button>
+          <button class="btn btn-dark" style="flex:1;" onclick="go('return')">Start Return</button>
+        </div>
+      </section>
+
+      <!-- 8. RETURN -->
+      <section class="scr" data-screen="return">
+        <div class="status-hero">
+          <div class="status-icon warn">⏳</div>
+          <h1 class="h1" style="font-size:20px;">Final Inspection</h1>
+          <p class="muted">Provider is reviewing the unit at Hub Ensenada Sur.</p>
+        </div>
+        <div class="section" style="padding-top:0;">
+          <div class="detail-row"><span class="k">Returned at</span><span class="v">2:52 PM</span></div>
+          <div class="detail-row"><span class="k">Fuel / condition</span><span class="v">Matches pre-inspection</span></div>
+          <div class="detail-row"><span class="k">Additional charges</span><span class="v">None found</span></div>
+          <div class="detail-row"><span class="k">Deposit</span><span class="v">Pending release</span></div>
+        </div>
+        <div class="sticky-cta"><button class="btn btn-gold" onclick="go('completed')">Continue</button></div>
+      </section>
+
+      <!-- 9. COMPLETED -->
+      <section class="scr" data-screen="completed">
+        <div class="status-hero">
+          <div class="status-icon ok">★</div>
+          <h1 class="h1" style="font-size:20px;">Experience Completed</h1>
+          <div class="rental-id">RENTAL ID · BR-00482</div>
+        </div>
+        <div class="section" style="padding-top:0;">
+          <div class="detail-row"><span class="k">Total charged</span><span class="v">$180.00</span></div>
+          <div class="detail-row"><span class="k">Deposit released</span><span class="v">$200.00</span></div>
+          <div class="detail-row"><span class="k">Receipt</span><span class="v">Sent to email</span></div>
+        </div>
+        <div class="section" style="padding-top:0;">
+          <p class="h2" style="text-align:center;">Rate your experience</p>
+          <div class="review-stars"><span class="on">★</span><span class="on">★</span><span class="on">★</span><span class="on">★</span><span>★</span></div>
+        </div>
+        <div class="sticky-cta"><button class="btn btn-gold" onclick="go('home')">Leave a Review</button></div>
+      </section>
+
+    </div>
+  </div>
+
+  <div class="lab-nav" id="labNav"></div>
+
+<script>
+  const flow = [
+    {id:'home', label:'Home'},
+    {id:'explore', label:'Explore'},
+    {id:'experience', label:'Experience'},
+    {id:'booking', label:'Booking'},
+    {id:'payment', label:'Payment'},
+    {id:'confirmation', label:'Confirmation'},
+    {id:'active', label:'Active Rental'},
+    {id:'return', label:'Return'},
+    {id:'completed', label:'Completed'},
+  ];
+
+  function renderStrip(activeIndex){
+    const strip = document.getElementById('flowStrip');
+    strip.innerHTML = '';
+    flow.forEach((s,i)=>{
+      const d = document.createElement('div');
+      d.className = 'flow-dot' + (i < activeIndex ? ' done' : i === activeIndex ? ' current' : '');
+      strip.appendChild(d);
+    });
+  }
+
+  function renderNav(activeId){
+    const nav = document.getElementById('labNav');
+    nav.innerHTML = '';
+    flow.forEach(s=>{
+      const b = document.createElement('button');
+      b.textContent = s.label;
+      if(s.id === activeId) b.classList.add('on');
+      b.onclick = ()=>go(s.id);
+      nav.appendChild(b);
+    });
+  }
+
+  function go(id){
+    document.querySelectorAll('.scr').forEach(el=>el.classList.remove('active'));
+    document.querySelector('.scr[data-screen="'+id+'"]').classList.add('active');
+    document.querySelector('.screen-frame').scrollTop = 0;
+    const idx = flow.findIndex(s=>s.id===id);
+    renderStrip(idx);
+    renderNav(id);
+  }
+
+  go('home');
+</script>
+
+</body>
+</html>

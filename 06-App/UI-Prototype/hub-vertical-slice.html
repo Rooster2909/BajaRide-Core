@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BajaRide — Hub Vertical Slice Prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=Big+Shoulders:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#141210; --ink-soft:#1e1b17; --sand:#f2ede2; --sand-dim:#d9d0bd;
+    --gold:#b6883c; --gold-bright:#d4a75a; --stone:#7a7266;
+    --line: rgba(242,237,226,0.14); --line-dark: rgba(20,18,16,0.12);
+    --ok:#6f8f6b; --warn:#b6883c; --danger:#9c4a37;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:#0c0b0a;
+    background-image: radial-gradient(circle at 20% -10%, rgba(182,136,60,0.10), transparent 45%),
+      radial-gradient(circle at 90% 110%, rgba(182,136,60,0.06), transparent 40%);
+    font-family:'Inter', sans-serif; color: var(--sand);
+    min-height:100vh; display:flex; flex-direction:column; align-items:center; padding: 40px 16px 64px;
+  }
+  .lab-header{ max-width:390px; width:100%; margin-bottom:22px; text-align:left; }
+  .lab-eyebrow{ font-family:'Big Shoulders', sans-serif; font-weight:700; font-size:12px; letter-spacing:.14em; color: var(--gold-bright); margin:0 0 6px; }
+  .lab-title{ font-family:'Fraunces', serif; font-weight:600; font-size:26px; margin:0 0 4px; color: var(--sand); }
+  .lab-sub{ font-size:13px; color: var(--stone); margin:0; line-height:1.5; }
+
+  .device{ width: 390px; max-width:100%; background: var(--ink); border-radius: 34px; padding: 14px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(182,136,60,0.18); position:relative; }
+  .notch{ position:absolute; top:14px; left:50%; transform:translateX(-50%); width:120px; height:20px; background:#000; border-radius:0 0 14px 14px; z-index:5; }
+  .screen-frame{ background: var(--sand); color: var(--ink); border-radius: 22px; overflow:hidden; height: 780px; position:relative; display:flex; flex-direction:column; }
+
+  .flow-strip{ display:flex; gap:4px; padding: 10px 16px 8px; background: var(--sand); flex-shrink:0; }
+  .flow-dot{ flex:1; height:3px; background: var(--line-dark); border-radius:2px; }
+  .flow-dot.done{ background: var(--gold); }
+  .flow-dot.current{ background: var(--ink); }
+
+  .scr{ flex:1; overflow-y:auto; display:none; flex-direction:column; }
+  .scr.active{ display:flex; }
+
+  .topbar{ display:flex; align-items:center; justify-content:space-between; padding: 6px 18px 14px; }
+  .brand{ font-family:'Fraunces', serif; font-weight:600; font-size:18px; display:flex; align-items:center; gap:6px; }
+  .brand .dot{ width:6px; height:6px; background:var(--gold); border-radius:50%; display:inline-block; }
+  .icon-btn{ width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center; background: var(--line-dark); font-size:13px; color:var(--ink); border:none; cursor:pointer; }
+  .back-row{ display:flex; align-items:center; gap:10px; padding: 6px 18px 4px; }
+  .back-btn{ background:none; border:none; font-size:13px; color:var(--stone); cursor:pointer; padding:4px 0; font-family:'Inter',sans-serif; }
+
+  .section{ padding: 6px 18px 20px; }
+  .h1{ font-family:'Fraunces', serif; font-weight:600; font-size:23px; line-height:1.15; margin:0 0 8px; }
+  .h2{ font-family:'Fraunces', serif; font-weight:600; font-size:18px; margin:0 0 10px; }
+  .p{ font-size:13.5px; line-height:1.55; color:#3c3833; margin:0 0 12px; }
+  .muted{ color: var(--stone); font-size:12.5px; }
+
+  .kpi-row{ display:flex; gap:8px; padding: 0 18px 16px; flex-wrap:wrap; }
+  .kpi{ flex:1; min-width:78px; background:var(--ink); color:var(--sand); border-radius:4px; padding:12px 10px; }
+  .kpi .num{ font-family:'Big Shoulders',sans-serif; font-weight:700; font-size:20px; color:var(--gold-bright); }
+  .kpi .lbl{ font-size:9px; letter-spacing:.05em; color:var(--sand-dim); }
+
+  .btn{ display:inline-flex; align-items:center; justify-content:center; width:100%; padding:12px 14px; border:none; cursor:pointer;
+    font-family:'Inter',sans-serif; font-weight:600; font-size:13.5px; border-radius:2px; }
+  .btn-gold{ background: var(--gold); color:#151210; }
+  .btn-dark{ background: var(--ink); color: var(--sand); }
+  .btn-danger-ghost{ background:transparent; color:var(--danger); border:1px solid rgba(156,74,55,0.4); }
+
+  .tab-row{ display:flex; gap:6px; padding: 4px 18px 14px; }
+  .tab{ flex:1; text-align:center; padding:8px 4px; font-size:11px; font-weight:600; border-bottom:2px solid var(--line-dark); color:var(--stone); }
+  .tab.on{ color:var(--ink); border-color:var(--gold); }
+
+  .list-row{ display:flex; justify-content:space-between; align-items:center; margin: 0 18px 10px; padding:12px 14px;
+    border:1px solid var(--line-dark); border-radius:4px; background:#fff; cursor:pointer; }
+  .list-row .l-main{ font-weight:600; font-size:13.5px; margin-bottom:2px; }
+  .list-row .l-meta{ font-size:11.5px; color:var(--stone); }
+  .status-tag{ font-size:9.5px; letter-spacing:.05em; padding:4px 8px; border-radius:12px; font-weight:700; font-family:'Big Shoulders',sans-serif; }
+  .status-tag.pending{ background:rgba(182,136,60,0.15); color:var(--gold); }
+  .status-tag.active{ background:rgba(111,143,107,0.15); color:var(--ok); }
+  .status-tag.done{ background:var(--line-dark); color:var(--stone); }
+  .status-tag.alert{ background:rgba(156,74,55,0.15); color:var(--danger); }
+
+  .unit-grid{ display:grid; grid-template-columns:1fr 1fr; gap:10px; margin: 0 18px 16px; }
+  .unit-card{ border:1px solid var(--line-dark); border-radius:4px; padding:10px; background:#fff; }
+  .unit-card .u-name{ font-weight:600; font-size:12.5px; margin-bottom:4px; }
+  .unit-card .u-meta{ font-size:10.5px; color:var(--stone); }
+
+  .detail-row{ display:flex; justify-content:space-between; padding: 9px 0; border-bottom:1px solid var(--line-dark); font-size:12.5px; }
+  .detail-row .k{ color:var(--stone); } .detail-row .v{ font-weight:600; }
+
+  .checklist{ margin: 0 18px 16px; padding:0; list-style:none; }
+  .checklist li{ display:flex; align-items:center; gap:10px; font-size:13px; padding:10px 0; border-bottom:1px solid var(--line-dark); }
+  .checkbox{ width:19px; height:19px; border:2px solid var(--line-dark); border-radius:3px; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:11px; cursor:pointer; }
+  .checkbox.checked{ background:var(--ok); border-color:var(--ok); color:#fff; }
+
+  .photo-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin: 0 18px 16px; }
+  .photo-slot{ aspect-ratio:1; border:1.5px dashed var(--line-dark); border-radius:4px; display:flex; align-items:center; justify-content:center; font-size:18px; color:var(--stone); background:#efe9dc; }
+
+  .sticky-cta{ position:sticky; bottom:0; background: var(--sand); border-top:1px solid var(--line-dark); padding: 12px 18px 16px; display:flex; gap:8px; }
+
+  .incident-card{ margin: 0 18px 12px; padding:12px 14px; border:1px solid rgba(156,74,55,0.3); border-radius:4px; background:rgba(156,74,55,0.05); }
+  .incident-card .i-type{ font-weight:700; font-size:12.5px; color:var(--danger); margin-bottom:3px; }
+  .incident-card .i-meta{ font-size:11px; color:var(--stone); }
+
+  .rental-id{ font-family:'Big Shoulders',sans-serif; font-weight:700; letter-spacing:.06em; color:var(--gold); font-size:13px; margin: 4px 0 4px; }
+
+  .lab-nav{ max-width:390px; width:100%; margin-top:20px; display:flex; flex-wrap:wrap; gap:6px; }
+  .lab-nav button{ font-family:'Inter',sans-serif; font-size:10.5px; padding:6px 10px; background: var(--ink-soft); color: var(--sand-dim);
+    border:1px solid var(--line); border-radius:20px; cursor:pointer; }
+  .lab-nav button.on{ background: var(--gold); color:#151210; border-color:var(--gold); font-weight:700; }
+</style>
+</head>
+<body>
+
+  <div class="lab-header">
+    <p class="lab-eyebrow">BAJARIDE · HUB VERTICAL SLICE</p>
+    <h1 class="lab-title">Prototipo clickeable — Hub Ensenada Sur</h1>
+    <p class="lab-sub">Dashboard → Today's Operations → Unit Operations → Delivery → Return → Inspection → Incidents. Comparte Rental ID BR-00482 con los slices Customer y Provider.</p>
+  </div>
+
+  <div class="device">
+    <div class="notch"></div>
+    <div class="screen-frame">
+
+      <div class="flow-strip" id="flowStrip"></div>
+
+      <!-- 1. DASHBOARD -->
+      <section class="scr active" data-screen="dashboard">
+        <div class="topbar">
+          <div class="brand"><span class="dot"></span>Hub</div>
+          <button class="icon-btn">🔔</button>
+        </div>
+        <div class="section" style="padding-top:0;">
+          <h1 class="h1" style="font-size:20px;">Hub Ensenada Sur</h1>
+          <p class="muted" style="margin-bottom:0;">Today · Sep 21, 2026</p>
+        </div>
+        <div class="kpi-row">
+          <div class="kpi"><div class="num">4</div><div class="lbl">PICKUPS TODAY</div></div>
+          <div class="kpi"><div class="num">3</div><div class="lbl">RETURNS TODAY</div></div>
+          <div class="kpi"><div class="num">1</div><div class="lbl">IN MAINTENANCE</div></div>
+        </div>
+        <div class="kpi-row">
+          <div class="kpi"><div class="num">7</div><div class="lbl">UNITS AVAILABLE</div></div>
+          <div class="kpi"><div class="num">2</div><div class="lbl">UNITS ACTIVE</div></div>
+          <div class="kpi"><div class="num">0</div><div class="lbl">OPEN INCIDENTS</div></div>
+        </div>
+        <div class="section" style="padding-top:0;">
+          <button class="btn btn-gold" onclick="go('today')">Open Today's Operations</button>
+        </div>
+      </section>
+
+      <!-- 2. TODAY / DAILY OPERATIONS -->
+      <section class="scr" data-screen="today">
+        <div class="back-row"><button class="back-btn" onclick="go('dashboard')">← Dashboard</button></div>
+        <div class="section" style="padding-top:0;"><h2 class="h2">Today's Operations</h2></div>
+        <div class="tab-row">
+          <div class="tab on">Pickups</div>
+          <div class="tab">Deliveries</div>
+          <div class="tab">Returns</div>
+          <div class="tab">Inspections</div>
+        </div>
+        <div class="list-row" onclick="go('units')">
+          <div><div class="l-main">BR-00482 · Ana Ruiz</div><div class="l-meta">Can-Am X3 · 9:00 AM</div></div>
+          <span class="status-tag pending">PENDING</span>
+        </div>
+        <div class="list-row">
+          <div><div class="l-main">BR-00479 · Mark Ito</div><div class="l-meta">ATV Dunes · 11:30 AM</div></div>
+          <span class="status-tag pending">PENDING</span>
+        </div>
+        <div class="list-row">
+          <div><div class="l-main">BR-00461 · Diego Paz</div><div class="l-meta">Valle Trail · Returned</div></div>
+          <span class="status-tag done">DONE</span>
+        </div>
+      </section>
+
+      <!-- 3. UNIT OPERATIONS -->
+      <section class="scr" data-screen="units">
+        <div class="back-row"><button class="back-btn" onclick="go('today')">← Today</button></div>
+        <div class="section" style="padding-top:0;">
+          <h2 class="h2">Unit Operations</h2>
+          <div class="rental-id">RENTAL ID · BR-00482</div>
+        </div>
+        <div class="detail-row"><span class="k">Unit</span><span class="v">Can-Am X3 2018</span></div>
+        <div class="detail-row"><span class="k">Current state</span><span class="v">Reserved</span></div>
+        <div class="detail-row"><span class="k">Assigned to</span><span class="v">Bay 2</span></div>
+        <div class="section"><h2 class="h2" style="font-size:14px;">Other units at this Hub</h2></div>
+        <div class="unit-grid">
+          <div class="unit-card"><div class="u-name">Maverick Sport</div><div class="u-meta">Available</div></div>
+          <div class="unit-card"><div class="u-name">RZR Pro XP</div><div class="u-meta">Active</div></div>
+          <div class="unit-card"><div class="u-name">Honda TRX 420</div><div class="u-meta">Maintenance</div></div>
+          <div class="unit-card"><div class="u-name">Can-Am X3 #2</div><div class="u-meta">Available</div></div>
+        </div>
+        <div class="sticky-cta"><button class="btn btn-gold" onclick="go('delivery')" style="flex:1;">Proceed to Delivery</button></div>
+      </section>
+
+      <!-- 4. DELIVERY -->
+      <section class="scr" data-screen="delivery">
+        <div class="back-row"><button class="back-btn" onclick="go('units')">← Units</button></div>
+        <div class="section" style="padding-top:0;"><h2 class="h2">Delivery Checklist</h2></div>
+        <ul class="checklist">
+          <li><span class="checkbox checked" onclick="this.classList.toggle('checked')">✓</span> Customer ID matched to booking</li>
+          <li><span class="checkbox checked" onclick="this.classList.toggle('checked')">✓</span> Contract signature confirmed</li>
+          <li><span class="checkbox checked" onclick="this.classList.toggle('checked')">✓</span> Safety gear handed over</li>
+          <li><span class="checkbox" onclick="this.classList.toggle('checked')"></span> Handoff photo taken</li>
+        </ul>
+        <div class="sticky-cta"><button class="btn btn-gold" onclick="go('return')" style="flex:1;">Mark Delivered</button></div>
+      </section>
+
+      <!-- 5. RETURN -->
+      <section class="scr" data-screen="return">
+        <div class="back-row"><button class="back-btn" onclick="go('delivery')">← Delivery</button></div>
+        <div class="section" style="padding-top:0;"><h2 class="h2">Return Intake</h2></div>
+        <div class="detail-row"><span class="k">Return time</span><span class="v">2:52 PM</span></div>
+        <div class="detail-row"><span class="k">Mileage</span><span class="v">4,286 km</span></div>
+        <div class="detail-row"><span class="k">Fuel level</span><span class="v">3/4</span></div>
+        <div class="section"><h2 class="h2" style="font-size:14px;">Photo evidence</h2></div>
+        <div class="photo-grid">
+          <div class="photo-slot">📷</div><div class="photo-slot">📷</div><div class="photo-slot">+</div>
+        </div>
+        <div class="sticky-cta"><button class="btn btn-gold" onclick="go('inspection')" style="flex:1;">Send to Inspection</button></div>
+      </section>
+
+      <!-- 6. INSPECTION -->
+      <section class="scr" data-screen="inspection">
+        <div class="back-row"><button class="back-btn" onclick="go('return')">← Return</button></div>
+        <div class="section" style="padding-top:0;"><h2 class="h2">Inspection Result</h2></div>
+        <div class="detail-row"><span class="k">Damage found</span><span class="v">None</span></div>
+        <div class="detail-row"><span class="k">Missing accessories</span><span class="v">None</span></div>
+        <div class="detail-row"><span class="k">Additional charges</span><span class="v">$0.00</span></div>
+        <div class="detail-row"><span class="k">Unit next state</span><span class="v">Available</span></div>
+        <div class="section" style="padding-top:0;">
+          <p class="p">No irregularities detected. Unit cleared to return to available inventory. Deposit eligible for full release on the Provider side.</p>
+        </div>
+        <div class="sticky-cta">
+          <button class="btn btn-danger-ghost" onclick="go('incidents')" style="flex:1;">Flag Incident Instead</button>
+          <button class="btn btn-gold" onclick="go('incidents')" style="flex:1;">Approve & Close</button>
+        </div>
+      </section>
+
+      <!-- 7. INCIDENTS -->
+      <section class="scr" data-screen="incidents">
+        <div class="topbar"><div class="brand"><span class="dot"></span>Hub</div></div>
+        <div class="section" style="padding-top:0;"><h2 class="h2">Incident Management</h2></div>
+        <div class="tab-row">
+          <div class="tab on">Open</div>
+          <div class="tab">Under Review</div>
+          <div class="tab">Resolved</div>
+        </div>
+        <div class="incident-card">
+          <div class="i-type">Vehicle Issue — BR-00455</div>
+          <div class="i-meta">Reported yesterday · Awaiting parts</div>
+        </div>
+        <div class="section" style="padding-top:0;">
+          <p class="p muted">BR-00482 has no incidents — this queue shows other open cases at this Hub for context.</p>
+        </div>
+        <div class="sticky-cta"><button class="btn btn-dark" onclick="go('dashboard')" style="flex:1;">Back to Dashboard</button></div>
+      </section>
+
+    </div>
+  </div>
+
+  <div class="lab-nav" id="labNav"></div>
+
+<script>
+  const flow = [
+    {id:'dashboard', label:'Dashboard'},
+    {id:'today', label:'Today'},
+    {id:'units', label:'Unit Ops'},
+    {id:'delivery', label:'Delivery'},
+    {id:'return', label:'Return'},
+    {id:'inspection', label:'Inspection'},
+    {id:'incidents', label:'Incidents'},
+  ];
+  function renderStrip(activeIndex){
+    const strip = document.getElementById('flowStrip'); strip.innerHTML = '';
+    flow.forEach((s,i)=>{
+      const d = document.createElement('div');
+      d.className = 'flow-dot' + (i < activeIndex ? ' done' : i === activeIndex ? ' current' : '');
+      strip.appendChild(d);
+    });
+  }
+  function renderNav(activeId){
+    const nav = document.getElementById('labNav'); nav.innerHTML = '';
+    flow.forEach(s=>{
+      const b = document.createElement('button');
+      b.textContent = s.label;
+      if(s.id === activeId) b.classList.add('on');
+      b.onclick = ()=>go(s.id);
+      nav.appendChild(b);
+    });
+  }
+  function go(id){
+    document.querySelectorAll('.scr').forEach(el=>el.classList.remove('active'));
+    document.querySelector('.scr[data-screen="'+id+'"]').classList.add('active');
+    document.querySelector('.screen-frame').scrollTop = 0;
+    const idx = flow.findIndex(s=>s.id===id);
+    renderStrip(idx);
+    renderNav(id);
+  }
+  go('dashboard');
+</script>
+</body>
+</html>

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BajaRide — Connected Prototype (Rental State Machine)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=Big+Shoulders:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#141210; --ink-soft:#1e1b17; --sand:#f2ede2; --sand-dim:#d9d0bd;
+    --gold:#b6883c; --gold-bright:#d4a75a; --stone:#7a7266;
+    --line: rgba(242,237,226,0.14); --line-dark: rgba(20,18,16,0.12);
+    --ok:#6f8f6b; --warn:#b6883c; --danger:#9c4a37;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:#0c0b0a;
+    background-image: radial-gradient(circle at 20% -10%, rgba(182,136,60,0.10), transparent 45%),
+      radial-gradient(circle at 90% 110%, rgba(182,136,60,0.06), transparent 40%);
+    font-family:'Inter', sans-serif; color: var(--sand);
+    min-height:100vh; display:flex; flex-direction:column; align-items:center; padding: 32px 16px 64px;
+  }
+  .lab-header{ max-width:920px; width:100%; margin-bottom:18px; }
+  .lab-eyebrow{ font-family:'Big Shoulders', sans-serif; font-weight:700; font-size:12px; letter-spacing:.14em; color: var(--gold-bright); margin:0 0 6px; }
+  .lab-title{ font-family:'Fraunces', serif; font-weight:600; font-size:24px; margin:0 0 4px; color: var(--sand); }
+  .lab-sub{ font-size:13px; color: var(--stone); margin:0; line-height:1.5; max-width:640px; }
+
+  .role-switch{ max-width:920px; width:100%; display:flex; gap:8px; margin: 18px 0 20px; flex-wrap:wrap; }
+  .role-btn{ padding:10px 18px; border-radius:2px; border:1px solid var(--line); background:var(--ink-soft); color:var(--sand-dim);
+    font-family:'Inter',sans-serif; font-weight:600; font-size:13px; cursor:pointer; }
+  .role-btn.on{ background:var(--gold); color:#151210; border-color:var(--gold); }
+
+  .layout{ max-width:920px; width:100%; display:flex; gap:20px; align-items:flex-start; flex-wrap:wrap; }
+
+  .panel{ flex:1; min-width:320px; background: var(--sand); color: var(--ink); border-radius: 8px; overflow:hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
+  .panel-head{ background:var(--ink); color:var(--sand); padding:16px 20px; display:flex; justify-content:space-between; align-items:center; }
+  .panel-head .role-name{ font-family:'Fraunces',serif; font-weight:600; font-size:17px; }
+  .panel-head .rental-tag{ font-family:'Big Shoulders',sans-serif; font-weight:700; font-size:12px; color:var(--gold-bright); letter-spacing:.05em; }
+  .panel-body{ padding: 20px; min-height: 380px; }
+
+  .state-badge{ display:inline-block; padding:5px 12px; border-radius:14px; font-size:10.5px; font-weight:700;
+    letter-spacing:.05em; font-family:'Big Shoulders',sans-serif; margin-bottom:14px; }
+  .state-badge.wait{ background:rgba(182,136,60,0.15); color:var(--gold); }
+  .state-badge.active{ background:rgba(111,143,107,0.15); color:var(--ok); }
+  .state-badge.done{ background:var(--line-dark); color:var(--stone); }
+  .state-badge.alert{ background:rgba(156,74,55,0.15); color:var(--danger); }
+
+  .h2{ font-family:'Fraunces', serif; font-weight:600; font-size:18px; margin:0 0 10px; }
+  .p{ font-size:13.5px; line-height:1.55; color:#3c3833; margin:0 0 14px; }
+  .muted{ color: var(--stone); font-size:12px; }
+
+  .detail-row{ display:flex; justify-content:space-between; padding: 8px 0; border-bottom:1px solid var(--line-dark); font-size:12.5px; }
+  .detail-row .k{ color:var(--stone); } .detail-row .v{ font-weight:600; }
+
+  .price-box{ background: var(--ink); color:var(--sand); border-radius:4px; padding:14px; margin: 10px 0; }
+  .price-line{ display:flex; justify-content:space-between; font-size:12px; padding:4px 0; color:var(--sand-dim); }
+  .price-line.total{ border-top:1px solid var(--line); margin-top:6px; padding-top:8px; font-weight:700; color:var(--sand); font-size:13.5px; }
+  .price-line.pos{ color:var(--gold-bright); }
+
+  .btn{ display:inline-flex; align-items:center; justify-content:center; padding:12px 18px; border:none; cursor:pointer;
+    font-family:'Inter',sans-serif; font-weight:600; font-size:13.5px; border-radius:2px; margin-right:8px; margin-top:4px; }
+  .btn-gold{ background: var(--gold); color:#151210; }
+  .btn-dark{ background: var(--ink); color: var(--sand); }
+  .btn-ghost{ background:transparent; color:var(--ink); border:1px solid var(--line-dark); }
+  .btn-danger-ghost{ background:transparent; color:var(--danger); border:1px solid rgba(156,74,55,0.4); }
+  .btn:disabled{ opacity:.35; cursor:not-allowed; }
+
+  .waiting-box{ border:1px dashed var(--line-dark); border-radius:4px; padding:16px; text-align:center; color:var(--stone); font-size:12.5px; }
+
+  /* Timeline / Admin */
+  .timeline{ list-style:none; margin:0; padding:0; }
+  .timeline li{ display:flex; gap:10px; padding:8px 0; border-bottom:1px solid var(--line-dark); font-size:12px; }
+  .timeline li .t-time{ color:var(--stone); font-family:'Big Shoulders',sans-serif; font-weight:600; white-space:nowrap; }
+  .timeline li .t-state{ font-weight:600; }
+  .timeline li .t-actor{ color:var(--stone); font-size:11px; }
+
+  .kpi-row{ display:flex; gap:8px; margin-bottom:16px; flex-wrap:wrap; }
+  .kpi{ flex:1; min-width:90px; background:var(--ink); color:var(--sand); border-radius:4px; padding:10px; }
+  .kpi .num{ font-family:'Big Shoulders',sans-serif; font-weight:700; font-size:18px; color:var(--gold-bright); }
+  .kpi .lbl{ font-size:9px; letter-spacing:.05em; color:var(--sand-dim); }
+
+  .incident-banner{ background:rgba(156,74,55,0.1); border:1px solid rgba(156,74,55,0.35); border-radius:4px; padding:10px 12px; margin-bottom:14px; font-size:12.5px; color:var(--danger); }
+
+  .footer-note{ max-width:920px; width:100%; margin-top:22px; font-size:11.5px; color:var(--stone); line-height:1.6; }
+  .footer-note button{ background:none; border:1px solid var(--line); color:var(--sand-dim); font-size:11px; padding:6px 12px; border-radius:14px; cursor:pointer; font-family:'Inter',sans-serif; }
+</style>
+</head>
+<body>
+
+  <div class="lab-header">
+    <p class="lab-eyebrow">BAJARIDE · CONNECTED PROTOTYPE</p>
+    <h1 class="lab-title">Un solo Rental ID, cuatro roles, un estado real</h1>
+    <p class="lab-sub">Esto implementa la Rental State Machine validada: una acción en Provider o Hub cambia lo que ve Customer, y todo queda en el timeline de Admin. Cambia de rol arriba para ver el mismo BR-00482 desde cada lado.</p>
+  </div>
+
+  <div class="role-switch" id="roleSwitch"></div>
+
+  <div class="layout">
+    <div class="panel">
+      <div class="panel-head">
+        <span class="role-name" id="panelRoleName">Customer</span>
+        <span class="rental-tag">BR-00482</span>
+      </div>
+      <div class="panel-body" id="panelBody"></div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    Estado interno actual: <span id="rawState" style="color:var(--gold-bright); font-weight:600;"></span> ·
+    <button onclick="resetDemo()">Reiniciar demo</button>
+  </div>
+
+<script>
+  // ---- Rental State Machine ----
+  const STATES = [
+    'BOOKED','CONTRACT_SIGNED','PREPARED','HUB_RECEIVED',
+    'INSPECTED_READY','ACTIVE','RETURNED','FINAL_INSPECTED','SETTLED','COMPLETED'
+  ];
+
+  const initialRental = {
+    id: 'BR-00482',
+    state: 'BOOKED',
+    incidentOpen: false,
+    customer: 'Ana Ruiz',
+    provider: 'Desierto Adventures',
+    hub: 'Hub Ensenada Sur',
+    unit: 'Can-Am X3 2018',
+    experience: 'Can-Am X3 Desert Run',
+    total: 168.00,
+    payoutNet: 127.50,
+    timeline: [
+      {t:'—', s:'BOOKED', actor:'Customer', note:'Reservation created'}
+    ]
+  };
+
+  let rental = JSON.parse(JSON.stringify(initialRental));
+  let currentRole = 'customer';
+
+  function nowStamp(){
+    const d = new Date();
+    return d.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+  }
+
+  function transition(newState, actor, note){
+    rental.state = newState;
+    rental.timeline.push({t: nowStamp(), s: newState, actor, note});
+    render();
+  }
+
+  function toggleIncident(){
+    rental.incidentOpen = !rental.incidentOpen;
+    rental.timeline.push({t: nowStamp(), s: rental.incidentOpen ? 'INCIDENT_OPEN' : 'INCIDENT_RESOLVED', actor:'System', note: rental.incidentOpen ? 'Issue reported' : 'Issue resolved'});
+    render();
+  }
+
+  function resetDemo(){
+    rental = JSON.parse(JSON.stringify(initialRental));
+    render();
+  }
+
+  const ROLES = [
+    {id:'customer', label:'Customer'},
+    {id:'provider', label:'Provider'},
+    {id:'hub', label:'Hub'},
+    {id:'admin', label:'Admin'},
+  ];
+
+  function stateIndex(s){ return STATES.indexOf(s); }
+
+  function badge(label, cls){
+    return `<span class="state-badge ${cls}">${label}</span>`;
+  }
+
+  function renderRoleSwitch(){
+    const el = document.getElementById('roleSwitch');
+    el.innerHTML = '';
+    ROLES.forEach(r=>{
+      const b = document.createElement('button');
+      b.className = 'role-btn' + (r.id === currentRole ? ' on' : '');
+      b.textContent = r.label;
+      b.onclick = ()=>{ currentRole = r.id; render(); };
+      el.appendChild(b);
+    });
+  }
+
+  function renderCustomer(){
+    const idx = stateIndex(rental.state);
+    let body = '';
+    if(rental.incidentOpen){
+      body += `<div class="incident-banner">⚠ An issue has been reported on this rental. Support has been notified.</div>`;
+    }
+    if(rental.state === 'BOOKED'){
+      body += badge('CONTRACT PENDING','wait');
+      body += `<h2 class="h2">Sign contract & pay</h2>`;
+      body += `<div class="price-box">
+        <div class="price-line"><span>Base price</span><span>$150.00</span></div>
+        <div class="price-line"><span>Service fee</span><span>$18.00</span></div>
+        <div class="price-line total"><span>Total due today</span><span>$168.00</span></div>
+      </div>`;
+      body += `<button class="btn btn-gold" onclick="transition('CONTRACT_SIGNED','Customer','Paid & signed contract')">Pay & Sign Contract</button>`;
+    } else if(idx >= stateIndex('CONTRACT_SIGNED') && idx < stateIndex('INSPECTED_READY')){
+      body += badge('PRE-RENTAL · READY CHECK','wait');
+      body += `<h2 class="h2">You're confirmed</h2>`;
+      body += `<div class="detail-row"><span class="k">Experience</span><span class="v">${rental.experience}</span></div>`;
+      body += `<div class="detail-row"><span class="k">Date</span><span class="v">Sep 21, 9:00 AM</span></div>`;
+      body += `<div class="detail-row"><span class="k">Meeting point</span><span class="v">${rental.hub}</span></div>`;
+      body += `<div class="detail-row"><span class="k">Provider</span><span class="v">${rental.provider}</span></div>`;
+      body += `<div class="waiting-box" style="margin-top:14px;">
+        ${rental.state === 'CONTRACT_SIGNED' ? 'Waiting for provider to prepare the unit…' :
+          rental.state === 'PREPARED' ? 'Unit handed to Hub — waiting for receipt…' :
+          'Hub is running the pre-inspection…'}
+      </div>`;
+    } else if(rental.state === 'INSPECTED_READY'){
+      body += badge('READY FOR DELIVERY','wait');
+      body += `<h2 class="h2">Almost there</h2>`;
+      body += `<p class="p">Your unit passed inspection at ${rental.hub}. Head to the meeting point — delivery will be confirmed by the Hub team.</p>`;
+    } else if(rental.state === 'ACTIVE'){
+      body += badge('ACTIVE RENTAL','active');
+      body += `<h2 class="h2">Your rental is active</h2>`;
+      body += `<div class="detail-row"><span class="k">Unit</span><span class="v">${rental.unit}</span></div>`;
+      body += `<div class="detail-row"><span class="k">Return by</span><span class="v">3:00 PM</span></div>`;
+      body += `<button class="btn btn-danger-ghost" onclick="toggleIncident()">${rental.incidentOpen ? 'Mark Issue Resolved' : 'Report an Issue'}</button>`;
+      body += `<button class="btn btn-dark" onclick="transition('RETURNED','Customer','Returned unit')">Return Unit</button>`;
+    } else if(idx >= stateIndex('RETURNED') && idx < stateIndex('SETTLED')){
+      body += badge('IN FINAL INSPECTION','wait');
+      body += `<h2 class="h2">Thanks for returning it</h2>`;
+      body += `<p class="p">${rental.hub} is running the final inspection. Your deposit will be released once it's cleared.</p>`;
+    } else if(rental.state === 'SETTLED' || rental.state === 'COMPLETED'){
+      body += badge('COMPLETED','done');
+      body += `<h2 class="h2">Experience completed</h2>`;
+      body += `<div class="detail-row"><span class="k">Total charged</span><span class="v">$168.00</span></div>`;
+      body += `<div class="detail-row"><span class="k">Deposit</span><span class="v">Released</span></div>`;
+      if(rental.state !== 'COMPLETED'){
+        body += `<button class="btn btn-gold" onclick="transition('COMPLETED','Customer','Left a review')">Leave a Review</button>`;
+      } else {
+        body += `<p class="muted">Review submitted. See you on the next trail.</p>`;
+      }
+    }
+    return body;
+  }
+
+  function renderProvider(){
+    const idx = stateIndex(rental.state);
+    let body = '';
+    body += `<div class="detail-row"><span class="k">Customer</span><span class="v">${rental.customer}</span></div>`;
+    body += `<div class="detail-row"><span class="k">Unit</span><span class="v">${rental.unit}</span></div>`;
+    body += `<div class="detail-row"><span class="k">Assigned Hub</span><span class="v">${rental.hub}</span></div>`;
+    if(rental.state === 'CONTRACT_SIGNED'){
+      body += badge('READY TO PREPARE','wait');
+      body += `<h2 class="h2" style="margin-top:14px;">Prepare the unit</h2>`;
+      body += `<p class="p">Contract signed and paid. Prepare the unit and hand it to the Hub — you don't need to inspect or deliver, that's the Hub's job.</p>`;
+      body += `<button class="btn btn-gold" onclick="transition('PREPARED','Provider','Unit prepared, handed to Hub')">Prepare Unit & Hand to Hub</button>`;
+    } else if(idx > stateIndex('PREPARED') && idx < stateIndex('RETURNED')){
+      body += badge('WITH HUB','wait');
+      body += `<div class="waiting-box" style="margin-top:14px;">Unit is with ${rental.hub}. You'll be notified for settlement once the rental is complete.</div>`;
+    } else if(idx >= stateIndex('RETURNED') && idx < stateIndex('SETTLED')){
+      body += badge('AWAITING FINAL INSPECTION','wait');
+      body += `<div class="waiting-box" style="margin-top:14px;">${rental.hub} is finishing the final inspection.</div>`;
+    } else if(rental.state === 'FINAL_INSPECTED'){
+      body += badge('READY TO SETTLE','wait');
+      body += `<h2 class="h2" style="margin-top:14px;">Approve settlement</h2>`;
+      body += `<div class="price-box">
+        <div class="price-line"><span>Gross price</span><span>$150.00</span></div>
+        <div class="price-line"><span>BajaRide fee (15%)</span><span>-$22.50</span></div>
+        <div class="price-line pos total"><span>Net payout</span><span>$${rental.payoutNet.toFixed(2)}</span></div>
+      </div>`;
+      body += `<button class="btn btn-gold" onclick="transition('SETTLED','Provider','Settlement approved')">Approve Payout</button>`;
+    } else if(rental.state === 'SETTLED' || rental.state === 'COMPLETED'){
+      body += badge('SETTLED','done');
+      body += `<h2 class="h2" style="margin-top:14px;">Payout scheduled</h2>`;
+      body += `<div class="detail-row"><span class="k">Net payout</span><span class="v">$${rental.payoutNet.toFixed(2)}</span></div>`;
+      body += `<div class="detail-row"><span class="k">Payout date</span><span class="v">Sep 24, 2026</span></div>`;
+    } else {
+      body += badge('AWAITING CUSTOMER','wait');
+      body += `<div class="waiting-box" style="margin-top:14px;">Waiting for customer to sign contract and pay.</div>`;
+    }
+    return body;
+  }
+
+  function renderHub(){
+    const idx = stateIndex(rental.state);
+    let body = '';
+    body += `<div class="detail-row"><span class="k">Rental</span><span class="v">${rental.experience}</span></div>`;
+    body += `<div class="detail-row"><span class="k">Unit</span><span class="v">${rental.unit}</span></div>`;
+    body += `<div class="detail-row"><span class="k">Provider</span><span class="v">${rental.provider}</span></div>`;
+    if(rental.state === 'PREPARED'){
+      body += badge('UNIT INCOMING','wait');
+      body += `<h2 class="h2" style="margin-top:14px;">Receive unit from Provider</h2>`;
+      body += `<button class="btn btn-gold" onclick="transition('HUB_RECEIVED','Hub','Unit received from Provider')">Receive Unit</button>`;
+    } else if(rental.state === 'HUB_RECEIVED'){
+      body += badge('READY FOR INSPECTION','wait');
+      body += `<h2 class="h2" style="margin-top:14px;">Run pre-inspection</h2>`;
+      body += `<p class="p">Fuel: Full · Mileage: 4,210 km · Damage: None</p>`;
+      body += `<button class="btn btn-gold" onclick="transition('INSPECTED_READY','Hub','Pre-inspection passed')">Confirm Inspection Passed</button>`;
+    } else if(rental.state === 'INSPECTED_READY'){
+      body += badge('READY FOR DELIVERY','wait');
+      body += `<h2 class="h2" style="margin-top:14px;">Deliver to customer</h2>`;
+      body += `<p class="p">Contract, ID and safety briefing confirmed.</p>`;
+      body += `<button class="btn btn-gold" onclick="transition('ACTIVE','Hub','Delivered to customer, rental active')">Deliver & Start Rental</button>`;
+    } else if(rental.state === 'ACTIVE'){
+      body += badge('OUT WITH CUSTOMER','active');
+      body += `<div class="waiting-box" style="margin-top:14px;">Unit is active with ${rental.customer}. Waiting for return.</div>`;
+    } else if(rental.state === 'RETURNED'){
+      body += badge('RETURNED · PENDING INSPECTION','wait');
+      body += `<h2 class="h2" style="margin-top:14px;">Run final inspection</h2>`;
+      body += `<p class="p">Compare pre/post: mileage +76 km, fuel 3/4, no new damage.</p>`;
+      body += `<button class="btn btn-gold" onclick="transition('FINAL_INSPECTED','Hub','Final inspection passed, no incident')">Approve — No Damage</button>`;
+      body += `<button class="btn btn-danger-ghost" onclick="toggleIncident()">${rental.incidentOpen ? 'Clear Flag' : 'Flag Damage / Incident'}</button>`;
+    } else if(idx >= stateIndex('FINAL_INSPECTED')){
+      body += badge('CLOSED','done');
+      body += `<div class="waiting-box" style="margin-top:14px;">Inspection complete. Unit returned to available inventory.</div>`;
+    } else {
+      body += badge('AWAITING PROVIDER','wait');
+      body += `<div class="waiting-box" style="margin-top:14px;">Waiting for Provider to prepare and hand off the unit.</div>`;
+    }
+    return body;
+  }
+
+  function renderAdmin(){
+    let body = '';
+    const doneCount = STATES.indexOf(rental.state) + 1;
+    body += `<div class="kpi-row">
+      <div class="kpi"><div class="num">1</div><div class="lbl">ACTIVE RENTALS</div></div>
+      <div class="kpi"><div class="num">${rental.incidentOpen ? 1 : 0}</div><div class="lbl">OPEN INCIDENTS</div></div>
+      <div class="kpi"><div class="num">${doneCount}/${STATES.length}</div><div class="lbl">STATE PROGRESS</div></div>
+    </div>`;
+    if(rental.incidentOpen){
+      body += `<div class="incident-banner">⚠ Incident open on BR-00482 — awaiting resolution.</div>`;
+    }
+    body += `<h2 class="h2">Rental Detail — BR-00482</h2>`;
+    body += `<div class="detail-row"><span class="k">Customer</span><span class="v">${rental.customer}</span></div>`;
+    body += `<div class="detail-row"><span class="k">Provider</span><span class="v">${rental.provider}</span></div>`;
+    body += `<div class="detail-row"><span class="k">Hub</span><span class="v">${rental.hub}</span></div>`;
+    body += `<div class="detail-row"><span class="k">Current state</span><span class="v">${rental.state}</span></div>`;
+    body += `<h2 class="h2" style="margin-top:16px;">Audit timeline</h2>`;
+    body += `<ul class="timeline">`;
+    rental.timeline.slice().reverse().forEach(ev=>{
+      body += `<li><span class="t-time">${ev.t}</span><span class="t-state">${ev.s}</span><span class="t-actor">— ${ev.actor}: ${ev.note}</span></li>`;
+    });
+    body += `</ul>`;
+    return body;
+  }
+
+  function render(){
+    renderRoleSwitch();
+    document.getElementById('panelRoleName').textContent = ROLES.find(r=>r.id===currentRole).label;
+    document.getElementById('rawState').textContent = rental.state + (rental.incidentOpen ? ' · INCIDENT_OPEN' : '');
+    let html = '';
+    if(currentRole === 'customer') html = renderCustomer();
+    else if(currentRole === 'provider') html = renderProvider();
+    else if(currentRole === 'hub') html = renderHub();
+    else if(currentRole === 'admin') html = renderAdmin();
+    document.getElementById('panelBody').innerHTML = html;
+  }
+
+  render();
+</script>
+</body>
+</html>
