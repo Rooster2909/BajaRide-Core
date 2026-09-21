@@ -18,7 +18,7 @@
 | 04-Marketing | STRUCTURED (no campaign content yet) | Marketing-Structure-Overview.md | PENDING |
 | 05-Operations | MINIMAL + RESEARCHED | Baja-500-Interviews.md (empty template), Catalogo-Maestro-de-Eventos.md (schema only), Provider-Resource-Map.md (8 real competitors identified), Market-Competitive-Research-2026.md | NEEDS BAJARIDE-OWN DATA — real external market/competitor evidence now exists, BajaRide's own traction still doesn't |
 | 06-App | PARTIAL | MVP-Product-Definition.md, User-Flows.md, Provider-Flows.md, Admin-Flows.md, Data-Model.md, DEMO-BR-007.md | MVP spec + Admin flow + conceptual data model now exist; Architecture/API-Requirements/Product-Backlog/Acceptance-Criteria/MVP-Roadmap/Product-Decision-Log still MISSING; Architecture blocked on DEC-2026-16 |
-| 07-AI-System | EXISTS | Project-State.md, Protocols.md | ALIGNED, but redundant with 08-Investors/Project-State.md (same content, two locations) |
+| 07-AI-System | EXISTS | Project-State.md, Protocols.md | ALIGNED — canonical Project-State.md (see C-04, resolved 2026-09-21) |
 | 08-Investors | PARTIAL | Project-State.md, Investor-Base-Document.md, Investor-Evidence-Matrix.md | Structure now exists; zero validated evidence populated yet |
 | 99-Archive | EMPTY | .gitkeep | Nothing superseded enough to archive yet |
 
@@ -49,8 +49,8 @@ Was a byte-for-byte duplicate of MVP-Product-Definition.md. Fixed in commit `d22
 **C-03 — This matrix was itself stale (RESOLVED — this rewrite)**
 The prior version of this file described `Decision-Log.md`, `Assumptions-Register.md`, `Risk-Register.md`, `Financial-Assumptions-Register.md`, and the `06-App` documents as "MISSING / NOT INITIATED" — all five had already been created by the time this matrix was last touched. This is the exact failure mode this matrix exists to prevent. See Section VI for the standing rule that fixes this going forward.
 
-**C-04 — Redundant Project-State.md (open, low severity, P2)**
-`07-AI-System/Project-State.md` and `08-Investors/Project-State.md` contain near-identical strategic restatements. Not a contradiction of content, but an unnecessary second "source of truth." Not resolved in this pass (would require picking which one to keep and redirecting the other to a cross-reference — a founder call on which folder should own it, deferred to avoid an AI making an arbitrary structural decision).
+**C-04 — Redundant Project-State.md (RESOLVED 2026-09-21)**
+`07-AI-System/Project-State.md` and `08-Investors/Project-State.md` contained near-identical strategic restatements. Resolved by founder decision: `07-AI-System/Project-State.md` is the canonical Project State; `08-Investors/Project-State.md` was replaced with a short cross-reference. See `Registro-Maestro-de-Documentos.md` (DOC-023/DOC-025).
 
 ---
 
@@ -58,7 +58,7 @@ The prior version of this file described `Decision-Log.md`, `Assumptions-Registe
 
 ### VALIDATED (documented in multiple authoritative in-repo sources)
 - BajaRide definition: marketplace + technology platform, asset-light
-- Operational flow: Owner/Provider → BajaRide → Hub/Ops → User
+- Operational flow: Provider → BajaRide → User (Hub/Ops is a future/optional component, not required for the MVP — corrected 2026-09-21, see `06-App/MVP-Product-Definition.md`)
 - Initial geography: Ensenada, BC · Initial market: UTV/off-road experiences
 - Unidad Cero status: PAUSED
 - Current priority: Investor Base Document + MVP development in parallel
@@ -112,14 +112,14 @@ Average booking price · take rate % · monthly active users/providers target ·
 2. Create `Architecture.md` (blocked on DEC-2026-16) and `API-Requirements.md` (depends on Architecture.md). `Admin-Flows.md` and `Data-Model.md` are done.
 3. Conduct real market research (Baja 500 interviews, competitive analysis) to begin converting HYPOTHESIS → VALIDATED.
 4. Populate the Financial Model with real figures once research exists.
-5. Decide which of the two `Project-State.md` files is canonical (C-04) and redirect the other to a cross-reference.
-6. Only after 1–5: build the investor pitch deck.
+5. ✅ DONE (2026-09-21) — `Project-State.md` canonical decided (C-04): `07-AI-System/` is canonical, `08-Investors/` redirects to it.
+6. Only after 1–4: build the investor pitch deck.
 
 ---
 
 ## V. Master Truth Statement (unchanged — still accurate, carried forward from prior version)
 
-**BajaRide is**: a technology platform and marketplace specializing in off-road experiences, operating asset-light, initially in Ensenada targeting UTV/off-road, flow Provider → Platform → Hub/Ops → User, managed as parallel Documentation + Research + MVP Development, preparing for investor funding.
+**BajaRide is**: a technology platform and marketplace specializing in off-road experiences, operating asset-light, initially in Ensenada targeting UTV/off-road, flow Provider → BajaRide → User (Hub/Ops is a future/optional component, not required for the MVP), managed as parallel Documentation + Research + MVP Development, preparing for investor funding.
 
 **BajaRide is NOT**: a vehicle rental company · centered on Unidad Cero · waiting for complete documentation before MVP work · a proven concept.
 

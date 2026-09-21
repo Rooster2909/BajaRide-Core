@@ -54,9 +54,9 @@ Principios
 
 5. Modelo operativo
 
-Propietario / Proveedor → BajaRide → Hub / Operación → Usuario
+Proveedor → BajaRide → Usuario
 
-BajaRide coordina la infraestructura tecnológica y operativa necesaria para facilitar el descubrimiento, reserva, pago, confianza y gestión de experiencias.
+BajaRide coordina la infraestructura tecnológica y operativa necesaria para facilitar el descubrimiento, reserva, pago, confianza y gestión de experiencias. El Hub/Operación es un componente futuro u opcional que la arquitectura puede contemplar más adelante, pero no es requisito para el MVP (ver `06-App/MVP-Product-Definition.md`).
 
 6. Financiamiento
 

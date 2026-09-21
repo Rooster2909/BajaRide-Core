@@ -10,9 +10,9 @@ BajaRide es una **plataforma tecnológica y marketplace especializado en experie
 
 ## Modelo base
 
-**Propietario / Proveedor → BajaRide → Hub → Usuario**
+**Proveedor → BajaRide → Usuario**
 
-BajaRide opera como infraestructura tecnológica y de coordinación. No depende de poseer una flota propia para funcionar.
+BajaRide opera como infraestructura tecnológica y de coordinación. No depende de poseer una flota propia para funcionar. El Hub/Operación es un componente futuro u opcional, no requerido para el MVP (ver `06-App/MVP-Product-Definition.md`).
 
 ## Enfoque inicial
 
