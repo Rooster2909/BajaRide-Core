@@ -29,7 +29,7 @@ La Unidad Cero no constituye el centro del negocio. Se considera un medio poster
 
 **Fase**: Consolidación estratégica y preparación para inversión.
 
-**Prioridad principal**: Completar el Documento Base de Presentación para Inversionistas y convertirlo en un Pitch Deck de 12–15 diapositivas.
+**Prioridad principal**: Trabajo en paralelo entre (a) validación real de mercado, prospección de demanda y de proveedores, y recopilación de evidencia real, y (b) construcción progresiva del MVP y avance del Documento Base de Presentación para Inversionistas hacia un Pitch Deck de 12–15 diapositivas. El pitch deck no se construye antes de contar con evidencia real (ver `Checklist-Maestro.md` CHK-INVR-03).
 
 ## Fundador
 

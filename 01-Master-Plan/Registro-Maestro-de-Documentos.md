@@ -1,7 +1,7 @@
 # Registro Maestro de Documentos — BajaRide-Core
 
 **Document Status**: ACTIVE — mapa documental del proyecto
-**Last Updated**: September 9, 2026
+**Last Updated**: 2026-09-21 (última corrección: resolución DOC-023/DOC-025 y clasificación de DOC-008)
 
 Fields: **ID** · **Documento** · **Ubicación** · **Versión** · **Estado** · **Propietario** · **Función** · **Fuente** · **Fecha** · **Relación con Documento Maestro** · **Duplicación** · **Histórico** · **Acción requerida**
 
@@ -16,7 +16,7 @@ Fields: **ID** · **Documento** · **Ubicación** · **Versión** · **Estado** 
 | DOC-005 | Decision-Log.md | 01-Master-Plan/ | VIGENTE | Bitácora de decisiones estratégicas | Repo | Historial de cambios al Doc. Maestro | Ninguna | Agregar DEC-2026-16 (stack técnico) — hecho en esta consolidación |
 | DOC-006 | Risk-Register.md | 01-Master-Plan/ | VIGENTE | Registro de riesgos | Repo | Alimenta al Doc. Maestro | Ninguna | Asignar dueños a riesgos críticos |
 | DOC-007 | Knowledge-Recovery-Matrix.md | 01-Master-Plan/ | VIGENTE (reescrito) | Checkpoint de auditoría / inventario | Repo + esta consolidación | Verifica coherencia con el Doc. Maestro | Ninguna | Actualizar cada vez que se cree/elimine un documento (ver Sección VI del propio archivo) |
-| DOC-008 | Checklist-Maestro.md | 01-Master-Plan/ | NUEVO | Control de ejecución por área | Esta consolidación | Rastrea tareas derivadas del Doc. Maestro | Ninguna | Mantener actualizado por tarea |
+| DOC-008 | Checklist-Maestro.md | 01-Master-Plan/ | VIGENTE | Control de ejecución por área | Esta consolidación | Rastrea tareas derivadas del Doc. Maestro | Ninguna | Mantener actualizado por tarea |
 | DOC-009 | Registro-Maestro-de-Documentos.md | 01-Master-Plan/ | NUEVO (este archivo) | Mapa documental | Esta consolidación | Índice de todos los demás documentos | Ninguna | Actualizar con cada documento nuevo |
 | DOC-010 | Bitacora-Maestra.md | 01-Master-Plan/ | NUEVO | Registro cronológico de cambios | Esta consolidación | Complementa Decision-Log con nivel operativo | Parcial con Decision-Log (Decision-Log = decisiones estratégicas; Bitácora = todo cambio, incluidos operativos) | Mantener actualizado por evento |
 | DOC-011 | BRfinal-Knowledge-Consolidation-2026.md | 01-Master-Plan/ | NUEVO | Registro temporal de info recuperada sin destino claro | Esta consolidación (memoria de sesiones previas) | NO sustituye al Doc. Maestro — alimenta decisiones futuras | Ninguna | Revisar con el founder; migrar o descartar item por item |

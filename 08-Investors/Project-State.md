@@ -6,7 +6,7 @@
 
 **Definición**: BajaRide es una plataforma tecnológica y marketplace de experiencias off-road, con modelo asset-light y mercado inicial en Ensenada, Baja California.
 
-**Prioridad estratégica actual**: completar el Documento Base de Presentación para Inversionistas y convertirlo en un Pitch Deck de 12–15 diapositivas.
+**Prioridad estratégica actual**: trabajo en paralelo entre validación real de mercado/prospección de proveedores y demanda, y construcción progresiva del MVP y del Documento Base de Presentación para Inversionistas (rumbo a un Pitch Deck de 12–15 diapositivas, una vez exista evidencia real).
 
 **Repositorio**: BajaRide-Core — fuente central de documentación del proyecto.
 
