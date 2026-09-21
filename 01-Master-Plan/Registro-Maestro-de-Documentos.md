@@ -35,15 +35,15 @@ Fields: **ID** · **Documento** · **Ubicación** · **Versión** · **Estado** 
 | DOC-022 | Provider-Flows.md | 06-App/ | CORREGIDO Y AMPLIADO | Flujo de proveedor | Commit d222796 + esta consolidación | Consistente con MVP-Product-Definition y User-Flows | Ninguna (antes era duplicado de MVP-Product-Definition — ya resuelto) | Ninguna |
 | DOC-030 | Admin-Flows.md | 06-App/ | NUEVO | Flujo de administrador (revisión, aprobación, suspensión, incidentes, moderación) | Esta sesión | Especificación técnica del Doc. Maestro | Ninguna | Resolver Secciones 5 y 8 (reglas de negocio abiertas) cuando haya founder input |
 | DOC-031 | Data-Model.md | 06-App/ | NUEVO | Modelo de datos conceptual, agnóstico de tecnología | Esta sesión | Especificación técnica del Doc. Maestro | Ninguna | Convertir en schema real cuando se resuelva DEC-2026-16 |
-| DOC-023 | Project-State.md | 07-AI-System/ | VIGENTE | Estado del proyecto para agentes de IA | Repo | Restatement del Doc. Maestro | **Sí — casi idéntico a DOC-025** | Founder decide cuál de los dos es canónico |
+| DOC-023 | Project-State.md | 07-AI-System/ | VIGENTE — CANÓNICO | Fuente única de estado del proyecto (agentes de IA e inversionistas) | Repo + consolidación 2026-09-21 | ES la fuente canónica de Project State | Resuelta (ver nota) | Ninguna |
 | DOC-024 | Protocols.md | 07-AI-System/ | VIGENTE | Protocolos de commits/documentación para agentes de IA | Repo (jun 2026) | Rige cómo se producen los demás documentos | Ninguna | Ninguna |
-| DOC-025 | Project-State.md | 08-Investors/ | VIGENTE PERO INSUFICIENTE | Estado del proyecto para inversionistas | Repo | Restatement del Doc. Maestro | **Sí — casi idéntico a DOC-023** | Ver DOC-023 |
+| DOC-025 | Project-State.md | 08-Investors/ | VIGENTE — RESUMEN (remite a DOC-023) | Resumen breve para inversionistas, sin duplicar contenido | Repo + consolidación 2026-09-21 | Referencia a DOC-023 | Resuelta (ver nota) | Ninguna |
 | DOC-026 | Investor-Base-Document.md | 08-Investors/ | NUEVO (esqueleto, 20 secciones TBD) | Documento base para inversionistas | Esta consolidación | Es el documento previo al pitch deck | Ninguna | Poblar sección por sección conforme se valide cada área |
 | DOC-027 | Investor-Evidence-Matrix.md | 08-Investors/ | NUEVO (esqueleto) | Trazabilidad de afirmaciones de inversión | Esta consolidación | Sustenta al Investor Base Document | Ninguna | Poblar con evidencia real |
 
 ---
 
-**Duplicaciones activas identificadas**: DOC-023 ↔ DOC-025 (pendiente de resolución por el founder — no resuelta unilateralmente en esta consolidación por ser una decisión estructural, no de contenido).
+**Duplicaciones activas identificadas**: Ninguna. DOC-023 ↔ DOC-025 resuelto el 2026-09-21 por decisión del founder: `07-AI-System/Project-State.md` (DOC-023) es la fuente canónica de Project State; `08-Investors/Project-State.md` (DOC-025) se reemplazó por un resumen de ~12 líneas que remite a DOC-023.
 
 **Información que debe migrarse**: los ítems de `BRfinal-Knowledge-Consolidation-2026.md` (Sección II) deben migrarse a sus documentos definitivos (Legal, Finance, 07-AI-System) una vez que el founder confirme cuáles son válidos.
 

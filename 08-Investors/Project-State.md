@@ -1,87 +1,15 @@
-BajaRide — Project State
+# BajaRide — Project State (Resumen para Inversionistas)
 
-Estado General
+**Estado oficial del proyecto**: la fuente canónica y actualizada del estado del proyecto es `07-AI-System/Project-State.md`. Este documento es un resumen breve y no debe tratarse como fuente de verdad paralela.
 
-Fase actual: Consolidación estratégica y preparación para inversión.
+**Fase actual**: Consolidación estratégica y preparación para inversión.
 
-Definición del proyecto
+**Definición**: BajaRide es una plataforma tecnológica y marketplace de experiencias off-road, con modelo asset-light y mercado inicial en Ensenada, Baja California.
 
-BajaRide es una plataforma tecnológica y marketplace especializado en experiencias off-road que conecta usuarios con propietarios, operadores y proveedores.
+**Prioridad estratégica actual**: completar el Documento Base de Presentación para Inversionistas y convertirlo en un Pitch Deck de 12–15 diapositivas.
 
-El modelo es asset-light: BajaRide no necesita poseer una flota propia para generar oferta y operar el marketplace.
+**Repositorio**: BajaRide-Core — fuente central de documentación del proyecto.
 
-Geografía inicial
+Para el detalle completo (modelo operativo, geografía y ecosistema, tecnologías, prioridades, Unidad Cero, etc.), consultar: `07-AI-System/Project-State.md`.
 
-Ensenada, Baja California.
-
-La expansión posterior contempla otras zonas estratégicas de Baja California y Norteamérica.
-
-Mercado inicial
-
-Experiencias UTV/off-road.
-
-El ecosistema incluye:
-
-* Usuarios.
-* Propietarios.
-* Operadores.
-* Proveedores.
-* Hubs.
-* Servicios complementarios.
-
-Prioridad estratégica actual
-
-La prioridad principal es completar el Documento Base de Presentación para Inversionistas.
-
-Una vez consolidado, se convertirá en un Pitch Deck de aproximadamente 12–15 diapositivas.
-
-Prioridades inmediatas
-
-1. Investigación y validación de mercado.
-2. Competencia y posicionamiento.
-3. Oferta y demanda.
-4. Economía unitaria y modelo financiero.
-5. MVP y arquitectura tecnológica.
-6. Operación y experiencia del usuario.
-7. Legal, confianza y pagos.
-8. Estrategia de financiamiento.
-
-Unidad Cero
-
-Estado: PAUSADA.
-
-La Can-Am X3 denominada Unidad Cero no constituye actualmente el centro del negocio.
-
-Su adquisición y operación se retomarán posteriormente, una vez obtenido el financiamiento y cuando resulte estratégica como herramienta de validación y demostración.
-
-Tecnología Base
-
-Frontend
-
-* Flutter
-* Dart
-
-Backend
-
-* Node.js
-* TypeScript
-
-Modelo operativo
-
-Propietario / Proveedor → BajaRide → Hub / Operación → Usuario
-
-BajaRide funciona como infraestructura tecnológica y de coordinación del ecosistema.
-
-Estado del repositorio
-
-Repositorio: BajaRide-Core
-Rama principal: main
-Estado: Activo
-
-Fuente de verdad
-
-El repositorio BajaRide-Core constituye la fuente central de documentación del proyecto.
-
-Los documentos deben mantenerse alineados con el estado estratégico vigente.
-
-Última actualización: septiembre 2026
+Última actualización: 2026-09-21.

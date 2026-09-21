@@ -10,7 +10,14 @@ BajaRide es una **plataforma tecnológica y marketplace** (no una empresa de ren
 
 - Modelo: **asset-light** — BajaRide no depende de poseer una flota propia.
 - Rol: coordinación tecnológica y operativa del ecosistema.
-- Modelo: Propietario/Proveedor → BajaRide → Hub/Operación → Usuario.
+- Modelo operativo del MVP: **Proveedor → BajaRide → Usuario**. El Hub/Operación es un componente futuro u opcional que la arquitectura puede contemplar más adelante, pero no es requisito para que una operación exista en el MVP (ver `06-App/MVP-Product-Definition.md`).
+
+## Geografía y Ecosistema
+
+- Geografía inicial: Ensenada, Baja California.
+- Expansión posterior contemplada: otras zonas estratégicas de Baja California y Norteamérica.
+- Mercado inicial: experiencias UTV/off-road.
+- El ecosistema incluye: Usuarios, Propietarios, Operadores, Proveedores, Hubs (futuro/opcional), Servicios complementarios.
 
 ## Unidad Cero (Can-Am X3)
 
@@ -31,6 +38,10 @@ Samuel Garcia
 ## Repositorio Maestro
 
 BajaRide-Core
+
+Rama principal: main
+
+Estado: Activo
 
 ## Documentos Rectores
 
@@ -70,11 +81,11 @@ BajaRide-Core
 
 **Sincronización**: Activa.
 
-**Fuente única de verdad**: BajaRide-Core.
+**Fuente única de verdad**: Este documento (`07-AI-System/Project-State.md`) es la fuente canónica de estado del proyecto, tanto para agentes de IA como para inversionistas. `08-Investors/Project-State.md` remite a este documento y no debe usarse como fuente paralela (ver `Registro-Maestro-de-Documentos.md`, resolución DOC-023/DOC-025).
 
 ## Última Actualización
 
-Septiembre 2026
+2026-09-21 — Consolidación con `08-Investors/Project-State.md` y corrección del modelo operativo del MVP (Hub como componente futuro/opcional, no obligatorio).
 
 ---
 
