@@ -1,50 +1,50 @@
-# Marketing Structure Overview — BajaRide
+# Estructura General de Marketing — BajaRide
 
-**Document Status**: STRUCTURAL SKELETON — no validated strategy content yet
-**Last Updated**: September 9, 2026
-**Purpose**: Define what BajaRide's marketing function must eventually cover. This is a checklist/structure document, not an executed campaign plan.
+**Estado del Documento**: ESQUELETO ESTRUCTURAL — aún sin contenido de estrategia validado
+**Última Actualización**: 9 de septiembre, 2026
+**Propósito**: Definir qué debe cubrir eventualmente la función de marketing de BajaRide. Este es un documento de checklist/estructura, no un plan de campaña ejecutado.
 
 ---
 
-## 1. Required Marketing Areas (structure only — all TBD until validated)
+## 1. Áreas de Marketing Requeridas (solo estructura — todo TBD hasta ser validado)
 
-| Area | What it must cover | Status | Notes |
+| Área | Qué debe cubrir | Estado | Notas |
 |---|---|---|---|
-| Positioning | How BajaRide is positioned vs. traditional rental and vs. informal booking | TBD | Should build on `Archivo-Maestro-2026.md` strategic definition |
-| Value Proposition | Distinct value for Users vs. for Providers (two-sided marketplace) | TBD | Must be consistent with `06-App/MVP-Product-Definition.md` |
-| User Segments | Who the initial target user is (tourists? locals? both?) | HYPOTHESIS | See `Assumptions-Register.md` MARKET-M01 |
-| Provider Acquisition | How BajaRide recruits its first providers | TBD | Depends on `05-Operations/Provider-Resource-Map.md` |
-| User Acquisition Channels | Paid, organic, partnerships, events | TBD | No CAC target validated yet — see `Financial-Assumptions-Register.md` |
-| Content Strategy | What content supports acquisition and trust-building | TBD | — |
-| Partnerships | Hotels, wineries (Valle de Guadalupe), tourism boards, event organizers (e.g., SCORE Baja 500/1000) | IDENTIFIED (category only, no named partners confirmed) | See `05-Operations/Provider-Resource-Map.md` |
-| Brand Identity | Visual identity, tone, naming | TBD in this repo | See Section 2 below — historical reference exists outside this repo |
-| Retention | Repeat bookings, loyalty mechanics | Future scope | Excluded from MVP per `06-App/MVP-Product-Definition.md` §15 |
+| Posicionamiento | Cómo se posiciona BajaRide frente a la renta tradicional y frente a la reserva informal | TBD | Debe construirse sobre la definición estratégica de `Archivo-Maestro-2026.md` |
+| Propuesta de Valor | Valor diferenciado para Usuarios vs. para Proveedores (marketplace de dos lados) | TBD | Debe ser consistente con `06-App/MVP-Product-Definition.md` |
+| Segmentos de Usuario | Quién es el usuario objetivo inicial (¿turistas? ¿locales? ¿ambos?) | HIPÓTESIS | Ver `Assumptions-Register.md` MARKET-M01 |
+| Adquisición de Proveedores | Cómo recluta BajaRide a sus primeros proveedores | TBD | Depende de `05-Operations/Provider-Resource-Map.md` |
+| Canales de Adquisición de Usuarios | Pagado, orgánico, alianzas, eventos | TBD | Aún no hay un objetivo de CAC validado — ver `Financial-Assumptions-Register.md` |
+| Estrategia de Contenido | Qué contenido apoya la adquisición y la construcción de confianza | TBD | — |
+| Alianzas | Hoteles, vinícolas (Valle de Guadalupe), consejos de turismo, organizadores de eventos (ej., SCORE Baja 500/1000) | IDENTIFICADO (solo categoría, sin socios nombrados confirmados) | Ver `05-Operations/Provider-Resource-Map.md` |
+| Identidad de Marca | Identidad visual, tono, naming | TBD en este repositorio | Ver Sección 2 abajo — existe referencia histórica fuera de este repositorio |
+| Retención | Reservas recurrentes, mecánicas de lealtad | Alcance futuro | Excluido del MVP según `06-App/MVP-Product-Definition.md` §15 |
 
 ---
 
-## 2. Historical / Unverified Marketing Context (do not treat as current)
+## 2. Contexto Histórico / No Verificado de Marketing (no tratar como vigente)
 
-> Recovered from prior founder working sessions, not present anywhere in this repository. Full detail in `01-Master-Plan/BRfinal-Knowledge-Consolidation-2026.md` Section II.B and II.E.
+> Recuperado de sesiones de trabajo previas del founder, no presente en ningún lugar de este repositorio. Detalle completo en `01-Master-Plan/BRfinal-Knowledge-Consolidation-2026.md` Sección II.B y II.E.
 
-- A visual design system referred to as "Imperio UI" (black/gold/white palette) was reportedly defined. Not present in this repository.
-- An educational ad campaign brief was reportedly drafted for routing to an AI execution tool ("Meta AI"). Not present in this repository.
+- Se reportó que se definió un sistema de diseño visual llamado "Imperio UI" (paleta negro/dorado/blanco). No está presente en este repositorio.
+- Se reportó que se redactó un brief de campaña publicitaria educativa para enrutarse a una herramienta de ejecución de IA ("Meta AI"). No está presente en este repositorio.
 
-If either of these is still current, it should be formally incorporated here (or into a `04-Marketing/brand/` subfolder) and reclassified from `HISTORICAL / UNVERIFIED` to `CURRENT`.
-
----
-
-## 3. Explicitly Not Yet Addressed
-
-- Any real campaign, ad copy, or budget.
-- CAC targets (blocked on financial model validation).
-- A finalized brand identity for this repository's current strategic definition.
+Si alguno de estos sigue vigente, debería incorporarse formalmente aquí (o a una subcarpeta `04-Marketing/brand/`) y reclasificarse de `HISTÓRICO / NO VERIFICADO` a `VIGENTE`.
 
 ---
 
-## 4. Next Action
+## 3. Explícitamente Aún No Abordado
 
-Marketing work is explicitly lower priority than investor documentation and MVP definition per `Decision-Log.md` DEC-2026-09 — this structure exists so nothing is forgotten, not to signal marketing should start now.
+- Cualquier campaña real, copy publicitario, o presupuesto.
+- Objetivos de CAC (bloqueado hasta validar el modelo financiero).
+- Una identidad de marca finalizada para la definición estratégica actual de este repositorio.
 
 ---
 
-**Related Documents**: `Assumptions-Register.md` (MARKET-M01–M05), `Financial-Assumptions-Register.md`, `05-Operations/Provider-Resource-Map.md`, `BRfinal-Knowledge-Consolidation-2026.md`
+## 4. Siguiente Acción
+
+El trabajo de marketing es explícitamente de menor prioridad que la documentación para inversionistas y la definición del MVP, según `Decision-Log.md` DEC-2026-09 — esta estructura existe para que nada se olvide, no para señalar que el marketing debe iniciar ahora.
+
+---
+
+**Documentos Relacionados**: `Assumptions-Register.md` (MARKET-M01–M05), `Financial-Assumptions-Register.md`, `05-Operations/Provider-Resource-Map.md`, `BRfinal-Knowledge-Consolidation-2026.md`
