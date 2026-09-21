@@ -1,128 +1,128 @@
-# Insurance & Legal Research Reference — 2026
+# Referencia de Investigación de Seguros y Legal — 2026
 
-**Document Status**: SECONDARY RESEARCH / UNVERIFIED — condensed from AI-assisted research (Perplexity), not from a licensed Mexican attorney or insurance broker
-**Classification**: Every claim below is `UNVERIFIED` until confirmed by a licensed professional. Nothing here should be treated as legal advice or a final coverage decision.
-**Last Updated**: September 9, 2026
-**Do not use directly as**: a contract, a waiver, a privacy notice, or a coverage commitment. Use as: a starting checklist to bring to an attorney and an insurance broker.
-
----
-
-## 0. Known Issue in the Source Material
-
-The original research mixed in a reference to Peru's "Ley 32495" (Libro de Reclamaciones for e-commerce/marketplaces) as if potentially relevant — **that is Peruvian law, not Mexican law, and does not apply to BajaRide.** It is omitted from this reference entirely. This is flagged here as a caution about secondary AI research in general: verify jurisdiction on every point before acting on it.
-
-Most cited sources in the original material were either strong (INAI, DOF, gob.mx, LFPC/LFPDPPP-related pages) or weak (insurance-comparison blogs, template-selling sites). Only the institutional/legal ones are referenced below; the commercial ones were dropped rather than carried into this repository.
+**Estado del Documento**: INVESTIGACIÓN SECUNDARIA / NO VERIFICADA — condensada a partir de investigación asistida por IA (Perplexity), no proviene de un abogado mexicano ni de un corredor de seguros con licencia.
+**Clasificación**: Cada afirmación de este documento es `NO VERIFICADA` hasta ser confirmada por un profesional con licencia. Nada de lo aquí contenido debe tratarse como asesoría legal ni como una decisión final de cobertura.
+**Última Actualización**: 9 de septiembre, 2026
+**No usar directamente como**: un contrato, un waiver, un aviso de privacidad, o un compromiso de cobertura. Usar como: un checklist inicial para llevar a un abogado y a un corredor de seguros.
 
 ---
 
-## 1. Insurance Architecture — Three Separate Risk Layers
+## 0. Problema Identificado en el Material Fuente
 
-| Layer | What it covers | Who should carry it |
+La investigación original mezcló una referencia a la "Ley 32495" de Perú (Libro de Reclamaciones para e-commerce/marketplaces) como si fuera potencialmente relevante — **eso es ley peruana, no ley mexicana, y no aplica a BajaRide.** Se omite por completo de esta referencia. Esto se señala aquí como una advertencia sobre la investigación secundaria de IA en general: verificar la jurisdicción en cada punto antes de actuar sobre él.
+
+La mayoría de las fuentes citadas en el material original eran sólidas (INAI, DOF, gob.mx, páginas relacionadas con LFPC/LFPDPPP) o débiles (blogs comparadores de seguros, sitios que venden plantillas). Solo las institucionales/legales se referencian abajo; las comerciales se descartaron en lugar de incorporarse a este repositorio.
+
+---
+
+## 1. Arquitectura de Seguros — Tres Capas de Riesgo Separadas
+
+| Capa | Qué cubre | Quién debe contratarla |
 |---|---|---|
-| **1. Vehicle/asset** | Physical damage, theft, rollover to the UTV/ATV itself | Provider (mandatory) |
-| **2. Activity/operation** | Injury, death, or third-party damage arising from the off-road experience itself | Provider (mandatory) |
-| **3. Platform** | Claims against BajaRide for provider vetting, listed information, payments, data handling | BajaRide (separate policy, e.g. general liability + E&O + cyber) |
+| **1. Vehículo/activo** | Daño físico, robo, volcadura del UTV/ATV en sí | Proveedor (obligatorio) |
+| **2. Actividad/operación** | Lesión, muerte, o daño a terceros derivado de la experiencia off-road en sí | Proveedor (obligatorio) |
+| **3. Plataforma** | Reclamaciones contra BajaRide por verificación de proveedores, información publicada, pagos, manejo de datos | BajaRide (póliza separada, ej. responsabilidad civil general + E&O + ciber) |
 
-**Direction for BajaRide (unverified, pending broker confirmation)**: BajaRide does not need to purchase Layer 1 or 2 coverage itself — it can require proof of it as a condition of publishing (policy number, insurer, validity dates), consistent with the asset-light model (`Decision-Log.md` DEC-2026-05).
-
----
-
-## 2. Proposed "Mandatory Base + Optional Upgrade" Model
-
-**Mandatory, non-negotiable, to publish an Experience (direction only — not yet a ratified MVP requirement):**
-1. Vehicle insurance with at least third-party liability (damage + injury).
-2. Operator/activity liability insurance covering the specific off-road activity.
-
-**Optional, offered to the User at checkout:**
-3. Personal accident insurance for the participant (medical, disability, death) — user can accept (pays a premium) or decline.
-
-**Note on MVP status**: `06-App/Provider-Flows.md` §5A currently treats insurance documentation as **not yet a gating requirement** for the MVP, consistent with `Risk-Register.md` INS-001 being an open, unresolved risk. This research suggests making Layer 1+2 insurance a hard requirement to publish is the safer direction — but that is a product/business decision for the founder to ratify (it would mean editing `Provider-Flows.md` §5A and §22, and updating `Decision-Log.md`), not something implied automatically by this research doc.
+**Dirección para BajaRide (no verificada, pendiente de confirmación con corredor)**: BajaRide no necesita comprar cobertura de la Capa 1 o 2 por sí misma — puede exigir comprobante de ella como condición para publicar (número de póliza, aseguradora, fechas de vigencia), consistente con el modelo asset-light (`Decision-Log.md` DEC-2026-05).
 
 ---
 
-## 3. Liability Waiver — Minimum Elements Checklist
+## 2. Modelo Propuesto de "Base Obligatoria + Upgrade Opcional"
 
-A waiver alone does not eliminate legal responsibility in Mexico, especially regarding non-waivable consumer rights, but it is a standard risk-mitigation document. Minimum elements to include (per attorney review):
+**Obligatorio, no negociable, para publicar una Experiencia (solo dirección — aún no es un requisito ratificado del MVP):**
+1. Seguro de vehículo con al menos responsabilidad civil frente a terceros (daño + lesión).
+2. Seguro de responsabilidad de operador/actividad que cubra la actividad off-road específica.
 
-1. Identification of provider/operator (and BajaRide's role as intermediary, if named).
-2. Description of the specific activity and its concrete risks (rollover, collision, uneven terrain, weather, mechanical failure, etc.).
-3. Assumption-of-risk statement from the participant.
-4. Release of liability for inherent risks, to the extent Mexican law allows.
-5. Disclosure of what insurance covers the activity, and whether the participant purchased the optional personal accident add-on.
-6. Minor-participant clause (guardian signature) if applicable.
-7. Emergency contact and relevant medical information.
-8. Electronic signature tied to the booking, with IP/timestamp/document-version logging.
+**Opcional, ofrecido al Usuario al momento de reservar:**
+3. Seguro de accidentes personales para el participante (médico, discapacidad, muerte) — el usuario puede aceptarlo (pagando una prima) o rechazarlo.
 
-**Status**: none of this exists as an actual document in this repository yet. This is a checklist for what the eventual waiver must contain, not a draft of the waiver itself.
+**Nota sobre el estado del MVP**: `06-App/Provider-Flows.md` §5A actualmente trata la documentación de seguros como **aún no un requisito bloqueante** para el MVP, consistente con que `Risk-Register.md` INS-001 sea un riesgo abierto y sin resolver. Esta investigación sugiere que hacer obligatorio el seguro de Capa 1+2 para publicar es la dirección más segura — pero esa es una decisión de producto/negocio que debe ratificar el founder (implicaría editar `Provider-Flows.md` §5A y §22, y actualizar `Decision-Log.md`), no algo que se implique automáticamente por este documento de investigación.
 
 ---
 
-## 4. Privacy Notice (Aviso de Privacidad) — LFPDPPP Requirements
+## 3. Waiver de Responsabilidad — Checklist de Elementos Mínimos
 
-Mexico's LFPDPPP (Ley Federal de Protección de Datos Personales en Posesión de los Particulares) requires a formal "aviso de privacidad." Minimum required elements:
+Un waiver por sí solo no elimina la responsabilidad legal en México, especialmente respecto a derechos del consumidor que no pueden renunciarse, pero es un documento estándar de mitigación de riesgo. Elementos mínimos a incluir (según revisión de abogado):
 
-1. Identity and address of the data controller (BajaRide's legal entity).
-2. What personal data is collected (identity, contact, ID documents for verification, payment data, booking history, incident data, navigation data).
-3. Purposes of processing — primary (service delivery) vs. secondary (marketing, analytics), with secondary purposes requiring separate consent.
-4. Data transfers (payment processors, hosting providers, verification services, authorities when legally required, insurers in case of claims).
-5. ARCO rights (Acceso, Rectificación, Cancelación, Oposición) and how to exercise them.
-6. General description of security measures.
-7. How changes to the notice will be communicated.
-8. Reference to INAI as the competent authority.
+1. Identificación del proveedor/operador (y del rol de BajaRide como intermediario, si se nombra).
+2. Descripción de la actividad específica y sus riesgos concretos (volcadura, colisión, terreno irregular, clima, falla mecánica, etc.).
+3. Declaración de asunción de riesgo por parte del participante.
+4. Liberación de responsabilidad por riesgos inherentes, en la medida que lo permita la ley mexicana.
+5. Divulgación de qué seguro cubre la actividad, y si el participante compró el complemento opcional de accidentes personales.
+6. Cláusula de participante menor de edad (firma del tutor) si aplica.
+7. Contacto de emergencia e información médica relevante.
+8. Firma electrónica vinculada a la reserva, con registro de IP/marca de tiempo/versión del documento.
 
-**Recommended starting point**: INAI publishes an official privacy-notice generator — use it as a base, then have a Mexican attorney adapt it to BajaRide's actual data flows once `06-App/Data-Model.md` exists (it doesn't yet).
-
----
-
-## 5. Terms & Conditions — Minimum Sections
-
-**User-facing terms** should cover: platform-as-intermediary framing (BajaRide is not the direct service provider), account eligibility, experience listing rules, booking/payment/cancellation policy, insurance and waiver obligations, code of conduct, IP, limitation of platform liability, privacy reference, governing law (Mexican law, jurisdiction TBD pending entity formation).
-
-**Provider-facing terms** should separately cover: registration/verification requirements, required permits/licenses/insurance, safety standards, commission/settlement terms, suspension policy, liability allocation, brand usage, confidentiality, and data-processing role (controller vs. processor).
-
-**Status**: neither document exists yet. This is the section list, not drafted text.
+**Estado**: nada de esto existe todavía como documento real en este repositorio. Es un checklist de lo que el waiver eventual debe contener, no un borrador del waiver en sí.
 
 ---
 
-## 6. Tourism Registration — RNT / DATATUR (newly identified compliance area)
+## 4. Aviso de Privacidad — Requisitos de la LFPDPPP
 
-Mexico's Ley General de Turismo establishes a **Registro Nacional de Turismo (RNT)**, with a public directory (DATATUR). Direction (unverified): BajaRide's **providers** (as tour/experience operators) likely need to be registered there. Possible mitigation: require an RNT number as a condition to publish, and verify it against the public DATATUR directory during onboarding.
+La LFPDPPP (Ley Federal de Protección de Datos Personales en Posesión de los Particulares) de México exige un "aviso de privacidad" formal. Elementos mínimos requeridos:
 
-**This was not previously tracked anywhere in this repository** — it is a genuinely new compliance area surfaced by this research, not merely a restatement of something already known.
+1. Identidad y domicilio del responsable del tratamiento de datos (la entidad legal de BajaRide).
+2. Qué datos personales se recopilan (identidad, contacto, documentos de identificación para verificación, datos de pago, historial de reservas, datos de incidentes, datos de navegación).
+3. Finalidades del tratamiento — primarias (prestación del servicio) vs. secundarias (marketing, analítica), donde las secundarias requieren consentimiento separado.
+4. Transferencias de datos (procesadores de pago, proveedores de hosting, servicios de verificación, autoridades cuando la ley lo requiera, aseguradoras en caso de reclamaciones).
+5. Derechos ARCO (Acceso, Rectificación, Cancelación, Oposición) y cómo ejercerlos.
+6. Descripción general de las medidas de seguridad.
+7. Cómo se comunicarán los cambios al aviso.
+8. Referencia al INAI como autoridad competente.
 
----
-
-## 7. Consumer Protection (LFPC) — Specific Requirements
-
-Beyond the general "TBD" already in `Risk-Register.md` LEG-003, the specific obligations worth tracking: no misleading advertising; always show total price (including taxes/fees); clearly disclose cancellation/refund policy; obtain explicit consent for any recurring charge; provide a clear complaint channel.
-
----
-
-## 8. Suggested Legal Section Structure for the Master Document
-
-Corporate/tax structure → applicable regulatory framework (Ley General de Turismo, LFPC, LFPDPPP, Código de Comercio, Baja California local rules) → RNT/DATATUR registration process → core legal documents (User ToS, Provider Terms, Waiver, Privacy Notice, Cookie Policy if applicable) → insurance (mandatory + optional, per Section 1–2 above) → data protection program → consumer protection compliance → IP/brand → legal risk register cross-reference → legal roadmap.
-
-This structure is now reflected in `03-Legal/Legal-Structure-Overview.md`.
+**Punto de partida recomendado**: el INAI publica un generador oficial de avisos de privacidad — usarlo como base, y luego que un abogado mexicano lo adapte a los flujos de datos reales de BajaRide una vez que exista `06-App/Data-Model.md` (todavía no existe).
 
 ---
 
-## 9. Concrete Next Steps (unchanged from the source research, still valid)
+## 5. Términos y Condiciones — Secciones Mínimas
 
-1. Get real quotes from Mexican insurance brokers for: operator liability (turismo de aventura), grouped personal accident coverage, and BajaRide's own general liability + E&O + cyber.
-2. Define minimum coverage/limits per provider together with a broker and attorney (no figures should be invented here).
-3. Draft the actual legal documents (ToS, Waiver, Privacy Notice) with a Mexican attorney.
-4. Build the acceptance flow into the product (terms checkbox, e-signature for the waiver, opt-in for optional insurance) — this depends on `06-App/User-Flows.md` and `Provider-Flows.md` and is not yet built.
-5. Log every legal/insurance decision in `Decision-Log.md` as it's actually made — not before.
+**Los términos de cara al usuario** deben cubrir: el marco de plataforma-como-intermediario (BajaRide no es el proveedor directo del servicio), elegibilidad de cuenta, reglas para publicar experiencias, política de reserva/pago/cancelación, obligaciones de seguro y waiver, código de conducta, propiedad intelectual, limitación de responsabilidad de la plataforma, referencia a privacidad, ley aplicable (ley mexicana, jurisdicción TBD pendiente de la constitución de la entidad).
+
+**Los términos de cara al proveedor** deben cubrir por separado: requisitos de registro/verificación, permisos/licencias/seguros requeridos, estándares de seguridad, términos de comisión/liquidación, política de suspensión, asignación de responsabilidad, uso de marca, confidencialidad, y rol en el tratamiento de datos (responsable vs. encargado).
+
+**Estado**: ninguno de los dos documentos existe todavía. Esta es la lista de secciones, no un texto redactado.
 
 ---
 
-## 10. Institutional Sources Worth Keeping (commercial/blog sources omitted)
+## 6. Registro de Turismo — RNT / DATATUR (área de cumplimiento recién identificada)
+
+La Ley General de Turismo de México establece un **Registro Nacional de Turismo (RNT)**, con un directorio público (DATATUR). Dirección (no verificada): es probable que los **proveedores** de BajaRide (como operadores de tours/experiencias) necesiten registrarse ahí. Mitigación posible: exigir un número de RNT como condición para publicar, y verificarlo contra el directorio público de DATATUR durante el onboarding.
+
+**Esto no se había rastreado previamente en ningún lugar de este repositorio** — es un área de cumplimiento genuinamente nueva que surge de esta investigación, no simplemente la repetición de algo ya conocido.
+
+---
+
+## 7. Protección al Consumidor (LFPC) — Requisitos Específicos
+
+Más allá del "TBD" general ya registrado en `Risk-Register.md` LEG-003, las obligaciones específicas a rastrear: sin publicidad engañosa; mostrar siempre el precio total (incluyendo impuestos/comisiones); divulgar claramente la política de cancelación/reembolso; obtener consentimiento explícito para cualquier cargo recurrente; ofrecer un canal claro para quejas.
+
+---
+
+## 8. Estructura Legal Sugerida para el Documento Maestro
+
+Estructura corporativa/fiscal → marco regulatorio aplicable (Ley General de Turismo, LFPC, LFPDPPP, Código de Comercio, normativa local de Baja California) → proceso de registro RNT/DATATUR → documentos legales centrales (ToS de Usuario, Términos de Proveedor, Waiver, Aviso de Privacidad, Política de Cookies si aplica) → seguros (obligatorio + opcional, según Secciones 1–2 arriba) → programa de protección de datos → cumplimiento de protección al consumidor → propiedad intelectual/marca → referencia cruzada al registro de riesgos legales → hoja de ruta legal.
+
+Esta estructura ya está reflejada en `03-Legal/Legal-Structure-Overview.md`.
+
+---
+
+## 9. Próximos Pasos Concretos (sin cambios respecto a la investigación fuente, siguen vigentes)
+
+1. Obtener cotizaciones reales de corredores de seguros mexicanos para: responsabilidad del operador (turismo de aventura), cobertura grupal de accidentes personales, y la responsabilidad civil general + E&O + ciber propia de BajaRide.
+2. Definir cobertura/límites mínimos por proveedor junto con un corredor y un abogado (no deben inventarse cifras aquí).
+3. Redactar los documentos legales reales (ToS, Waiver, Aviso de Privacidad) con un abogado mexicano.
+4. Construir el flujo de aceptación dentro del producto (checkbox de términos, firma electrónica para el waiver, opt-in para el seguro opcional) — esto depende de `06-App/User-Flows.md` y `Provider-Flows.md` y todavía no está construido.
+5. Registrar cada decisión legal/de seguros en `Decision-Log.md` conforme realmente se tome — no antes.
+
+---
+
+## 10. Fuentes Institucionales a Conservar (se omiten fuentes comerciales/blogs)
 
 - INAI — Guía para el Aviso de Privacidad (inicio.inai.org.mx)
 - DOF (Diario Oficial de la Federación) — normativa turística y acuerdos de SECTUR
 - DATATUR / Plataforma Nacional de Datos Abiertos — directorio de prestadores turísticos
-- Ley Federal de Protección al Consumidor — reformas recientes (referenced via GT Law summary)
+- Ley Federal de Protección al Consumidor — reformas recientes (referenciado vía resumen de GT Law)
 
 ---
 
-**Related Documents**: `03-Legal/Legal-Structure-Overview.md`, `Risk-Register.md` (LEG-001–004, INS-001), `Checklist-Maestro.md` (CHK-LEG-01/02, CHK-SEG-01)
+**Documentos Relacionados**: `03-Legal/Legal-Structure-Overview.md`, `Risk-Register.md` (LEG-001–004, INS-001), `Checklist-Maestro.md` (CHK-LEG-01/02, CHK-SEG-01)
