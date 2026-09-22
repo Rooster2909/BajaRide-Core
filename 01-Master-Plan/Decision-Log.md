@@ -331,6 +331,7 @@ Each decision entry includes:
 | **Dependencies** | Founder confirmation; possible discovery of a separate code repository |
 | **Next Steps** | Founder confirms which stack (if any) is definitive before `Architecture.md` is drafted |
 | **Owner** | Samuel Garcia (Founder) — cannot be resolved by document audit alone |
+| **Nota (2026-09-21)** | Surge un tercer candidato no contemplado en "Alternatives Considered": un frontend React + Vite + TypeScript (parcial — "Bloque 1" de 2, faltan las vistas) recibido como handoff externo de una herramienta de IA distinta ("Gia"/Gemini). Se archivó como material de referencia en `06-App/Frontend-Reference-React/`, **sin resolver esta decisión** — sigue pendiente de confirmación del founder, igual que Flutter/Node.js y Flask/Next.js. |
 
 ---
 

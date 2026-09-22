@@ -40,6 +40,7 @@ Fields: **ID** · **Documento** · **Ubicación** · **Versión** · **Estado** 
 | DOC-025 | Project-State.md | 08-Investors/ | VIGENTE — RESUMEN (remite a DOC-023) | Resumen breve para inversionistas, sin duplicar contenido | Repo + consolidación 2026-09-21 | Referencia a DOC-023 | Resuelta (ver nota) | Ninguna |
 | DOC-026 | Investor-Base-Document.md | 08-Investors/ | NUEVO (esqueleto, 20 secciones TBD) | Documento base para inversionistas | Esta consolidación | Es el documento previo al pitch deck | Ninguna | Poblar sección por sección conforme se valide cada área |
 | DOC-027 | Investor-Evidence-Matrix.md | 08-Investors/ | NUEVO (esqueleto) | Trazabilidad de afirmaciones de inversión | Esta consolidación | Sustenta al Investor Base Document | Ninguna | Poblar con evidencia real |
+| DOC-032 | Frontend-Reference-React/ (9 archivos) | 06-App/ | REFERENCIA / CANDIDATO — NO fuente de verdad | Frontend React+Vite+TS parcial (Bloque 1 de 2), recibido como handoff externo de otra IA ("Gia"/Gemini) | Handoff externo, 2026-09-21 | No resuelve DEC-2026-16; contradice Data-Model.md en máquina de estados y terminología (ver README propio) | Sí — con el track Flutter/Node.js y con el histórico Flask/Next.js (los 3 son candidatos, ninguno confirmado) | Founder decide si esto resuelve DEC-2026-16; si se confirma, reconciliar terminología (Socio/Cliente→Proveedor/Usuario) y máquina de estados con Data-Model.md |
 
 ---
 
