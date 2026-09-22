@@ -40,6 +40,22 @@ src/components/InteractiveMap.tsx
 src/components/MasterAdminModal.tsx
 ```
 
+## Texto de interfaz que aparenta verificación/sincronización real (no la hay)
+
+`MasterAdminModal.tsx` contiene texto de interfaz con apariencia de "log de sistema" que **no está respaldado por ningún backend real** — todo el código de esta carpeta es cliente-side puro, sin servidor, sin base de datos, sin autenticación real (ver tabla de estado real más abajo). Específicamente:
+
+- La insignia **"Verificado SCORE"** se muestra únicamente porque el campo `socioVerified: true` está hardcodeado en `src/data.ts` — no existe ningún proceso de verificación real contra SCORE International ni contra ninguna otra entidad.
+- Las líneas `[SECURITY] Validación estricta: activeMode ≠ concesión de roles. Verificado.`, `[CORE] Single user identity provider activo. Sin duplicidad de registros.` y `[DISPATCH] Pipeline en tiempo real sincronizado para los 6 estados de operación.` son **texto decorativo estático**, no un log real ni evidencia de sincronización, identidad unificada o pipeline en tiempo real — no hay backend, base de datos ni red que pueda producir ese comportamiento en este código.
+
+Ninguna de estas afirmaciones debe citarse como evidencia de funcionalidad implementada.
+
+## Datos de ejemplo en `src/data.ts` — origen no confirmado
+
+`src/data.ts` contiene datos con forma de datos personales/bancarios (nombre, correo, teléfono, contacto de emergencia, número de licencia, RFC, CLABE interbancaria) para un usuario y proveedor de ejemplo. **No se puede confirmar que sean sintéticos solo porque aparecen en un prototipo de demo.** Por precaución:
+- No se han reproducido en ningún otro documento de este repositorio ni en este reporte.
+- No deben usarse en comunicaciones, reportes o materiales de marketing reales.
+- El archivo original se preservó sin modificar (fuera del alcance autorizado para esta tarea); si en el futuro se confirma que estos valores no son sintéticos, deben reemplazarse antes de cualquier uso público del código.
+
 ## Siguiente paso
 
 No se toma ninguna acción adicional sobre este material hasta que:

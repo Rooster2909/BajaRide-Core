@@ -150,7 +150,7 @@ Each decision entry includes:
 | **Title** | Use Flutter/Dart for mobile frontend; Node.js/TypeScript for backend API |
 | **Date** | 2026 (pre-September) |
 | **Category** | TECHNOLOGY |
-| **Status** | ACTIVE |
+| **Status** | ACTIVE — CONTESTED (see DEC-2026-16, status PENDING USER DECISION, unresolved as of 2026-09-21) |
 | **Rationale** | Cross-platform mobile; TypeScript type safety; Node.js scalability; team familiarity (TBD) |
 | **Evidence** | Archivo-Maestro-2026.md |
 | **Alternatives Considered** | React Native; Swift/Kotlin; Python/Django; Go |
@@ -158,7 +158,7 @@ Each decision entry includes:
 | **Dependencies** | Team skills; library maturity; scaling needs |
 | **Trigger for Review** | Team skill gaps; performance issues; scaling requirements |
 | **Owner** | CTO / Tech Lead (TBD) |
-| **⚠ Flagged (2026-09-09)** | BRfinal consolidation surfaced founder context describing an earlier, different technical track (Flask/Stripe, later Next.js 15) that is not visible anywhere in this repository and is not reconciled with this decision. See DEC-2026-16 below. This decision remains ACTIVE as the repo's documented stack; it has not been confirmed or reversed. |
+| **⚠ Flagged (2026-09-09)** | BRfinal consolidation surfaced founder context describing an earlier, different technical track (Flask/Stripe, later Next.js 15) that is not visible anywhere in this repository and is not reconciled with this decision. See DEC-2026-16 below. Status corrected 2026-09-21 from plain ACTIVE to ACTIVE — CONTESTED to remove the contradiction of presenting this as settled while DEC-2026-16 says the same topic is pending; this does not resolve the pending decision or choose a stack. |
 
 ---
 
