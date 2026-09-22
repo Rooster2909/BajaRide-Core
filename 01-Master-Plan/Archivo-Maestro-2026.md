@@ -22,7 +22,7 @@ La prioridad principal ya no es adquirir o poner en operación una unidad propia
 
 La Unidad Cero (Can-Am X3) queda PAUSADA temporalmente y se considera un medio posterior de validación, no el centro del negocio.
 
-La prioridad actual es terminar el Documento Base de Presentación para Inversionistas, consolidar la evidencia necesaria y convertirlo posteriormente en un pitch deck de aproximadamente 12–15 diapositivas.
+La prioridad actual es el trabajo en paralelo entre validación real de mercado y de proveedores, desarrollo progresivo del MVP, y avance del Documento Base de Presentación para Inversionistas — consolidando primero la evidencia necesaria antes de convertirlo en un pitch deck de aproximadamente 12–15 diapositivas.
 
 3. Prioridades actuales
 

@@ -462,7 +462,7 @@ This document identifies, assesses, and tracks risks that could impact BajaRide'
 | **Impact** | HIGH | Fundraising difficulty; lower valuation |
 | **Level** | MEDIUM |
 | **Evidence** | Niche market; no proven traction yet |
-| **Mitigation** | 1. Complete investor documentation (Q4 2026); 2. Market validation data (Baja 500); 3. Reference customers; 4. Clear pitch |
+| **Mitigation** | 1. Complete investor documentation (Q4 2026); 2. Market validation data (mediante una campaña de validación real — PENDIENTE de agendar; Baja 500 es oportunidad potencial, no confirmada); 3. Reference customers; 4. Clear pitch |
 | **Trigger** | If <30% of investor meetings convert |
 | **Owner** | Founder / Investor Relations (TBD) |
 | **Status** | ACTIVE MITIGATION |

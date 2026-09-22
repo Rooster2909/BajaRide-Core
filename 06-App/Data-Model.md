@@ -17,8 +17,8 @@ Attribute types below are generic (`string`, `enum`, `date`, `datetime`, `decima
 
 1. Entity Overview
 
-- **Account** — base identity, one per person, with a role.
-- **Provider Profile** — business/operator details, linked to an Account with role=provider.
+- **Account** — base identity, one per person, which can hold one or more roles.
+- **Provider Profile** — business/operator details, linked to an Account that holds the provider role.
 - **Asset** — a vehicle/asset registered by a Provider.
 - **Experience** — a bookable offering created by a Provider, referencing one or more Assets.
 - **Booking** — a User's request to book an Experience for a date/time.
@@ -27,7 +27,7 @@ Attribute types below are generic (`string`, `enum`, `date`, `datetime`, `decima
 - **Review** — (Future scope) user-to-provider feedback.
 - **Admin Action Log** — audit trail of Admin decisions.
 
-Relationship summary: `Account (role=provider) --1:1--> Provider Profile --1:many--> Asset`; `Provider Profile --1:many--> Experience --many:many--> Asset` (an Experience can use one or more Assets); `Account (role=user) --1:many--> Booking --many:1--> Experience`; `Booking --0:1--> Incident`; `Booking --0:1--> Settlement`; `Booking --0:1--> Review` (future scope); every state-changing action by an Account with role=admin on Provider Profile / Experience / Booking → `Admin Action Log` entry.
+Relationship summary: `Account (holding the provider role) --1:1--> Provider Profile --1:many--> Asset`; `Provider Profile --1:many--> Experience --many:many--> Asset` (an Experience can use one or more Assets); `Account (holding the user role) --1:many--> Booking --many:1--> Experience`; `Booking --0:1--> Incident`; `Booking --0:1--> Settlement`; `Booking --0:1--> Review` (future scope); every state-changing action by an Account holding the admin role on Provider Profile / Experience / Booking → `Admin Action Log` entry. Note: a single Account may hold more than one of these roles simultaneously (one account per person; Provider Profile — §3 — remains the source of truth for the provider role/profile).
 
 ---
 
@@ -38,7 +38,7 @@ Shared identity for User, Provider, and Admin roles (per `MVP-Product-Definition
 | Field | Type | Notes |
 |---|---|---|
 | account_id | reference (primary) | |
-| role | enum | `user` · `provider` · `admin` — an account has exactly one role in the MVP (Current). Future scope: an account holding multiple roles (e.g., a User who is also a Provider) — not supported in MVP. |
+| roles | enum (one or more) | `user` · `provider` · `admin` — an Account can hold one or more of these roles simultaneously. One account per person; a person who is both a User and a Provider does not need a second account. Exact storage mechanism (e.g., a set of values vs. a separate join table) is an implementation detail, not yet decided. |
 | full_name | string | |
 | contact_email | string | |
 | contact_phone | string | |
@@ -49,7 +49,7 @@ Shared identity for User, Provider, and Admin roles (per `MVP-Product-Definition
 
 3. Provider Profile
 
-Extends an Account with role=provider. See `Provider-Flows.md` §2–3.
+Extends an Account that holds the provider role. See `Provider-Flows.md` §2–3.
 
 | Field | Type | Notes |
 |---|---|---|
@@ -107,7 +107,7 @@ A User's request to book an Experience. See `User-Flows.md` §8, `Provider-Flows
 |---|---|---|
 | booking_id | reference (primary) | |
 | experience_id | reference → Experience | |
-| account_id | reference → Account (role=user) | |
+| account_id | reference → Account (holding the user role) | |
 | requested_date | date | |
 | requested_time | string/enum | Depends on how availability slots are ultimately modeled (see Experience.availability) |
 | party_size | integer | Must not exceed Experience.capacity for that slot |
@@ -171,7 +171,7 @@ See `Admin-Flows.md` §9.
 | Field | Type | Notes |
 |---|---|---|
 | log_id | reference (primary) | |
-| admin_account_id | reference → Account (role=admin) | |
+| admin_account_id | reference → Account (holding the admin role) | |
 | target_type | enum | `provider` · `experience` · `booking` |
 | target_id | reference | Polymorphic reference to the target record |
 | action | string | e.g., "approved", "rejected", "suspended" |

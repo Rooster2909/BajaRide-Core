@@ -8,12 +8,12 @@ Cuatro prototipos clickeables en HTML/CSS/JS puro (un archivo autocontenido cada
 
 ## Archivos
 
-| Archivo | Cubre |
-|---|---|
-| `customer-vertical-slice.html` | Home → Explore → Experience Detail → Booking → Payment → Confirmation → Active Rental → Return → Completed |
-| `provider-vertical-slice.html` | Dashboard → Reservations → Preparation → Pre-Inspection → Delivery → Active Rental → Return → Final Inspection → Settlement |
-| `hub-vertical-slice.html` | Dashboard → Today's Operations → Unit Operations → Delivery → Return → Inspection → Incidents |
-| `connected-state-machine-prototype.html` | Los 4 roles (Customer/Provider/Hub/Admin) compartiendo un mismo estado de Rental (BR-00482) en memoria, implementando la Rental State Machine (BOOKED → CONTRACT_SIGNED → PREPARED → HUB_RECEIVED → INSPECTED_READY → ACTIVE → RETURNED → FINAL_INSPECTED → SETTLED → COMPLETED). Una acción en un rol cambia lo que ven los otros roles y queda en un audit log visible en la vista Admin. |
+| Archivo | Cubre | Clasificación |
+|---|---|---|
+| `customer-vertical-slice.html` | Home → Explore → Experience Detail → Booking → Payment → Confirmation → Active Rental → Return → Completed | MVP |
+| `provider-vertical-slice.html` | Dashboard → Reservations → Preparation → Pre-Inspection → Delivery → Active Rental → Return → Final Inspection → Settlement | MVP |
+| `hub-vertical-slice.html` | Dashboard → Today's Operations → Unit Operations → Delivery → Return → Inspection → Incidents | **DEMO / FUTURO — NO MVP.** El Hub es un componente futuro/opcional (`06-App/MVP-Product-Definition.md` §3); este prototipo ilustra un flujo hipotético, no un requisito del MVP actual. |
+| `connected-state-machine-prototype.html` | Los 4 roles (Customer/Provider/Hub/Admin) compartiendo un mismo estado de Rental (BR-00482) en memoria, implementando la Rental State Machine (BOOKED → CONTRACT_SIGNED → PREPARED → HUB_RECEIVED → INSPECTED_READY → ACTIVE → RETURNED → FINAL_INSPECTED → SETTLED → COMPLETED). Una acción en un rol cambia lo que ven los otros roles y queda en un audit log visible en la vista Admin. | **DEMO / SIMULACIÓN — NO ES OPERACIÓN REAL.** Incluye al rol Hub (futuro/opcional, no MVP) y datos de ejemplo ficticios (BR-00482 y demás); no debe interpretarse como evidencia de validación ni como operación real. |
 
 ## Cómo ejecutarlos
 
@@ -31,6 +31,7 @@ Abrir cualquiera de los 4 archivos `.html` directamente en un navegador (doble c
 - No tiene persistencia real: `connected-state-machine-prototype.html` guarda el estado solo en memoria del navegador (se pierde al recargar).
 - No está conectado a Stripe, Supabase ni ningún backend real.
 - Es material desechable de validación de UX, no producción.
+- `hub-vertical-slice.html` y `connected-state-machine-prototype.html` no representan un requisito del MVP: el Hub es un componente futuro/opcional (ver `06-App/MVP-Product-Definition.md` §3), y los datos que muestra `connected-state-machine-prototype.html` (BR-00482, nombres, montos, fechas) son ficticios/demostrativos, no operación real ni evidencia de validación.
 
 ## Contexto relacionado en este repo
 

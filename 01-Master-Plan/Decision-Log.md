@@ -187,7 +187,7 @@ Each decision entry includes:
 | **Title** | Immediate priority: complete investor documentation; simultaneously develop MVP; then launch |
 | **Date** | 2026 (September) |
 | **Category** | STRATEGIC |
-| **Status** | ACTIVE |
+| **Status** | SUPERSEDED (2026-09-21) — the entry title's sequential framing ("Then MVP") is superseded; see note below |
 | **Rationale** | Funding enables operations; MVP validates market; parallel execution is critical |
 | **Evidence** | Archivo-Maestro-2026.md section 7 |
 | **Alternatives Considered** | MVP first then fundraise; fundraise only; documentation only |
@@ -195,6 +195,8 @@ Each decision entry includes:
 | **Dependencies** | Investor readiness; MVP scope; team capacity |
 | **Trigger for Review** | If investor fundraising stalls; if MVP reveals need for strategic change |
 | **Owner** | Samuel Garcia / Investor Relations (TBD) |
+
+**Nota (2026-09-21)**: el título de esta entrada ("...Then MVP") sugiere una secuencia estricta, en contradicción con su propio campo Rationale ("parallel execution is critical"). Se marca como SUPERSEDED solo en ese aspecto secuencial; la prioridad vigente confirmada es trabajo en paralelo (validación real de mercado/proveedores + desarrollo progresivo del MVP + documentación de inversión), consistente con `07-AI-System/Project-State.md` y `Archivo-Maestro-2026.md` §2.
 
 ---
 

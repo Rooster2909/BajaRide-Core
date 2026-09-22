@@ -1,7 +1,7 @@
 # Bitácora Maestra — BajaRide-Core
 
 **Document Status**: ACTIVE — registro cronológico de decisiones y cambios
-**Last Updated**: September 9, 2026
+**Last Updated**: September 21, 2026
 **Regla**: nunca se borra una entrada. Si una decisión fue reemplazada, se marca SUPERSEDED y se conserva.
 
 Fields: **Fecha** · **Decisión/Cambio** · **Motivo** · **Estado anterior** · **Estado nuevo** · **Impacto** · **Documentos afectados** · **Fuente** · **Observaciones**

@@ -29,7 +29,7 @@ This document registers all working assumptions that guide BajaRide strategy, fi
 | **Validation Method** | Market research interviews during/after Baja 500; competitive analysis; search volume analysis |
 | **Impact if False** | MVP market validation fails; entire business model may not apply to Ensenada |
 | **Mitigation** | Secondary geography backups (other Baja CA locations, Cabo, etc.) |
-| **Timeline for Validation** | Q4 2026 (during Baja 500) |
+| **Timeline for Validation** | PENDIENTE — sin campaña de validación real confirmada en el repositorio; Baja 500 se menciona como oportunidad potencial, no como evento agendado para esta validación |
 | **Owner** | Marketing / Operations |
 
 ---
