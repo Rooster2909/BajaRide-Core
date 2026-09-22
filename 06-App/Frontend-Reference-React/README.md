@@ -21,7 +21,7 @@
 ## Lo que sí es compatible con la arquitectura vigente
 
 - El principio `roles: UserRole[]` + `activeMode: UserRole` (una cuenta, múltiples roles, cambio de vista sin perder sesión) coincide con la corrección ya aplicada en `06-App/Data-Model.md` (cuenta con uno o más roles).
-- Todo lo simulado (dispersión SPEI, código QR, mapa) está claramente etiquetado como DEMO en la UI — consistente con el criterio de este repositorio de no presentar simulaciones como reales.
+- Etiquetado DEMO: **no verificable de forma uniforme.** `InteractiveMap.tsx` (el único de los tres elementos cuyo código sí está en esta carpeta) **no contiene ningún texto o etiqueta "DEMO" visible en su interfaz** — se inspeccionó el archivo completo y no aparece. La dispersión SPEI (en `SocioDashboardView.tsx`) y el código QR (en `BookingFlow.tsx`) se describen como etiquetados "DEMO" únicamente en el texto del handoff original de Gia — **esos dos archivos nunca se entregaron a este repositorio** (son parte del "Bloque 2", no recibido), por lo que esa afirmación no pudo verificarse contra código real y no debe tratarse como comprobada.
 - El inventario de pantallas (ver `src/data.ts` y los componentes incluidos) es útil como referencia de UX para cuando se implemente la app real, independientemente del stack que finalmente se confirme.
 
 ## Contenido de esta carpeta

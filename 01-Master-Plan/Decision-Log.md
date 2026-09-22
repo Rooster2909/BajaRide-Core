@@ -22,7 +22,7 @@ Each decision entry includes:
 | **Title** | Clear, concise decision statement |
 | **Date** | When the decision was made |
 | **Category** | Strategic / Product / Operations / Technology / Financial / Legal |
-| **Status** | ACTIVE / SUPERSEDED / UNDER REVIEW |
+| **Status** | ACTIVE / ACTIVE — CONTESTED / SUPERSEDED / UNDER REVIEW / PENDING USER DECISION / PENDING VALIDATION / PENDING EXTERNAL REVIEW — see definitions below |
 | **Rationale** | Why this decision was made |
 | **Evidence** | What supported this decision |
 | **Alternatives Considered** | Other options evaluated |
@@ -30,6 +30,16 @@ Each decision entry includes:
 | **Dependencies** | What this decision affects |
 | **Trigger for Review** | Conditions that would make this decision revisit |
 | **Owner** | Who made/owns this decision |
+
+**Definiciones de Status** (solo los valores realmente usados en este documento):
+
+- **ACTIVE** — la decisión está vigente y no tiene contradicción conocida con otra decisión del repositorio.
+- **ACTIVE — CONTESTED** — la decisión está vigente pero otra decisión del repositorio trata el mismo tema como pendiente; se mantiene ACTIVE (no se elige un lado) hasta que el founder resuelva la contradicción. Ver la decisión referenciada en la entrada.
+- **SUPERSEDED** — la decisión fue reemplazada por otra más reciente; se conserva completa por trazabilidad histórica.
+- **UNDER REVIEW** — la decisión está siendo reconsiderada a partir de evidencia nueva, sin que exista aún una resolución.
+- **PENDING USER DECISION** — la decisión no puede resolverse por evidencia documental; requiere que el founder decida directamente.
+- **PENDING VALIDATION** — la decisión depende de datos o evidencia que todavía no existen (ej. investigación de mercado, pruebas).
+- **PENDING EXTERNAL REVIEW** — la decisión depende de una revisión por un tercero externo al equipo (ej. asesor legal, corredor de seguros) que aún no se ha realizado.
 
 ---
 
