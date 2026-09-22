@@ -49,13 +49,15 @@ Estado: Activo
 - Archivo-Maestro-2026 (Estrategia y hoja de ruta maestra)
 - Protocols.md (Sincronización y comunicación de IA)
 
-## Tecnologías Definidas
+## Tecnologías Definidas (PENDIENTE — no confirmado)
 
-**Frontend**:
+**`DEC-2026-16` sigue sin resolver.** Lo siguiente es el baseline documentado en `Archivo-Maestro-2026.md`, no una decisión ratificada por el founder. Existe un tercer candidato (React + Vite + TypeScript, ver `06-App/Frontend-Reference-React/`), recibido como referencia externa, tampoco confirmado.
+
+**Frontend** (candidato, no confirmado):
 - Flutter
 - Dart
 
-**Backend**:
+**Backend** (candidato, no confirmado):
 - Node.js
 - TypeScript
 
@@ -72,8 +74,8 @@ Estado: Activo
 
 ## Próximos Eventos de Validación
 
-- Baja 500 (recopilación de datos de mercado, usuarios, operadores y socios potenciales).
-- Otros eventos off-road según oportunidad.
+- Baja 500 — **oportunidad potencial de recopilación de datos de mercado, usuarios, operadores y socios potenciales; asistencia NO confirmada** (ver `05-Operations/BR-05.2-B.1-Catalogo-Maestro-de-Eventos.md`, fechas 2026 sin verificar). No es la única vía de validación: la prospección puede ejecutarse también por canales digitales/remotos si asistir al evento no resulta viable.
+- Otros eventos off-road u otros canales de validación según oportunidad.
 
 ## Estado del Ecosistema IA
 
@@ -85,7 +87,7 @@ Estado: Activo
 
 ## Última Actualización
 
-2026-09-21 — Consolidación con `08-Investors/Project-State.md` y corrección del modelo operativo del MVP (Hub como componente futuro/opcional, no obligatorio).
+2026-09-21 — Consolidación con `08-Investors/Project-State.md`, corrección del modelo operativo del MVP (Hub como componente futuro/opcional, no obligatorio), y corrección de la sección de tecnologías (pendiente de DEC-2026-16, no confirmada) y de Baja 500 (asistencia no confirmada).
 
 ---
 

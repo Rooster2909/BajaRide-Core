@@ -34,14 +34,14 @@ La prioridad actual es el trabajo en paralelo entre validación real de mercado 
 6. Preparar materiales para financiamiento.
 7. Mantener la Unidad Cero pausada hasta contar con financiamiento y condiciones adecuadas para iniciar operaciones.
 
-4. Arquitectura tecnológica base
+4. Arquitectura tecnológica base (PENDIENTE — DEC-2026-16 sin resolver; existe un tercer candidato React+Vite+TypeScript, ver `06-App/Frontend-Reference-React/`)
 
-Frontend / Mobile
+Frontend / Mobile (candidato, no confirmado)
 
 * Flutter
 * Dart
 
-Backend / API
+Backend / API (candidato, no confirmado)
 
 * Node.js
 * TypeScript

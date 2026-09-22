@@ -1,7 +1,7 @@
 # Checklist Maestro — BajaRide/BRfinal
 
 **Document Status**: ACTIVE CONTROL DOCUMENT
-**Last Updated**: September 9, 2026
+**Last Updated**: 2026-09-21
 **Purpose**: Single control point across every functional area of the project. One row = one concrete, trackable task. This is not a duplicate of the Master Plan — it tracks execution status, not strategy.
 
 Fields: **ID** · **Área** · **Tarea** · **Estado** (COMPLETE / IN PROGRESS / PENDING / BLOCKED) · **Clasificación** (VALIDATED / HYPOTHESIS / TBD / HISTORICAL) · **Evidencia** · **Dependencia** · **Prioridad** (HIGH / MEDIUM / LOW) · **Próxima acción**
@@ -13,7 +13,7 @@ Fields: **ID** · **Área** · **Tarea** · **Estado** (COMPLETE / IN PROGRESS /
 | CHK-STR-01 | Estrategia | Definir modelo de negocio vigente (asset-light marketplace) | COMPLETE | VALIDATED | Archivo-Maestro-2026.md, Decision-Log DEC-2026-01/05 | — | HIGH | Ninguna — mantener |
 | CHK-STR-02 | Estrategia | Resolver ambigüedad de stack técnico heredado (Flask/Next.js vs. Flutter/Node.js) | PENDING | HYPOTHESIS | Decision-Log DEC-2026-16, Knowledge-Consolidation-2026 §II.A | Founder input | HIGH | Founder confirma stack definitivo |
 | CHK-INV-01 | Investigación | Diseñar guía de entrevistas de mercado | COMPLETE | VALIDATED | 05-Operations/Baja-500-Interviews.md | — | MEDIUM | — |
-| CHK-INV-02 | Investigación | Ejecutar entrevistas reales (mínimo 3–5) | PENDING | TBD | Ninguna todavía | Baja 500 u otro evento | HIGH | Agendar y ejecutar entrevistas |
+| CHK-INV-02 | Investigación | Ejecutar entrevistas reales (mínimo 3–5) | PENDING | TBD | Ninguna todavía | Baja 500 (asistencia no confirmada) u otro canal, incluyendo prospección digital/remota | HIGH | Agendar y ejecutar entrevistas por el canal que resulte viable |
 | CHK-MKT-01 | Mercado | Cuantificar TAM/SAM/SOM con metodología visible | IN PROGRESS | HYPOTHESIS (insumos externos disponibles) | Assumptions-Register MARKET-M04, Market-Competitive-Research-2026.md §5 | Investigación de mercado | HIGH | Definir metodología bottom-up con los datos de turismo ya recopilados |
 | CHK-MKT-02 | Mercado | Análisis de competencia en Ensenada | IN PROGRESS | EVIDENCIA EXTERNA (8 operadores identificados) | Assumptions-Register MARKET-M05, Market-Competitive-Research-2026.md §3 | — | MEDIUM | Confirmar cuáles siguen activos y contactarlos |
 | CHK-OFE-01 | Oferta | Validar existencia de proveedores UTV disponibles | PENDING | HYPOTHESIS | Assumptions-Register SUPPLY-S01 | Investigación | HIGH | Entrevistas a proveedores |
@@ -30,7 +30,7 @@ Fields: **ID** · **Área** · **Tarea** · **Estado** (COMPLETE / IN PROGRESS /
 | CHK-PAG-01 | Pagos | Elegir procesador de pagos (Stripe/Braintree/otro) | PENDING | TBD | Financial-Assumptions-Register COST-001 | — | MEDIUM | Comparar tarifas y disponibilidad en México |
 | CHK-OPS-01 | Operaciones | Documentar ciclo operativo completo (onboarding → liquidación) | COMPLETE | VALIDATED | 06-App/Provider-Flows.md | — | MEDIUM | — |
 | CHK-OPS-02 | Operaciones | Definir si/cuándo se necesita un Hub físico | PENDING | HYPOTHESIS | Assumptions-Register OPERATIONS-O01 | Escala post-MVP | LOW | Diferir hasta validar volumen |
-| CHK-PROV-01 | Proveedores | Reclutar cohorte piloto de proveedores | PENDING | TBD | Risk-Register SUP-001 | CHK-OFE-01/02 | HIGH | Iniciar reclutamiento en Baja 500 |
+| CHK-PROV-01 | Proveedores | Reclutar cohorte piloto de proveedores | PENDING | TBD | Risk-Register SUP-001 | CHK-OFE-01/02 | HIGH | Iniciar reclutamiento en Baja 500 (asistencia no confirmada) o por prospección digital/remota si no es viable asistir |
 | CHK-EVE-01 | Eventos | Construir Catálogo Maestro de Eventos | IN PROGRESS | TBD | 05-Operations/Catalogo-Maestro-de-Eventos.md (schema only) | — | MEDIUM | Poblar con eventos reales verificados |
 | CHK-HUB-01 | Hub | Definir modelo operativo del Hub (conceptual) | COMPLETE | VALIDATED (concepto) | Archivo-Maestro-2026.md §5 | — | LOW | No requerido para MVP |
 | CHK-PRO-01 | Producto | Definir MVP (usuarios, flujos, ciclo de vida) | COMPLETE | VALIDATED | 06-App/MVP-Product-Definition.md | — | HIGH | — |

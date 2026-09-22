@@ -380,19 +380,19 @@ These may become future modules.
 
 ---
 
-16. Technology Baseline
+16. Technology Baseline (PENDING — DEC-2026-16 unresolved; a third candidate, React+Vite+TypeScript, has surfaced as reference material — see `06-App/Frontend-Reference-React/`. Nothing below is confirmed.)
 
-Frontend
+Frontend (candidate, not confirmed)
 
 Flutter / Dart
 
-Backend
+Backend (candidate, not confirmed)
 
 Node.js / TypeScript
 
 Architecture
 
-Conceptual MVP architecture:
+Conceptual MVP architecture (illustrative only, based on the unconfirmed candidate stack above):
 
 Flutter App
 

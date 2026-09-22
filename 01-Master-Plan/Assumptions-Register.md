@@ -322,7 +322,7 @@ This document registers all working assumptions that guide BajaRide strategy, fi
 |-------|-------|
 | **Assumption** | Selected tech stack (Flutter/Dart frontend, Node.js/TypeScript backend) enables MVP launch within target timeline and budget. |
 | **Category** | Technology / Architecture |
-| **Status** | CONFIRMED |
+| **Status** | PENDING USER DECISION — corregido 2026-09-21: estaba marcado CONFIRMED, lo cual contradecía `Decision-Log.md` DEC-2026-16 (stack sin resolver) y no reflejaba el tercer candidato surgido (React+Vite+TypeScript, ver `06-App/Frontend-Reference-React/`). Ningún stack está confirmado. |
 | **Evidence Available** | Industry experience with these stacks; no specific project estimation |
 | **Evidence Level** | MEDIUM |
 | **Validation Method** | Development progress tracking; milestone completion; team feedback |

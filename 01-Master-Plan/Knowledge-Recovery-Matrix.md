@@ -40,7 +40,7 @@
 ### B. NEWLY IDENTIFIED (this consolidation pass)
 
 **C-01 — Technical stack ambiguity (P1, open — not resolved by inference)**
-The repo defines Flutter/Dart + Node.js/TypeScript as the confirmed stack (Assumptions-Register TECH-T01). Founder context from prior working sessions (outside this repo) describes a different, earlier technical track: Flask + Stripe, later a pivot toward Next.js 15. This repository contains **zero code**, so neither track can be verified here.
+The repo documents Flutter/Dart + Node.js/TypeScript as a candidate baseline (Assumptions-Register TECH-T01 — corrected 2026-09-21 from CONFIRMED to PENDING USER DECISION, since this was never actually ratified and contradicted DEC-2026-16). Founder context from prior working sessions (outside this repo) describes a different, earlier technical track: Flask + Stripe, later a pivot toward Next.js 15. A third candidate has since surfaced: React + Vite + TypeScript, received as external reference material (see `06-App/Frontend-Reference-React/`). This repository contains **zero code** for the app itself (the React folder is reference-only, not integrated), so none of the three candidate tracks can be verified as implemented here.
 **Resolution**: Logged as an open decision, `Decision-Log.md` DEC-2026-16. Requires founder confirmation — not something an AI audit can resolve on its own. See `BRfinal-Knowledge-Consolidation-2026.md` Section II.A for full detail.
 
 **C-02 — Provider-Flows.md was corrupted (RESOLVED)**
@@ -71,7 +71,7 @@ The prior version of this file described `Decision-Log.md`, `Assumptions-Registe
 - Provider flow specification (now genuinely provider-specific, still unimplemented as code)
 
 ### HISTORICAL (recovered from prior working sessions, unverified against this repo — full detail in `BRfinal-Knowledge-Consolidation-2026.md`)
-- Flask + Stripe MVP, Windsurf IDE, pivot to Next.js 15 (superseded by or in conflict with the Flutter/Node.js definition now in this repo — unresolved, see C-01)
+- Flask + Stripe MVP, Windsurf IDE, pivot to Next.js 15 (one of now three unconfirmed stack candidates alongside Flutter/Node.js and React+Vite+TypeScript — unresolved, see C-01 and DEC-2026-16)
 - "Imperio UI" design system
 - BR-LEGAL-001 NDA / work-for-hire contract
 - $16.4M TAM / 5-year exit narrative
